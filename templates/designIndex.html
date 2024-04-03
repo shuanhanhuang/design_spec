@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0  shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  {% load static %}
+  <title>顯示所有資料</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/designIndex/">首頁</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav ml-2">
+            <li class="nav-item">
+              <button class="btn btn-light my-2 my-sm-0" onclick="home()">新增</button>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-2">
+            <li class="nav-item">
+              <button class="btn btn-warning my-2 my-sm-0" id="{{firstname}}" onclick="perosonIndex(event)">待簽
+                <!-- {% if allpersonCount != 0 %}
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{allpersonCount}}
+                  </span>
+                {% endif %} -->
+              </button>
+            </li>
+          </ul>
+          {% if username == "admin" %}
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin/">管理人員 <span class="sr-only">(current)</span></a>
+          </li>
+          {% endif %}
+          <li class="nav-item dropdown"></li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" name='q' type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav ml-2">
+          <li class="nav-item active">
+            <a class="nav-link disabled" style="color: green;">{{firstname}} <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-2">
+          <li class="nav-item">
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="Logout(event)">登出</button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <form action="." method="POST">
+    {% csrf_token %}
+    <div class="container-lg">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <th scope="col">編號</th>
+            <th scope="col">案件名稱</th>
+            <th scope="col">客戶名稱</th>
+            <th scope="col">專案人</th>
+            <th scope="col">規範書檔案</th>
+          </thead>
+          <tbody>
+
+            {% for unit in all %}
+            <tr>
+              <td><a href="/designView/{{unit.id}}/">{{unit.cNumber}}</a></td>
+              <td>{{unit.cProject}}</td>
+              <td>{{unit.cClient}}</td>
+              <td>{{unit.cName}}</td>
+
+              {% if unit.cFile != "" %}
+              <td><a href="http://127.0.0.1:8000/media/{{unit.cFile}}" download>{{unit.cFile}}</a></td>
+              {% else %}
+              <td>{{unit.cFile}}</td>
+              {% endif %}
+
+              <td>
+                <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.id}}" onclick="Edit(event)">編輯</button>
+                <button type="button" class="btn btn-outline-danger mb-2" id="{{unit.id}}" onclick="Delete(event)">刪除</button>
+                <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="compare(event)">比較表</button>
+                <!-- <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="BOM(event)">BOM表/製令</button> -->
+                  {% if unit.chaveorder == "無" %}
+                    <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="table(event)">製令2</button>
+                  {% elif unit.chaveorder == "有" %}
+                    <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="tableview(event)">檢視製令2</button>
+                  {% endif %}
+                  <!-- {% if unit.chaveorder == "無" %}
+                  <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="Order(event)">製令</button>
+                {% elif unit.chaveorder == "有" %}
+                  <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="OrderView(event)">檢視製令</button>
+                {% endif %} -->
+              </td>
+              <!--  <td>
+                 {% if unit.cReceive == "None" %}
+                    {% if unit.cAuther == firstname %}
+                      <button type="button" class="btn btn-outline-warning mb-2" id="Detail/{{unit.cNumber}}" onclick="Detail(event)">編輯</button>
+                      <button type="button" class="btn btn-outline-info mb-2" id="{{unit.id}}" onclick="Edit(event)">上傳檔案</button>
+                      <button type="button" class="btn btn-outline-danger mb-2" id="{{unit.id}}" onclick="Delete(event)">刪除</button>                  
+                    {% endif %} 
+                {% endif %} -->
+              <!-- <button type="button" class="btn btn-outline-secondary mb-2" id="{{unit.cNumber}}" onclick="Copy(event)">複製表單</button> 
+                
+              </td> -->
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+
+  <div class="container">
+    <div class="row">
+      <p>總資料 {{allHomeCount}} 筆</p>
+    </div>
+  </div>
+
+
+  <script src="{% static 'jquery.min.js' %}"></script>
+  <script>
+
+    function compare(event) {
+      var id = event.target.id
+      $(location).attr("href", "/compareIndex/" + id + "/");
+    }
+    function Edit(event){
+      var id = event.target.id
+      $(location).attr("href", "/designEdit/" + id + "/load");
+    }
+
+    function Delete(event) {
+      var id = event.target.id
+      $(location).attr("href", "/designDelete/" + id + "/");
+    }
+
+    function table(event) {
+      var id = event.target.id
+      $(location).attr("href", "/tablespecPost/" + id + "/");
+    }
+    function tableview(event) {
+      var id = event.target.id
+      $(location).attr("href", "/tablespecView/" + id + "/");
+    }
+
+    function BOM(event) {
+      var id = event.target.id
+      $(location).attr("href", "/tableBOMPost/" + id + "/");
+    }
+
+    function Order(event) {
+      var id = event.target.id
+      $(location).attr("href", "/orderPost/" + id + "/");
+    }
+    function OrderView(event) {
+      var id = event.target.id
+      $(location).attr("href", "/orderView/" + id + "/");
+    }
+
+    
+
+
+    function Logout() {
+      $(location).attr("href", "/logout/");
+    }
+
+    function home() {
+      $(location).attr("href", "/designPost/")
+    }
+
+    function View(event) {
+      var id = event.target.id
+      $(location).attr("href", "/" + id + "/");
+    }
+
+
+
+  </script>
+</body>
+
+</html>
