@@ -107,19 +107,17 @@
     </div>
     <p style="color:red; font-weight: bold; font-size: larger;">{{message}}</p>
     {% if special != "123" %}
-    <div class="card text-center ">
-      <div class="card-header text-primary" style="font-weight: bold; font-size: larger;">{{special.cClient}}</div>
-      <div class="card-body">
-        <h5 class="card-title text-primary" style="font-weight: bold; font-size: larger;">特殊規格</h5>
-        <p class="card-text">{{special.cSpecial}}</p>
-        <h5 class="card-title text-primary" style="font-weight: bold; font-size: larger;">品牌指定</h5>
-        <p class="card-text">{{special.cBrand}}</p>
+      <div class="card text-center ">
+        <div class="card-header text-primary" style="font-weight: bold; font-size: larger;">{{special.cClient}}</div>
+        <div class="card-body">
+          <h5 class="card-title text-primary" style="font-weight: bold; font-size: larger;">特殊規格</h5>
+          <p class="card-text">{{special.cSpecial}}</p>
+          <h5 class="card-title text-primary" style="font-weight: bold; font-size: larger;">品牌指定</h5>
+          <p class="card-text">{{special.cBrand}}</p>
+        </div>
       </div>
-    </div>
     {% endif %}
   </div>
-
-
 
 
   <form action="." method="post" name="form1" enctype="multipart/form-data">
@@ -137,9 +135,9 @@
           <tr>
             <th></th>
             <td></td>
-            <th>內板厚度：</th>
+            <th style="color: rgb(56, 122, 221);">內板厚度：</th>
             <td>{{tablespecform.first_inthick}}</td>
-            <th>內板材質：</th>
+            <th style="color: rgb(56, 122, 221);">內板材質：</th>
             <td>{{tablespecform.first_inmaterial}}</td>
             <th>螺絲配件：</th>
             <td>{{tablespecform.first_inother}}</td>
@@ -147,9 +145,9 @@
           <tr>
             <th></th>
             <td></td>
-            <th>外板厚度：</th>
+            <th style="color: rgb(56, 122, 221);">外板厚度：</th>
             <td>{{tablespecform.first_outthick}}</td>
-            <th>外板材質：</th>
+            <th style="color: rgb(56, 122, 221);">外板材質：</th>
             <td>{{tablespecform.first_outmaterial}}</td>
             <th>箱板材質：</th>
             <td>{{tablespecform.first_boxthick}}</td>
@@ -271,13 +269,13 @@
             <td colspan="3">{{tablespecform.fiv_form}}</td>
           </tr>
           <tr>
-            <th colspan="2">六、風門：</th>
+            <th colspan="2"  style="color: rgb(56, 122, 221);">六、風門：</th>
             <td colspan="3">{{tablespecform.six_winddoor}}</td>
           </tr>
           <tr>
             <th></th>
             <td></td>
-            <th>型式：</th>
+            <th style="color: rgb(56, 122, 221);">型式：</th>
             <td>{{tablespecform.six_form}}</td>
             <th>邊框材質：</th>
             <td>{{tablespecform.six_frame_material}}</td>
@@ -292,30 +290,30 @@
 
           </tr>
           <tr>
-            <th colspan="2">七、盤管：</th>
+            <th colspan="2" style="color: rgb(56, 122, 221);">七、盤管：</th>
           </tr>
           <tr>
-            <th colspan="2">1.冰水盤管</th>
+            <th colspan="2" style="color: rgb(56, 122, 221);">1.冰水盤管</th>
             <td colspan="3">{{tablespecform.seven_cold}}</td>
           </tr>
           <tr>
             <th></th>
             <td></td>
-            <th>鰭片：</th>
+            <th style="color: rgb(56, 122, 221);">鰭片：</th>
             <td>{{tablespecform.seven_fins}}</td>
-            <th>厚度：</th>
+            <th style="color: rgb(56, 122, 221);">厚度：</th>
             <td>{{tablespecform.seven_thick}}</td>
-            <th>端側板：</th>
+            <th style="color: rgb(56, 122, 221);">端側板：</th>
             <td>{{tablespecform.seven_board}}</td>
           </tr>
           <tr>
             <th></th>
             <td></td>
-            <th>銅管厚度：</th>
+            <th style="color: rgb(56, 122, 221);">銅管厚度：</th>
             <td>{{tablespecform.seven_pipe_thick}}</td>
-            <th>集水管：</th>
+            <th style="color: rgb(56, 122, 221);">集水管：</th>
             <td>{{tablespecform.seven_waterpipe}}</td>
-            <th>銅管管徑：</th>
+            <th style="color: rgb(56, 122, 221);">銅管管徑：</th>
             <td>{{tablespecform.seven_size}}</td>
           </tr>
           <tr>
@@ -403,9 +401,9 @@
           </tr>
           <tr>
             <th colspan="2">八、排水盤：</th>
-            <th>材質：</th>
+            <th style="color: rgb(56, 122, 221);">材質：</th>
             <td>{{tablespecform.eight_material}}</td>
-            <th>厚度：</th>
+            <th style="color: rgb(56, 122, 221);">厚度：</th>
             <td>{{tablespecform.eight_thick}}</td>
           </tr>
           <tr>
@@ -419,9 +417,9 @@
           </tr>
           <tr>
             <th colspan="2">十、馬達：</th>
-            <th>廠牌：</th>
+            <th style="color: rgb(56, 122, 221);">廠牌：</th>
             <td>{{tablespecform.ten_motor_brand}}</td>
-            <th>絕緣等級：</th>
+            <th style="color: rgb(56, 122, 221);">絕緣等級：</th>
             <td>{{tablespecform.ten_motor_Insulation}}</td>
           </tr>
           <tr>
@@ -576,13 +574,11 @@
               <input name="thirteen_fix" type="radio" value="勝新" checked="checked" />勝新
               <input name="thirteen_fix" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
             </td>
-            <!-- <td>{{tablespecform.thirteen_fix}}</td> -->
             <th>結箱預算：</th>
             <td colspan="5">
               <input name="thirteen_budget" type="radio" value="無" id="1" checked="checked" onclick="togglePaymentDetails()"/>無
               <input name="thirteen_budget" type="radio" value="有" id="Other" onclick="togglePaymentDetails()"/>有
-              <span id="budgetDetails" style="display:none;"> <input name="thirteen_budget" type="text" value="" id="other" required oninput="updateAdditionalTextbox()"/>
-              </span>
+              <span id="budgetDetails" style="display:none;"><input name="thirteen_budget" type="text" value="" id="other"  oninput="updateAdditionalTextbox()"/></span>
             </td>
           </tr>
           <tr>
@@ -598,7 +594,7 @@
             <td colspan="5">
               <input name="fourteen_budget" type="radio" value="無" id="no" checked="checked" onclick="toggledollarDetails()"/>無
               <input name="fourteen_budget" type="radio" value="有" id="yes" onclick="toggledollarDetails()"/>有
-              <span id="dollarDetails" style="display:none;"> <input name="thirteen_budget" type="text" value="" id="something" required oninput="updateAdditionalTextbox2()"/>
+              <span id="dollarDetails" style="display:none;"> <input name="fourteen_budget" type="text" value="" id="something" oninput="updateAdditionalTextbox2()"/>
             </td>
           </tr>
           <tr>
@@ -735,9 +731,7 @@
 
   <script src="{% static 'jquery.min.js' %}"></script>
   <script>
-    function excel_download() {
-      $(location).attr("href", "/download_workbook/");
-    }
+
     function togglePaymentDetails() {
         var radiono = document.getElementById('1');
         var radioyes = document.getElementById('Other');

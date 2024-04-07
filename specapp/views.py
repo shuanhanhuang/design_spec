@@ -226,6 +226,21 @@ def compareEdit(request,id=None,mode=None,cNumber=None):
 def tablespecView(request,cNumber=None):
     OrderSpec = Spec.objects.get(cNumber=cNumber)
     Tablespec = tablespec.objects.get(cNumber=cNumber)
+    text = ""
+    public = {'外板厚度': '0.5t', '外板材質': '鍍鋅板', '內板厚度': '0.5t', '內板材質': '鍍鋅板', '含有風門': '含', 
+               '風門型式': '八字開', '馬達絕緣等級': 'F級', '馬達廠牌': '東元', '含有冰水盤管': '含', '鰭片': '一般白鋁', 
+               '鰭片厚度': '0.12t', '端側板': '鍍鋅 1.6t', '集水管': '鍍鋅管', '銅管管徑': '1/2"', '銅管厚度': '0.41t', 
+               '排水盤厚度': '1.2t', '排水盤材質': '不鏽鋼(304)'}
+    new_version = {'外板厚度': Tablespec.first_outthick, '外板材質': Tablespec.first_outmaterial, '內板厚度': Tablespec.first_inthick, 
+                   '內板材質': Tablespec.first_inmaterial, '含有風門': Tablespec.six_winddoor, '風門型式': Tablespec.six_form, 
+                   '馬達絕緣等級': Tablespec.ten_motor_Insulation, '馬達廠牌': Tablespec.ten_motor_brand, '含有冰水盤管': Tablespec.seven_cold, 
+                   '鰭片': Tablespec.seven_fins, '鰭片厚度': Tablespec.seven_thick, '端側板': Tablespec.seven_board, '集水管': Tablespec.seven_waterpipe, 
+                   '銅管管徑': Tablespec.seven_size, '銅管厚度': Tablespec.seven_pipe_thick, '排水盤厚度': Tablespec.eight_thick, '排水盤材質': Tablespec.eight_material}
+    
+    for key in public:
+        if key in new_version and public[key] != new_version[key]:
+            text += f"{key} => {new_version[key]}\n"
+
     return render(request, "tablespecView.html",locals())
 
 def tablespecEdit(request,mode=None,cNumber=None):

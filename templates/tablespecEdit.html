@@ -1528,12 +1528,11 @@
                             <span style="display: inline-block;">新竹以北掉卡：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="thirteen_elevator">
-                                    <option value={{Tablespec.thirteen_elevator}} name="thirteen_elevator">
-                                        {{Tablespec.thirteen_elevator}}</option>
+                                    <option value="{{Tablespec.thirteen_elevator}}" name="thirteen_elevator"> {{Tablespec.thirteen_elevator}}</option>
                                     {% for key,value in TablespecForm.Yes_no3_select %}
-                                    {% if key != Tablespec.thirteen_elevator %}
-                                    <option value="{{ key }}" name="thirteen_elevator">{{value}}</option>
-                                    {% endif %}
+                                        {% if key != Tablespec.thirteen_elevator %}
+                                            <option value="{{ key }}" name="thirteen_elevator">{{value}}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
@@ -1545,30 +1544,28 @@
                         <th>空調箱節箱：</th>
                         {% if Tablespec.thirteen_box == "勝新" %}
                         <td>
-                            <input name="thirteen_box" type="radio" id="thirteen_box1" value="勝新" checked="checked" />
-                            勝新
-                            <input name="thirteen_box" type="radio" id="thirteen_box2" value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_box">
+                                <option value="勝新" name="thirteen_box"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_box"> {{OrderSpec.cClient}}</option>     
+                            </select>
                         </td>
                         {% elif Tablespec.thirteen_box == OrderSpec.cClient %}
                         <td>
-                            <input name="thirteen_box" type="radio" id="thirteen_box1" value="勝新" />
-                            勝新
-                            <input name="thirteen_box" type="radio" id="thirteen_box2" value={{OrderSpec.cClient}}
-                                checked="checked" />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_box">
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_box"> {{OrderSpec.cClient}}</option>
+                                <option value="勝新" name="thirteen_box"> 勝新</option>
+                            </select>
                         </td>
                         {% endif %}
 
                         <th>分箱進場：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_into">
-                                <option value={{Tablespec.thirteen_into}} name="thirteen_into">
-                                    {{Tablespec.thirteen_into}}</option>
+                                <option value="{{Tablespec.thirteen_into}}" name="thirteen_into"> {{Tablespec.thirteen_into}}</option>
                                 {% for key,value in TablespecForm.Yes_no5_select %}
-                                {% if key != Tablespec.thirteen_into %}
-                                <option value="{{ key }}" name="thirteen_into">{{value}}</option>
-                                {% endif %}
+                                    {% if key != Tablespec.thirteen_into %}
+                                        <option value="{{ key }}" name="thirteen_into">{{value}}</option>
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -1578,32 +1575,34 @@
                         <th colspan="2">空調箱外之避震：
                             {% if Tablespec.thirteen_shock == "勝新" %}
                         <td>
-                            <input name="thirteen_shock" type="radio" id="thirteen_shock1" value="勝新"
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_shock">
+                                <option value="勝新" name="thirteen_shock"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_shock"> {{OrderSpec.cClient}}</option>     
+                            </select>
+                            <!-- <input name="thirteen_shock" type="radio" id="thirteen_shock1" value="勝新"
                                 checked="checked" />
                             勝新
                             <input name="thirteen_shock" type="radio" id="thirteen_shock2"
                                 value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
+                            {{OrderSpec.cClient}} -->
                         </td>
                         {% elif Tablespec.thirteen_shock == OrderSpec.cClient %}
                         <td>
-                            <input name="thirteen_shock" type="radio" id="thirteen_shock1" value="勝新" />
-                            勝新
-                            <input name="thirteen_shock" type="radio" id="thirteen_shock2" value={{OrderSpec.cClient}}
-                                checked="checked" />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_shock">
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_shock"> {{OrderSpec.cClient}}</option>
+                                <option value="勝新" name="thirteen_shock"> 勝新</option>
+                            </select>
                         </td>
                         {% endif %}
                         </th>
                         <th>避震器型式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_shocbox">
-                                <option value={{Tablespec.thirteen_shocbox}} name="thirteen_shocbox">
-                                    {{Tablespec.thirteen_shocbox}}</option>
+                                <option value="{{Tablespec.thirteen_shocbox}}" name="thirteen_shocbox">  {{Tablespec.thirteen_shocbox}}</option>
                                 {% for key,value in TablespecForm.thirteen_shocbox_select %}
-                                {% if key != Tablespec.thirteen_shocbox %}
-                                <option value="{{ key }}" name="thirteen_shocbox">{{value}}</option>
-                                {% endif %}
+                                    {% if key != Tablespec.thirteen_shocbox %}
+                                        <option value="{{ key }}" name="thirteen_shocbox">{{value}}</option>
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -1613,20 +1612,17 @@
                         <th>氣密施作：
                             {% if Tablespec.thirteen_apply == "勝新" %}
                         <td>
-                            <input name="thirteen_apply" type="radio" id="thirteen_apply1" value="勝新"
-                                checked="checked" />
-                            勝新
-                            <input name="thirteen_apply" type="radio" id="thirteen_apply2"
-                                value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_apply">
+                                <option value="勝新" name="thirteen_apply"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_apply"> {{OrderSpec.cClient}}</option>     
+                            </select>
                         </td>
                         {% elif Tablespec.thirteen_apply == OrderSpec.cClient %}
                         <td>
-                            <input name="thirteen_apply" type="radio" id="thirteen_apply1" value="勝新" />
-                            勝新
-                            <input name="thirteen_apply" type="radio" id="thirteen_apply2" value={{OrderSpec.cClient}}
-                                checked="checked" />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_apply">
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_apply"> {{OrderSpec.cClient}}</option>
+                                <option value="勝新" name="thirteen_apply"> 勝新</option>
+                            </select>
                         </td>
                         {% endif %}
                         </th>
@@ -1636,18 +1632,17 @@
                         <th>空調箱固定：
                             {% if Tablespec.thirteen_fix == "勝新" %}
                         <td>
-                            <input name="thirteen_fix" type="radio" id="thirteen_fix1" value="勝新" checked="checked" />
-                            勝新
-                            <input name="thirteen_fix" type="radio" id="thirteen_fix2" value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_fix">
+                                <option value="勝新" name="thirteen_fix"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_fix"> {{OrderSpec.cClient}}</option>     
+                            </select>
                         </td>
                         {% elif Tablespec.thirteen_fix == OrderSpec.cClient %}
                         <td>
-                            <input name="thirteen_fix" type="radio" id="thirteen_fix1" value="勝新" />
-                            勝新
-                            <input name="thirteen_fix" type="radio" id="thirteen_fix2" value={{OrderSpec.cClient}}
-                                checked="checked" />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_fix">
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_fix"> {{OrderSpec.cClient}}</option>
+                                <option value="勝新" name="thirteen_fix"> 勝新</option>
+                            </select>
                         </td>
                         {% endif %}
                         </th>
@@ -1669,8 +1664,6 @@
                             </td>
                             <td><span id="budgetDetails" style="display:inline-block;"><input name="thirteen_budget" type="text" id="other" required value="{{Tablespec.thirteen_budget}}" oninput="updateAdditionalTextbox()"></span></td>
                         {% endif %}
-                        <!-- <td><input type="text" id="thirteen_budgetdollar" name="thirteen_budgetdollar" value={{Tablespec.thirteen_budgetdollar}}></td> -->
-
                     </tr>
                     <tr>
                         <th></th>
@@ -1783,12 +1776,11 @@
                             <span style="display: inline-block;">外籍人員可否進場：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="fourteen_foreigninto">
-                                    <option value={{Tablespec.fourteen_foreigninto}} name="fourteen_foreigninto">
-                                        {{Tablespec.fourteen_foreigninto}}</option>
+                                    <option value="{{Tablespec.fourteen_foreigninto}}" name="fourteen_foreigninto"> {{Tablespec.fourteen_foreigninto}}</option>
                                     {% for key,value in TablespecForm.Yes_no5_select %}
-                                    {% if key != Tablespec.fourteen_foreigninto %}
-                                    <option value="{{ key }}" name="fourteen_foreigninto">{{value}}</option>
-                                    {% endif %}
+                                        {% if key != Tablespec.fourteen_foreigninto %}
+                                            <option value="{{ key }}" name="fourteen_foreigninto">{{value}}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
@@ -1802,12 +1794,11 @@
                             <span style="display: inline-block;">六小時公安證件：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="fourteen_card">
-                                    <option value={{Tablespec.fourteen_card}} name="fourteen_card">
-                                        {{Tablespec.fourteen_card}}</option>
+                                    <option value="{{Tablespec.fourteen_card}}" name="fourteen_card"> {{Tablespec.fourteen_card}}</option>
                                     {% for key,value in TablespecForm.Yes_no4_select %}
-                                    {% if key != Tablespec.fourteen_card %}
-                                    <option value="{{ key }}" name="fourteen_card">{{value}}</option>
-                                    {% endif %}
+                                        {% if key != Tablespec.fourteen_card %}
+                                            <option value="{{ key }}" name="fourteen_card">{{value}}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
@@ -1816,99 +1807,91 @@
                             <span style="display: inline-block;">工地意外保險：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="fourteen_insurance">
-                                    <option value={{Tablespec.fourteen_insurance}} name="fourteen_insurance">
-                                        {{Tablespec.fourteen_insurance}}</option>
+                                    <option value="{{Tablespec.fourteen_insurance}}" name="fourteen_insurance"> {{Tablespec.fourteen_insurance}}</option>
                                     {% for key,value in TablespecForm.Yes_no4_select %}
-                                    {% if key != Tablespec.fourteen_insurance %}
-                                    <option value="{{ key }}" name="fourteen_insurance">{{value}}</option>
-                                    {% endif %}
+                                        {% if key != Tablespec.fourteen_insurance %}
+                                            <option value="{{ key }}" name="fourteen_insurance">{{value}}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
                         </th>
                     </tr>
                     <tr>
-                        <th colspan="3">十五、空調箱搬運空位：</th>
+                        <th colspan="2">十五、空調箱搬運空位：</th>
                         {% if Tablespec.fifteen_location == "勝新" %}
-                        <td>
-                            <input name="fifteen_location" type="radio" id="fifteen_location1" value="勝新"
-                                checked="checked" />
-                            勝新
-                            <input name="fifteen_location" type="radio" id="fifteen_location2"
-                                value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
-                        </td>
+                            <td>
+                                <select class="form-control" id="taskTypeSelect" name="fifteen_location">
+                                    <option value="勝新" name="fifteen_location"> 勝新</option>
+                                    <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>     
+                                </select>
+                            </td>
                         {% elif Tablespec.fifteen_location == OrderSpec.cClient %}
-                        <td>
-                            <input name="fifteen_location" type="radio" id="fifteen_location1" value="勝新" />
-                            勝新
-                            <input name="fifteen_location" type="radio" id="fifteen_location2"
-                                value={{OrderSpec.cClient}} checked="checked" />
-                            {{OrderSpec.cClient}}
-                        </td>
+                            <td>
+                                <select class="form-control" id="taskTypeSelect" name="fifteen_location">
+                                    <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>
+                                    <option value="勝新" name="fifteen_location"> 勝新</option>
+                                </select>
+                            </td>
                         {% endif %}
                     </tr>
                     <tr>
                         <th></th>
-                        <th colspan="2">水平搬運：</th>
+                        <th colspan="1">水平搬運：</th>
                         {% if Tablespec.fifteen_level == "勝新" %}
                         <td>
-                            <input name="fifteen_level" type="radio" id="fifteen_level1" value="勝新" checked="checked" />
-                            勝新
-                            <input name="fifteen_level" type="radio" id="fifteen_level2" value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_level">
+                                <option value="勝新" name="fifteen_level"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_level"> {{OrderSpec.cClient}}</option>     
+                            </select>
                         </td>
                         {% elif Tablespec.fifteen_level == OrderSpec.cClient %}
                         <td>
-                            <input name="fifteen_level" type="radio" id="fifteen_level1" value="勝新" />
-                            勝新
-                            <input name="fifteen_level" type="radio" id="fifteen_level2" value={{OrderSpec.cClient}}
-                                checked="checked" />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_level">
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_level"> {{OrderSpec.cClient}}</option>
+                                <option value="勝新" name="fifteen_level"> 勝新</option>
+                            </select>
                         </td>
                         {% endif %}
                     </tr>
                     <tr>
                         <th></th>
-                        <th colspan="2">垂直搬運：</th>
+                        <th colspan="1">垂直搬運：</th>
                         {% if Tablespec.fifteen_location == "勝新" %}
                         <td>
-                            <input name="fifteen_vertical" type="radio" id="fifteen_vertical1" value="勝新"
-                                checked="checked" />
-                            勝新
-                            <input name="fifteen_vertical" type="radio" id="fifteen_vertical2"
-                                value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_location">
+                                <option value="勝新" name="fifteen_location"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>     
+                            </select>
                         </td>
                         {% elif Tablespec.fifteen_vertical == OrderSpec.cClient %}
                         <td>
-                            <input name="fifteen_vertical" type="radio" id="fifteen_vertical1" value="勝新" />
-                            勝新
-                            <input name="fifteen_vertical" type="radio" id="fifteen_vertical2"
-                                value={{OrderSpec.cClient}} checked="checked" />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_location">
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>
+                                <option value="勝新" name="fifteen_location"> 勝新</option>
+                            </select>
                         </td>
                         {% endif %}
                     </tr>
                     <tr>
                         <th></th>
-                        <th colspan="2">立式空調箱上箱段：</th>
+                        <th colspan="1">立式空調箱上箱段：</th>
                         {% if Tablespec.fifteen_box == "勝新" %}
                         <td>
-                            <input name="fifteen_box" type="radio" id="fifteen_box1" value="勝新" checked="checked" />
-                            勝新
-                            <input name="fifteen_box" type="radio" id="fifteen_box2" value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_box">
+                                <option value="勝新" name="fifteen_box"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_box"> {{OrderSpec.cClient}}</option>     
+                            </select>
                         </td>
                         {% elif Tablespec.fifteen_box == OrderSpec.cClient %}
                         <td>
-                            <input name="fifteen_box" type="radio" id="fifteen_box1" value="勝新" />
-                            勝新
-                            <input name="fifteen_box" type="radio" id="fifteen_box2" value={{OrderSpec.cClient}}
-                                checked="checked" />
-                            {{OrderSpec.cClient}}
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_box">
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_box"> {{OrderSpec.cClient}}</option>
+                                <option value="勝新" name="fifteen_box"> 勝新</option>
+                            </select>
                         </td>
                         {% endif %}
+                         
                     </tr>
                     <tr>
                         <th colspan="2">十六、代課安裝：</th>

@@ -5,550 +5,381 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0  shrink-to-fit=no">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   {% load static %}
   <title>顯示所有資料</title>
 </head>
 <style>
-    body {
-        font-size: 16px; /* 將字體大小設置為 12px */
-    }
-    table {
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        text-align: center;
-        justify-self: center;
-        width: 100px; /* 將表格的寬度設置為500像素 */
-        height: 40px; /* 將表格的高度設置為300像素 */
-    }
-    .temp{
-        padding-left:10px;
-        display: flex;
-        justify-self: start;
-        white-space: pre-line;
-        text-align: left; /* 文字左對齊 */
-    }
-    
-    p{
-        font-size: 16px;
-    }
+  body {
+    font-size: 16px;
+    /* 將字體大小設置為 12px */
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    text-align: center;
+    justify-self: center;
+    width: 100px;
+    /* 將表格的寬度設置為500像素 */
+    height: 40px;
+    /* 將表格的高度設置為300像素 */
+  }
+
+  .temp {
+    padding-left: 10px;
+    display: flex;
+    justify-self: start;
+    white-space: pre-line;
+    text-align: left;
+    /* 文字左對齊 */
+  }
+
+  p {
+    font-size: 16px;
+  }
 </style>
 
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
   <script type="text/javascript" src="{% static 'NotoSansTC-VariableFont_wght-normal.js' %}"></script>
-  <table border="1">
+  <table border="1" style="width: 100%;">
     <tr>
-        <td>客戶名稱</td>
-        <td>{{spec.cClient}}</td>
-        <td>填表日期</td>
-        <td>{{spec.cDate}}</td>
+      <td style="width: 10%;">客戶名稱</td>
+      <td style="width: 40%;">{{spec.cClient}}</td>
+      <td style="width: 10%;">填表日期</td>
+      <td style="width: 40%;">{{spec.cDate}}</td>
     </tr>
     <tr>
-        <td>工地名稱</td>
-        <td>{{spec.clocation}}</td>
-        <td>交貨日期</td>
-        <td>{{spec.cDeliveryDate}}</td>
+      <td style="width: 10%;">工地名稱</td>
+      <td style="width: 40%;">{{spec.clocation}}</td>
+      <td style="width: 10%;">交貨日期</td>
+      <td style="width: 40%;">{{spec.cDeliveryDate}}</td>
     </tr>
     <tr>
-        <td>聯絡人</td>
-        <td>{{spec.cContact}}</td>
-        <td>受訂單號</td>
-        <td>{{spec.cNumber}}</td>
+      <td style="width: 10%;">聯絡人</td>
+      <td style="width: 40%;">{{spec.cContact}}</td>
+      <td style="width: 10%;">受訂單號</td>
+      <td style="width: 40%;">{{spec.cNumber}}</td>
     </tr>
     <tr>
-        <td>聯絡電話</td>
-        <td>{{spec.cContactTel}}</td>
-        <td>勝新業務</td>
-        <td>{{spec.cName}}</td>
+      <td style="width: 10%;">聯絡電話</td>
+      <td style="width: 40%;">{{spec.cContactTel}}</td>
+      <td style="width: 10%;">勝新業務</td>
+      <td style="width: 40%;">{{spec.cName}}</td>
     </tr>
   </table>
   <table border="1" class="temp">
     <tr style="border: none;">
-        <td style="padding-left: 10px;">設備名稱：{{Tablespec.machinename}}</td>
+      <td style="padding-left: 10px;">設備名稱：{{Tablespec.machinename}}</td>
     </tr>
     <tr style="border: none;">
-        <td style="padding-left: 10px;">一、箱體材質：{{Tablespec.first_boxmaterial}}</td>
+      <td style="padding-left: 10px;">一、箱體材質：{{Tablespec.first_boxmaterial}}</td>
     </tr>
     <tr style="border: none;">
-        <td style="padding-left: 20px;">內板厚度：{{Tablespec.first_inthick}}</td>
-        <td style="padding-left: 20px;">內板材質：{{Tablespec.first_inmaterial}}</td>   
-        <td style="padding-left: 20px;">螺絲配件：{{Tablespec.first_inother}}</td>   
+      <td style="padding-left: 20px;">內板厚度：{{Tablespec.first_inthick}}</td>
+      <td style="padding-left: 20px;">內板材質：{{Tablespec.first_inmaterial}}</td>
+      <td style="padding-left: 20px;">螺絲配件：{{Tablespec.first_inother}}</td>
     </tr>
     <tr style="border: none;">
-        <td style="padding-left: 20px;">外板厚度：{{Tablespec.first_outthick}}</td>
-        <td style="padding-left: 20px;">外板材質：{{Tablespec.first_outmaterial}}</td>   
-        <td style="padding-left: 20px;">箱板材質：{{Tablespec.first_boxthick}}</td>   
+      <td style="padding-left: 20px;">外板厚度：{{Tablespec.first_outthick}}</td>
+      <td style="padding-left: 20px;">外板材質：{{Tablespec.first_outmaterial}}</td>
+      <td style="padding-left: 20px;">箱板材質：{{Tablespec.first_boxthick}}</td>
     </tr>
     <tr style="border: none;">
-        <td style="padding-left: 10px;">二、維修門及箱體框架型式：</td>
+      <td style="padding-left: 10px;">二、維修門及箱體框架型式：</td>
     </tr>
     <tr style="border: none;">
-        <td style="padding-left: 20px;">維修門方式：{{Tablespec.second_door}}</td>
-        <td style="padding-left: 20px;">箱體框架型式：{{Tablespec.second_frame}}</td>
+      <td style="padding-left: 20px;">維修門方式：{{Tablespec.second_door}}</td>
+      <td style="padding-left: 30px;">箱體框架型式：{{Tablespec.second_frame}}</td>
     </tr>
     <tr style="border: none;">
-        <td style="padding-left: 10px;">五、加熱器：{{Tablespec.fiv_humidifier}}</td>
-        <td style="padding-left: 20px;margin-left: 20px;">型式：{{Tablespec.fiv_form}}</td>
+      <td style="padding-left: 10px;">三、濾網：</td>
     </tr>
-
-
-
-
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">1.初級濾網：{{Tablespec.third_basic}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">安裝方式：{{Tablespec.third_basic_install}}</td>
+      <td style="padding-left: 20px;">厚度：{{Tablespec.third_basic_thick}}</td>
+      <td style="padding-left: 20px;">廠牌：{{Tablespec.third_basic_brand}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">濾網框：{{Tablespec.third_basic_frame}}</td>
+      <td style="padding-left: 20px;">效率：{{Tablespec.third_basic_efficient}}&nbsp;比色法</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">濾材材質：{{Tablespec.third_basic_material}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">2.中級濾網：{{Tablespec.third_medium}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">外框型式：{{Tablespec.third_medium_frameform}}</td>
+      <td style="padding-left: 20px;">袋長：{{Tablespec.third_medium_long}}</td>
+      <td style="padding-left: 20px;">廠牌：{{Tablespec.third_medium_brand}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">濾網框：{{Tablespec.third_medium_frame}}</td>
+      <td style="padding-left: 20px;">效率：{{Tablespec.third_medium_efficient}}&nbsp;比色法</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">3.高級濾網：{{Tablespec.third_high}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">外框型式：{{Tablespec.third_high_frameform}}</td>
+      <td style="padding-left: 20px;">長度：{{Tablespec.third_high_long}}</td>
+      <td style="padding-left: 20px;">廠牌：{{Tablespec.third_high_brand}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">濾網框：{{Tablespec.third_high_frame}}</td>
+      <td style="padding-left: 20px;">效率：{{Tablespec.third_high_efficient}}&nbsp;D.O.P.</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">初中級框架材質：{{Tablespec.third_basic_medium_material}}</td>
+      <td style="padding-left: 20px;">高效框架材質：{{Tablespec.third_high_material}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">四、電熱器：{{Tablespec.four_heater}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 25px;">SSCR控制：{{Tablespec.four_SSCR}}</td>
+      <td style="padding-left: 20px;">分段方式：{{Tablespec.four_way}}</td>
+      <td style="padding-left: 20px;">框架材質：{{Tablespec.four_material}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">五、加熱器：{{Tablespec.fiv_humidifier}}</td>
+      <td style="padding-left: 100px;margin-left: 20px;">型式：{{Tablespec.fiv_form}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">六、風門：{{Tablespec.six_winddoor}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">型式：{{Tablespec.six_form}}</td>
+      <td style="padding-left: 20px;">邊框材質：{{Tablespec.six_frame_material}}</td>
+      <td style="padding-left: 20px;">葉片材質：{{Tablespec.six_blade_material}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">軸心：{{Tablespec.six_axis}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">七、盤管：</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">1.冰水盤管：{{Tablespec.seven_cold}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_fins}}</td>
+      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_thick}}</td>
+      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_board}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_pipe_thick}}</td>
+      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_waterpipe}}</td>
+      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_size}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">2.熱水盤管：{{Tablespec.seven_hot}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_hotfins}}</td>
+      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_hotthick}}</td>
+      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_hotboard}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_hotpipe_thick}}</td>
+      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_hotwaterpipe}}</td>
+      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_hotsize}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">3.蒸氣盤管：{{Tablespec.seven_steam}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_steamfins}}</td>
+      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_steamthick}}</td>
+      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_steamboard}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_steampipe_thick}}</td>
+      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_steamwaterpipe}}</td>
+      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_steamsize}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">4.鹵水盤管：{{Tablespec.seven_brine}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_brinefins}}</td>
+      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_brinethick}}</td>
+      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_brineboard}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_brinepipe_thick}}</td>
+      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_brinewaterpipe}}</td>
+      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_brinesize}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">其他要求：{{Tablespec.seven_other}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">八、排水盤：</td>
+      <td style="padding-left: 20px;">材質：{{Tablespec.eight_material}}</td>
+      <td style="padding-left: 20px;">厚度：{{Tablespec.eight_thick}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">九、風車：</td>
+      <td style="padding-left: 20px;">廠牌：{{Tablespec.nine_brand}}</td>
+      <td style="padding-left: 20px;">傳動方式：{{Tablespec.nine_way}}</td>
+      <td style="padding-left: 15px;">葉片型式：{{Tablespec.nine_form}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十、馬達：</td>
+      <td style="padding-left: 20px;">廠牌：{{Tablespec.ten_motor_brand}}</td>
+      <td style="padding-left: 20px;">絕緣等級：{{Tablespec.ten_motor_Insulation}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">馬達電源：{{Tablespec.ten_motor_elec}}</td>
+      <td style="padding-left: 20px;">馬達效率：{{Tablespec.ten_motor_efficient}}</td>
+      <td style="padding-left: 20px;">防護等級：{{Tablespec.ten_motor_level}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">啟動方式：{{Tablespec.ten_motor_open}}</td>
+      <td style="padding-left: 20px;">冷卻方式：{{Tablespec.ten_motor_cold}}</td>
+      <td style="padding-left: 20px;">馬達型式：{{Tablespec.ten_motor_form}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">其他要求：{{Tablespec.ten_motor_ask}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十一、配電箱：</td>
+      <td style="padding-left: 20px;">材質：{{Tablespec.eleven_material}}</td>
+      <td style="padding-left: 20px;">型式：{{Tablespec.eleven_form}}</td>
+      <td style="padding-left: 20px;">鎖：{{Tablespec.eleven_key}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">防護等級：{{Tablespec.eleven_level}}</td>
+      <td style="padding-left: 20px;">尺寸需求：{{Tablespec.eleven_size}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十二、配件：</td>
+      <td style="padding-left: 20px;">廠牌：{{Tablespec.twelve_brand}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">視窗：{{Tablespec.twelve_view}}</td>
+      <td style="padding-left: 20px;">壓差計：{{Tablespec.twelve_pressure}}</td>
+      <td style="padding-left: 20px;">刻度單位：{{Tablespec.twelve_unit}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">照明：{{Tablespec.twelve_light}}</td>
+      <td style="padding-left: 20px;">防護等級：{{Tablespec.twelve_level}}</td>
+      <td style="padding-left: 20px;">照明電源：{{Tablespec.twelve_light_elec}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">照明開關：{{Tablespec.twelve_light_open}}</td>
+      <td style="padding-left: 20px;">洩壓風門：{{Tablespec.twelve_winddoor}}</td>
+      <td style="padding-left: 20px;">底座材質：{{Tablespec.twelve_material}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">擴散網：{{Tablespec.twelve_net}}</td>
+      <td style="padding-left: 20px;">矽利康：{{Tablespec.twelve_silicone}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">空調箱放置地點：{{Tablespec.twelve_location}}</td>
+      <td style="padding-left: 20px;">屋頂：{{Tablespec.twelve_roof}}</td>
+      <td style="padding-left: 20px;">材質：{{Tablespec.twelve_newmaterial}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">廠驗：{{Tablespec.twelve_test}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十三、交貨方式：{{Tablespec.thirteen_way}}</td>
+      <td style="padding-left: 30px;">新竹以北掉卡：{{Tablespec.thirteen_elevator}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">空調箱節箱：{{Tablespec.thirteen_box}}</td>
+      <td style="padding-left: 20px;">分箱進場：{{Tablespec.thirteen_into}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">空調箱外之避震：{{Tablespec.thirteen_shock}}</td>
+      <td style="padding-left: 20px;">避震器型式：{{Tablespec.thirteen_shocbox}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">氣密施作：{{Tablespec.thirteen_apply}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">空調箱固定：{{Tablespec.thirteen_fix}}</td>
+      <td style="padding-left: 20px;">結箱預算：{{Tablespec.thirteen_budget}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">防位移型式：{{Tablespec.thirteen_displace}}</td>
+      <td style="padding-left: 20px;">固定方式：{{Tablespec.thirteen_fixway}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十四、現場組裝：{{Tablespec.fourteen_ass}}</td>
+      <td style="padding-left: 20px;">組裝預算：{{Tablespec.fourteen_budget}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">施工時間：{{Tablespec.fourteen_time}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">人員進場須知：{{Tablespec.fourteen_into}}</td>
+      <td style="padding-left: 20px;">日期時間：{{Tablespec.fourteen_intotime}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">當天上完課組裝：{{Tablespec.fourteen_afterass}}</td>
+      <td style="padding-left: 20px;">日期時間：{{Tablespec.fourteen_afterasstime}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">外籍人員可否進場：{{Tablespec.fourteen_foreigninto}}</td>
+      <td style="padding-left: 20px;">日期時間：{{Tablespec.fourteen_foreignintotime}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">六小時公安證件：{{Tablespec.fourteen_card}}</td>
+      <td style="padding-left: 30px;">工地意外保險：{{Tablespec.fourteen_insurance}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十五、空調箱搬運空位：{{Tablespec.fifteen_location}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">水平搬運：{{Tablespec.fifteen_level}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">垂直搬運：{{Tablespec.fifteen_vertical}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">立式空調箱上箱段：{{Tablespec.fifteen_box}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十六、代課安裝：{{Tablespec.sixteen_install}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 20px;">備料(欲採購)：{{Tablespec.sixteen_prepare}}</td>
+    </tr>
+    <tr style="border: none;">
+      <td style="padding-left: 10px;">十七、矽利康：{{Tablespec.seventeen_silicone}}</td>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">品牌要求：{{Tablespec.seventeen_brand}}</td>
+      </tr>
+    </tr>
+    <tr style="border: none;"  >
+      <td  style="padding-left: 10px ;height: 200px;">十八、其他：<br>{{Tablespec.eighteen_other|safe}}</td>
+    </tr>
+  
+  
   </table>
-
-          <!-- <tr>
-            <th>三、濾網：</th>
-          </tr>
-          <tr>
-            <th>1.初級濾網：</th>
-            <td colspan="3">{{Tablespec.third_basic}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>安裝方式：</th>
-            <td>{{Tablespec.third_basic_install}}</td>
-            <th>厚度：</th>
-            <td>{{Tablespec.third_basic_thick}}</td>
-            <th>廠牌：</th>
-            <td>{{Tablespec.third_basic_brand}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>濾網框：</th>
-            <td>{{Tablespec.third_basic_frame}}</td>
-            <th>效率：</th>
-            <td>{{Tablespec.third_basic_efficient}}&nbsp;比色法</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>濾材材質：</th>
-            <td>{{Tablespec.third_basic_material}}</td>
-          </tr>
-          <tr>
-            <th>2.中級濾網：</th>
-            <td colspan="3">{{Tablespec.third_medium}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>外框型式：</th>
-            <td>{{Tablespec.third_medium_frameform}}</td>
-            <th>袋長：</th>
-            <td>{{Tablespec.third_medium_long}}</td>
-            <th>廠牌：</th>
-            <td>{{Tablespec.third_medium_brand}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>濾網框：</th>
-            <td>{{Tablespec.third_medium_frame}}</td>
-            <th>效率：</th>
-            <td>{{Tablespec.third_medium_efficient}}&nbsp;比色法</td>
-          </tr>
-          <tr>
-            <th>3.高級濾網：</th>
-            <td colspan="3">{{Tablespec.third_high}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>外框型式：</th>
-            <td>{{Tablespec.third_high_frameform}}</td>
-            <th>長度：</th>
-            <td>{{Tablespec.third_high_long}}</td>
-            <th>廠牌：</th>
-            <td>{{Tablespec.third_high_brand}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>濾網框：</th>
-            <td>{{Tablespec.third_high_frame}}</td>
-            <th>效率：</th>
-            <td>{{Tablespec.third_high_efficient}}&nbsp;D.O.P.</td>
-          </tr>
-          <tr>
-            <tr>
-                <th></th>
-                <th>初中級框架材質：</th>
-                <td>{{Tablespec.third_basic_medium_material}}</td>
-                <th>高效框架材質：</th>
-                <td>{{Tablespec.third_high_material}}</td>
-            </tr>
-          </tr>
-          <tr>
-            <th>四、電熱器：</th>
-            <td colspan="3">{{Tablespec.four_heater}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>SSCR控制：</th>
-            <td>{{Tablespec.four_SSCR}}</td>
-            <th>分段方式：</th>
-            <td>{{Tablespec.four_way}}</td>
-            <th>框架材質：</th>
-            <td>{{Tablespec.four_material}}</td>
-          </tr>
-          
-          <tr>
-            <th>六、風門：</th>
-            <td colspan="3">{{Tablespec.six_winddoor}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>型式：</th>
-            <td>{{Tablespec.six_form}}</td>
-            <th>邊框材質：</th>
-            <td>{{Tablespec.six_frame_material}}</td>
-            <th>葉片材質：</th>
-            <td>{{Tablespec.six_blade_material}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>軸心：</th>
-            <td>{{Tablespec.six_axis}}</td>
-          </tr>
-          <tr>
-            <th colspan="2">七、盤管：</th>
-          </tr>
-          <tr>
-            <th>1.冰水盤管</th>
-            <td colspan="3">{{Tablespec.seven_cold}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>鰭片：</th>
-            <td>{{Tablespec.seven_fins}}</td>
-            <th>厚度：</th>
-            <td>{{Tablespec.seven_thick}}</td>
-            <th>端側板：</th>
-            <td>{{Tablespec.seven_board}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>銅管厚度：</th>
-            <td>{{Tablespec.seven_pipe_thick}}</td>
-            <th>集水管：</th>
-            <td>{{Tablespec.seven_waterpipe}}</td>
-            <th>銅管管徑：</th>
-            <td>{{Tablespec.seven_size}}</td>
-          </tr>
-          <tr>
-            <th>2.熱水盤管</th>
-            <td colspan="3">{{Tablespec.seven_hot}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>鰭片：</th>
-            <td>{{Tablespec.seven_hotfins}}</td>
-            <th>厚度：</th>
-            <td>{{Tablespec.seven_hotthick}}</td>
-            <th>端側板：</th>
-            <td>{{Tablespec.seven_hotboard}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>銅管厚度：</th>
-            <td>{{Tablespec.seven_hotpipe_thick}}</td>
-            <th>集水管：</th>
-            <td>{{Tablespec.seven_hotwaterpipe}}</td>
-            <th>銅管管徑：</th>
-            <td>{{Tablespec.seven_hotsize}}</td>
-          </tr>
-          <tr>
-            <th>3.蒸氣盤管</th>
-            <td colspan="3">{{Tablespec.seven_steam}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>鰭片：</th>
-            <td>{{Tablespec.seven_steamfins}}</td>
-            <th>厚度：</th>
-            <td>{{Tablespec.seven_steamthick}}</td>
-            <th>端側板：</th>
-            <td>{{Tablespec.seven_steamboard}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>銅管厚度：</th>
-            <td>{{Tablespec.seven_steampipe_thick}}</td>
-            <th>集水管：</th>
-            <td>{{Tablespec.seven_steamwaterpipe}}</td>
-            <th>銅管管徑：</th>
-            <td>{{Tablespec.seven_steamsize}}</td>
-          </tr>
-          <tr>
-            <th>4.鹵水盤管</th>
-            <td colspan="3">{{Tablespec.seven_brine}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>鰭片：</th>
-            <td>{{Tablespec.seven_brinefins}}</td>
-            <th>厚度：</th>
-            <td>{{Tablespec.seven_brinethick}}</td>
-            <th>端側板：</th>
-            <td>{{Tablespec.seven_brineboard}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>銅管厚度：</th>
-            <td>{{Tablespec.seven_brinepipe_thick}}</td>
-            <th>集水管：</th>
-            <td>{{Tablespec.seven_brinewaterpipe}}</td>
-            <th>銅管管徑：</th>
-            <td>{{Tablespec.seven_brinesize}}</td>
-          </tr>
-          <tr>
-            <th>其他要求：</th>
-            <td colspan="3">{{Tablespec.seven_other}}</td>
-          </tr>
-          <tr>
-            <th>八、排水盤：</th>
-            <th>材質：</th>
-            <td>{{Tablespec.eight_material}}</td>
-            <th>厚度：</th>
-            <td>{{Tablespec.eight_thick}}</td>
-          </tr>
-          <tr>
-            <th>九、風車：</th>
-            <th>廠牌：</th>
-            <td>{{Tablespec.nine_brand}}</td>
-            <th>傳動方式：</th>
-            <td>{{Tablespec.nine_way}}</td>
-            <th>葉片型式：</th>
-            <td>{{Tablespec.nine_form}}</td>
-          </tr>
-          <tr>
-            <th>十、馬達：</th>
-            <th>廠牌：</th>
-            <td>{{Tablespec.ten_motor_brand}}</td>
-            <th>絕緣等級：</th>
-            <td>{{Tablespec.ten_motor_Insulation}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>馬達電源：</th>
-            <td>{{Tablespec.ten_motor_elec}}</td>
-            <th>馬達效率：</th>
-            <td>{{Tablespec.ten_motor_efficient}}</td>
-            <th>防護等級：</th>
-            <td>{{Tablespec.ten_motor_level}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>啟動方式：</th>
-            <td>{{Tablespec.ten_motor_open}}</td>
-            <th>冷卻方式：</th>
-            <td>{{Tablespec.ten_motor_cold}}</td>
-            <th>馬達型式：</th>
-            <td>{{Tablespec.ten_motor_form}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>其他要求：</th>
-            <td>{{Tablespec.ten_motor_ask}}</td>
-          </tr>
-          <tr>
-            <th>十一、配電箱：</th>
-            <th>材質：</th>
-            <td>{{Tablespec.eleven_material}}</td>
-            <th>型式：</th>
-            <td>{{Tablespec.eleven_form}}</td>
-            <th>鎖：</th>
-            <td>{{Tablespec.eleven_key}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>防護等級：</th>
-            <td>{{Tablespec.eleven_level}}</td>
-            <th>尺寸需求：</th>
-            <td>{{Tablespec.eleven_size}}</td>
-          </tr>
-          <tr>
-            <th>十二、配件：</th>
-            <th>廠牌：</th>
-            <td>{{Tablespec.twelve_brand}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>視窗：</th>
-            <td>{{Tablespec.twelve_view}}</td>
-            <th>壓差計：</th>
-            <td>{{Tablespec.twelve_pressure}}</td>
-            <th>刻度單位：</th>
-            <td>{{Tablespec.twelve_unit}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>照明：</th>
-            <td>{{Tablespec.twelve_light}}</td>
-            <th>防護等級：</th>
-            <td>{{Tablespec.twelve_level}}</td>
-            <th>照明電源：</th>
-            <td>{{Tablespec.twelve_light_elec}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>照明開關：</th>
-            <td>{{Tablespec.twelve_light_open}}</td>
-            <th>洩壓風門：</th>
-            <td>{{Tablespec.twelve_winddoor}}</td>
-            <th>底座材質：</th>
-            <td>{{Tablespec.twelve_material}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>擴散網：</th>
-            <td>{{Tablespec.twelve_net}}</td>
-            <th>矽利康：</th>
-            <td>{{Tablespec.twelve_silicone}}</td>
-          </tr>
-          <tr>
-            <tr>
-              <th></th>
-              <th>空調箱放置地點：</th>
-              <td>{{Tablespec.twelve_location}}</td>
-              <th>屋頂：</th>
-              <td>{{Tablespec.twelve_roof}}</td>
-              <th>材質：</th>
-              <td>{{Tablespec.twelve_newmaterial}}</td>
-            </tr>
-          </tr>
-          <tr>
-            <th></th>
-            <th>廠驗：</th>
-            <td>{{Tablespec.twelve_test}}</td>
-          </tr>
-          <tr>
-            <th colspan="3">十三、交貨方式：{{Tablespec.thirteen_way}}</th>
-            <th>新竹以北掉卡：</th>
-            <td>{{Tablespec.thirteen_elevator}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>空調箱節箱：</th>
-            <td>{{Tablespec.thirteen_box}}</td>
-            <th>分箱進場：</th>
-            <td>{{Tablespec.thirteen_into}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th >空調箱外之避震：</th>
-            <td>{{Tablespec.thirteen_shock}}</td>
-            <th>避震器型式：</th>
-            <td>{{Tablespec.thirteen_shocbox}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>氣密施作：</th>
-            <td>{{Tablespec.thirteen_apply}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th >空調箱固定：</th>
-            <td>{{Tablespec.thirteen_fix}}</td>
-            <th>結箱預算：</th>
-            <td colspan="5">
-              {{Tablespec.thirteen_budget}}
-            </td>
-          </tr>
-          <tr>
-            <th></th>
-            <th colspan="2">防位移型式：</th>
-            <td>{{Tablespec.thirteen_displace}}</td>
-            <th>固定方式：</th>
-            <td>{{Tablespec.thirteen_fixway}}</td>
-          </tr>
-          <tr>
-            <th colspan="3">十四、現場組裝：{{Tablespec.fourteen_ass}}</th>
-            <th>組裝預算：</th>
-            <td colspan="5">
-              {{Tablespec.fourteen_budget}}
-            </td>
-          </tr>
-          <tr>
-            <th></th>
-            <th colspan="2">施工時間：</th>
-            <td>{{Tablespec.fourteen_time}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th >人員進場須知：</th>
-            <td>{{Tablespec.fourteen_into}}</td>
-            <th >日期時間：</th>
-            <td>{{Tablespec.fourteen_intotime}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>當天上完課組裝：</th>
-            <td>{{Tablespec.fourteen_afterass}}</td>
-            <th >日期時間：</th>
-            <td>{{Tablespec.fourteen_afterasstime}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>外籍人員可否進場：</th>
-            <td>{{Tablespec.fourteen_foreigninto}}</td>
-            <th >日期時間：</th>
-            <td>{{Tablespec.fourteen_foreignintotime}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th >六小時公安證件：</th>
-            <td>{{Tablespec.fourteen_card}}</td>
-            <th>工地意外保險：</th>
-            <td>{{Tablespec.fourteen_insurance}}</td>
-          </tr>
-          <tr>
-            <th colspan="5">十五、空調箱搬運空位：{{Tablespec.fifteen_location}}</th>
-          </tr>
-          <tr>
-            <th></th>
-            <th>水平搬運：</th>
-            <td>{{Tablespec.fifteen_level}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>垂直搬運：</th>
-            <td>{{Tablespec.fifteen_vertical}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>立式空調箱上箱段：</th>
-            <td>{{Tablespec.fifteen_box}}</td>
-          </tr>
-          <tr>
-            <th>十六、代課安裝：</th>
-            <td>
-              {{Tablespec.sixteen_install}}
-            </td>
-            <th>備料(欲採購)：</th>
-            <td >
-              {{Tablespec.sixteen_prepare}}
-          </td>
-          </tr>
-           <tr>
-            <th>十七、矽利康：</th>
-            <td>
-              {{Tablespec.seventeen_silicone}}
-            </td>
-            <th >品牌要求：</th>
-            <td>{{Tablespec.seventeen_brand}}</td>
-          </tr>
-          <tr>
-            <th>十八、其他：</th>
-            <td colspan="7" style="white-space: pre-wrap;">{{Tablespec.eighteen_other|safe}}</td>
-          </tr>    
-        </tr>
-        </table> -->
-
   <script src="{% static 'jquery.min.js' %}"></script>
   <script>
 
 
 
-  </script> 
+  </script>
 
 </body>
+
 </html>
