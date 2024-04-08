@@ -121,27 +121,31 @@
     <tr style="border: none;">
       <td style="padding-left: 10px;">2.中級濾網：{{Tablespec.third_medium}}</td>
     </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">外框型式：{{Tablespec.third_medium_frameform}}</td>
-      <td style="padding-left: 20px;">袋長：{{Tablespec.third_medium_long}}</td>
-      <td style="padding-left: 20px;">廠牌：{{Tablespec.third_medium_brand}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">濾網框：{{Tablespec.third_medium_frame}}</td>
-      <td style="padding-left: 20px;">效率：{{Tablespec.third_medium_efficient}}&nbsp;比色法</td>
-    </tr>
+    {% if Tablespec.third_medium == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">外框型式：{{Tablespec.third_medium_frameform}}</td>
+        <td style="padding-left: 20px;">袋長：{{Tablespec.third_medium_long}}</td>
+        <td style="padding-left: 20px;">廠牌：{{Tablespec.third_medium_brand}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">濾網框：{{Tablespec.third_medium_frame}}</td>
+        <td style="padding-left: 20px;">效率：{{Tablespec.third_medium_efficient}}&nbsp;比色法</td>
+      </tr>
+    {% endif %}
     <tr style="border: none;">
       <td style="padding-left: 10px;">3.高級濾網：{{Tablespec.third_high}}</td>
     </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">外框型式：{{Tablespec.third_high_frameform}}</td>
-      <td style="padding-left: 20px;">長度：{{Tablespec.third_high_long}}</td>
-      <td style="padding-left: 20px;">廠牌：{{Tablespec.third_high_brand}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">濾網框：{{Tablespec.third_high_frame}}</td>
-      <td style="padding-left: 20px;">效率：{{Tablespec.third_high_efficient}}&nbsp;D.O.P.</td>
-    </tr>
+    {% if Tablespec.third_high_frameform == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">外框型式：{{Tablespec.third_high_frameform}}</td>
+        <td style="padding-left: 20px;">長度：{{Tablespec.third_high_long}}</td>
+        <td style="padding-left: 20px;">廠牌：{{Tablespec.third_high_brand}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">濾網框：{{Tablespec.third_high_frame}}</td>
+        <td style="padding-left: 20px;">效率：{{Tablespec.third_high_efficient}}&nbsp;D.O.P.</td>
+      </tr>
+    {% endif %}
     <tr style="border: none;">
       <td style="padding-left: 20px;">初中級框架材質：{{Tablespec.third_basic_medium_material}}</td>
       <td style="padding-left: 20px;">高效框架材質：{{Tablespec.third_high_material}}</td>
@@ -149,81 +153,95 @@
     <tr style="border: none;">
       <td style="padding-left: 10px;">四、電熱器：{{Tablespec.four_heater}}</td>
     </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 25px;">SSCR控制：{{Tablespec.four_SSCR}}</td>
-      <td style="padding-left: 20px;">分段方式：{{Tablespec.four_way}}</td>
-      <td style="padding-left: 20px;">框架材質：{{Tablespec.four_material}}</td>
-    </tr>
+    {% if Tablespec.four_heater == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 25px;">SSCR控制：{{Tablespec.four_SSCR}}</td>
+        <td style="padding-left: 20px;">分段方式：{{Tablespec.four_way}}</td>
+        <td style="padding-left: 20px;">框架材質：{{Tablespec.four_material}}</td>
+      </tr>
+    {% endif %}
     <tr style="border: none;">
       <td style="padding-left: 10px;">五、加熱器：{{Tablespec.fiv_humidifier}}</td>
-      <td style="padding-left: 100px;margin-left: 20px;">型式：{{Tablespec.fiv_form}}</td>
+      {% if Tablespec.fiv_humidifier == "含" %}
+        <td style="padding-left: 100px;margin-left: 20px;">型式：{{Tablespec.fiv_form}}</td>
+      {% endif %}
     </tr>
     <tr style="border: none;">
       <td style="padding-left: 10px;">六、風門：{{Tablespec.six_winddoor}}</td>
     </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">型式：{{Tablespec.six_form}}</td>
-      <td style="padding-left: 20px;">邊框材質：{{Tablespec.six_frame_material}}</td>
-      <td style="padding-left: 20px;">葉片材質：{{Tablespec.six_blade_material}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">軸心：{{Tablespec.six_axis}}</td>
-    </tr>
+    {% if Tablespec.six_winddoor == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">型式：{{Tablespec.six_form}}</td>
+        <td style="padding-left: 20px;">邊框材質：{{Tablespec.six_frame_material}}</td>
+        <td style="padding-left: 20px;">葉片材質：{{Tablespec.six_blade_material}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">軸心：{{Tablespec.six_axis}}</td>
+      </tr>
+    {% endif %}
     <tr style="border: none;">
       <td style="padding-left: 10px;">七、盤管：</td>
     </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 10px;">1.冰水盤管：{{Tablespec.seven_cold}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_fins}}</td>
-      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_thick}}</td>
-      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_board}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_pipe_thick}}</td>
-      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_waterpipe}}</td>
-      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_size}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 10px;">2.熱水盤管：{{Tablespec.seven_hot}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_hotfins}}</td>
-      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_hotthick}}</td>
-      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_hotboard}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_hotpipe_thick}}</td>
-      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_hotwaterpipe}}</td>
-      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_hotsize}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 10px;">3.蒸氣盤管：{{Tablespec.seven_steam}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_steamfins}}</td>
-      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_steamthick}}</td>
-      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_steamboard}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_steampipe_thick}}</td>
-      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_steamwaterpipe}}</td>
-      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_steamsize}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 10px;">4.鹵水盤管：{{Tablespec.seven_brine}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_brinefins}}</td>
-      <td style="padding-left: 20px;">厚度：{{Tablespec.seven_brinethick}}</td>
-      <td style="padding-left: 20px;">端側板：{{Tablespec.seven_brineboard}}</td>
-    </tr>
-    <tr style="border: none;">
-      <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_brinepipe_thick}}</td>
-      <td style="padding-left: 20px;">集水管：{{Tablespec.seven_brinewaterpipe}}</td>
-      <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_brinesize}}</td>
-    </tr>
+    {% if Tablespec.seven_cold == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 10px;">1.冰水盤管：{{Tablespec.seven_cold}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_fins}}</td>
+        <td style="padding-left: 20px;">厚度：{{Tablespec.seven_thick}}</td>
+        <td style="padding-left: 20px;">端側板：{{Tablespec.seven_board}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_pipe_thick}}</td>
+        <td style="padding-left: 20px;">集水管：{{Tablespec.seven_waterpipe}}</td>
+        <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_size}}</td>
+      </tr>
+    {% endif %}
+    {% if Tablespec.seven_hot == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 10px;">2.熱水盤管：{{Tablespec.seven_hot}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_hotfins}}</td>
+        <td style="padding-left: 20px;">厚度：{{Tablespec.seven_hotthick}}</td>
+        <td style="padding-left: 20px;">端側板：{{Tablespec.seven_hotboard}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_hotpipe_thick}}</td>
+        <td style="padding-left: 20px;">集水管：{{Tablespec.seven_hotwaterpipe}}</td>
+        <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_hotsize}}</td>
+      </tr>
+    {% endif %}
+    {% if Tablespec.seven_steam == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 10px;">3.蒸氣盤管：{{Tablespec.seven_steam}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_steamfins}}</td>
+        <td style="padding-left: 20px;">厚度：{{Tablespec.seven_steamthick}}</td>
+        <td style="padding-left: 20px;">端側板：{{Tablespec.seven_steamboard}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_steampipe_thick}}</td>
+        <td style="padding-left: 20px;">集水管：{{Tablespec.seven_steamwaterpipe}}</td>
+        <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_steamsize}}</td>
+      </tr>
+    {% endif %}
+    {% if Tablespec.seven_brine == "含" %}
+      <tr style="border: none;">
+        <td style="padding-left: 10px;">4.鹵水盤管：{{Tablespec.seven_brine}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">鰭片：{{Tablespec.seven_brinefins}}</td>
+        <td style="padding-left: 20px;">厚度：{{Tablespec.seven_brinethick}}</td>
+        <td style="padding-left: 20px;">端側板：{{Tablespec.seven_brineboard}}</td>
+      </tr>
+      <tr style="border: none;">
+        <td style="padding-left: 20px;">銅管厚度：{{Tablespec.seven_brinepipe_thick}}</td>
+        <td style="padding-left: 20px;">集水管：{{Tablespec.seven_brinewaterpipe}}</td>
+        <td style="padding-left: 20px;">銅管管徑：{{Tablespec.seven_brinesize}}</td>
+      </tr>
+    {% endif %}
     <tr style="border: none;">
       <td style="padding-left: 10px;">其他要求：{{Tablespec.seven_other}}</td>
     </tr>
@@ -367,8 +385,11 @@
         <td style="padding-left: 20px;">品牌要求：{{Tablespec.seventeen_brand}}</td>
       </tr>
     </tr>
-    <tr style="border: none;"  >
-      <td  style="padding-left: 10px ;height: 200px;">十八、其他：<br>{{Tablespec.eighteen_other|safe}}</td>
+    <tr style="border: none;">
+      <td style="padding-left: 10px; height: 200px; vertical-align: top; text-align: left;">
+          十八、其他：<br>
+          {{ Tablespec.eighteen_other|safe }}
+      </td>
     </tr>
   
   

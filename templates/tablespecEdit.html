@@ -82,7 +82,7 @@
                         <th colspan="2">一、箱體材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_boxmaterial">
-                                <option value={{Tablespec.first_boxmaterial}} name="first_boxmaterial"> {{Tablespec.first_boxmaterial}}</option>
+                                <option value="{{Tablespec.first_boxmaterial}}" name="first_boxmaterial"> {{Tablespec.first_boxmaterial}}</option>
                                 {% for key,value in TablespecForm.first_boxmaterial_select %}
                                     {% if key != Tablespec.first_boxmaterial %}
                                         <option value="{{ key }}" name="first_boxmaterial">{{value}}</option>
