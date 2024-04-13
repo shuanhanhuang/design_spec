@@ -170,48 +170,57 @@
           <tr>
             <th></th>
             <th>濾材材質：</th>
-            <td>{{Tablespec.third_basic_material}}</td>
+            <td>{{Tablespec.third_basic_material}}
+              {% if Tablespec.third_basic_material != "無" and Tablespec.third_level != "無" %}
+                &nbsp;
+                {{Tablespec.third_level}}層
+              {% endif %}
+            </td>
           </tr>
           <tr>
             <th>2.中級濾網：</th>
             <td colspan="3">{{Tablespec.third_medium}}</td>
           </tr>
-          <tr>
-            <th></th>
-            <th>外框型式：</th>
-            <td>{{Tablespec.third_medium_frameform}}</td>
-            <th>袋長：</th>
-            <td>{{Tablespec.third_medium_long}}</td>
-            <th>廠牌：</th>
-            <td>{{Tablespec.third_medium_brand}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>濾網框：</th>
-            <td>{{Tablespec.third_medium_frame}}</td>
-            <th>效率：</th>
-            <td>{{Tablespec.third_medium_efficient}}&nbsp;比色法</td>
-          </tr>
+          {% if Tablespec.third_medium == "含" %}
+            <tr>
+              <th></th>
+              <th>外框型式：</th>
+              <td>{{Tablespec.third_medium_frameform}}</td>
+              <th>袋長：</th>
+              <td>{{Tablespec.third_medium_long}}</td>
+              <th>廠牌：</th>
+              <td>{{Tablespec.third_medium_brand}}</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th>濾網框：</th>
+              <td>{{Tablespec.third_medium_frame}}</td>
+              <th>效率：</th>
+              <td>{{Tablespec.third_medium_efficient}}&nbsp;比色法</td>
+            </tr>
+          {% endif %}
           <tr>
             <th>3.高級濾網：</th>
             <td colspan="3">{{Tablespec.third_high}}</td>
           </tr>
-          <tr>
-            <th></th>
-            <th>外框型式：</th>
-            <td>{{Tablespec.third_high_frameform}}</td>
-            <th>長度：</th>
-            <td>{{Tablespec.third_high_long}}</td>
-            <th>廠牌：</th>
-            <td>{{Tablespec.third_high_brand}}</td>
-          </tr>
-          <tr>
-            <th></th>
-            <th>濾網框：</th>
-            <td>{{Tablespec.third_high_frame}}</td>
-            <th>效率：</th>
-            <td>{{Tablespec.third_high_efficient}}&nbsp;D.O.P.</td>
-          </tr>
+          {% if Tablespec.third_high_frameform == "含" %}
+            <tr>
+              <th></th>
+              <th>外框型式：</th>
+              <td>{{Tablespec.third_high_frameform}}</td>
+              <th>長度：</th>
+              <td>{{Tablespec.third_high_long}}</td>
+              <th>廠牌：</th>
+              <td>{{Tablespec.third_high_brand}}</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th>濾網框：</th>
+              <td>{{Tablespec.third_high_frame}}</td>
+              <th>效率：</th>
+              <td>{{Tablespec.third_high_efficient}}&nbsp;D.O.P.</td>
+            </tr>
+          {% endif %}
           <tr>
           <tr>
             <th></th>
@@ -225,6 +234,7 @@
             <th>四、電熱器：</th>
             <td colspan="3">{{Tablespec.four_heater}}</td>
           </tr>
+          {% if Tablespec.four_heater == "含" %}
           <tr>
             <th></th>
             <th>SSCR控制：</th>
@@ -234,16 +244,20 @@
             <th>框架材質：</th>
             <td>{{Tablespec.four_material}}</td>
           </tr>
+          {% endif %}
           <tr>
             <th>五、加熱器：</th>
             <td>{{Tablespec.fiv_humidifier}}</td>
+            {% if Tablespec.fiv_humidifier == "含" %}
             <th>型式：</th>
             <td>{{Tablespec.fiv_form}}</td>
+            {% endif %}
           </tr>
           <tr>
             <th>六、風門：</th>
             <td colspan="3">{{Tablespec.six_winddoor}}</td>
           </tr>
+          {% if Tablespec.six_winddoor == "含" %}
           <tr>
             <th></th>
             <th>型式：</th>
@@ -256,11 +270,18 @@
           <tr>
             <th></th>
             <th>軸心：</th>
-            <td>{{Tablespec.six_axis}}</td>
+            <td>{{Tablespec.six_axis}}
+              {% if Tablespec.six_axis != "無" and Tablespec.six_mm != "" %}
+                &nbsp;
+                {{Tablespec.six_mm}}mm
+              {% endif %}
+            </td>
           </tr>
+          {% endif %}
           <tr>
             <th colspan="2">七、盤管：</th>
           </tr>
+          {% if Tablespec.seven_cold == "含" %}
           <tr>
             <th>1.冰水盤管</th>
             <td colspan="3">{{Tablespec.seven_cold}}</td>
@@ -295,6 +316,8 @@
               <td>{{Tablespec.seven_size}}</td>
             {% endif %}
           </tr>
+          {% endif %}
+          {% if Tablespec.seven_hot == "含" %}
           <tr>
             <th>2.熱水盤管</th>
             <td colspan="3">{{Tablespec.seven_hot}}</td>
@@ -317,6 +340,8 @@
             <th>銅管管徑：</th>
             <td>{{Tablespec.seven_hotsize}}</td>
           </tr>
+          {% endif %}
+          {% if Tablespec.seven_steam == "含" %}
           <tr>
             <th>3.蒸氣盤管</th>
             <td colspan="3">{{Tablespec.seven_steam}}</td>
@@ -339,6 +364,8 @@
             <th>銅管管徑：</th>
             <td>{{Tablespec.seven_steamsize}}</td>
           </tr>
+          {% endif %}
+          {% if Tablespec.seven_brine == "含" %}
           <tr>
             <th>4.鹵水盤管</th>
             <td colspan="3">{{Tablespec.seven_brine}}</td>
@@ -361,6 +388,7 @@
             <th>銅管管徑：</th>
             <td>{{Tablespec.seven_brinesize}}</td>
           </tr>
+          {% endif %}
           <tr>
             <th>其他要求：</th>
             <td colspan="3">{{Tablespec.seven_other}}</td>
@@ -461,7 +489,12 @@
             <th>洩壓風門：</th>
             <td>{{Tablespec.twelve_winddoor}}</td>
             <th>底座材質：</th>
-            <td>{{Tablespec.twelve_material}}</td>
+            <td>{{Tablespec.twelve_material}} 
+              {% if Tablespec.twelve_material != "無" and Tablespec.twelve_mm != "" %}
+                &nbsp;
+                {{Tablespec.twelve_mm}}mm
+              {% endif %}
+              </td>
           </tr>
           <tr>
             <th></th>
@@ -487,7 +520,7 @@
             <td>{{Tablespec.twelve_test}}</td>
           </tr>
           <tr>
-            <th colspan="3">十三、交貨方式：{{Tablespec.thirteen_way}}</th>
+            <th colspan="3">十三、交貨方式：<span style="font-weight: 400;">{{Tablespec.thirteen_way}}</span></th>
             <th>新竹以北掉卡：</th>
             <td>{{Tablespec.thirteen_elevator}}</td>
           </tr>
@@ -503,7 +536,7 @@
             <th >空調箱外之避震：</th>
             <td>{{Tablespec.thirteen_shock}}</td>
             <th>避震器型式：</th>
-            <td>{{Tablespec.thirteen_shocbox}}</td>
+            <td>{{Tablespec.thirteen_shocbox}}&nbsp;{{Tablespec.thirteen_shockbox_form}}</td>
           </tr>
           <tr>
             <th></th>
@@ -521,13 +554,13 @@
           </tr>
           <tr>
             <th></th>
-            <th colspan="2">防位移型式：</th>
+            <th>防位移型式：</th>
             <td>{{Tablespec.thirteen_displace}}</td>
             <th>固定方式：</th>
             <td>{{Tablespec.thirteen_fixway}}</td>
           </tr>
           <tr>
-            <th colspan="3">十四、現場組裝：{{Tablespec.fourteen_ass}}</th>
+            <th colspan="3">十四、現場組裝：<span style="font-weight: 400;">{{Tablespec.fourteen_ass}}</span></th>
             <th>組裝預算：</th>
             <td colspan="5">
               {{Tablespec.fourteen_budget}}
@@ -535,7 +568,7 @@
           </tr>
           <tr>
             <th></th>
-            <th colspan="2">施工時間：</th>
+            <th >施工時間：</th>
             <td>{{Tablespec.fourteen_time}}</td>
           </tr>
           <tr>
@@ -564,10 +597,15 @@
             <th >六小時公安證件：</th>
             <td>{{Tablespec.fourteen_card}}</td>
             <th>工地意外保險：</th>
-            <td>{{Tablespec.fourteen_insurance}}</td>
+            {% if Tablespec.fourteen_insurance == "0" %}
+              <td>不需要</td>
+            {% else %}
+              <td>{{Tablespec.fourteen_insurance}}</td>
+            {% endif %}
           </tr>
           <tr>
-            <th colspan="5">十五、空調箱搬運空位：{{Tablespec.fifteen_location}}</th>
+            <th colspan="3">十五、空調箱搬運空位：<span style="font-weight: 400;">{{Tablespec.fifteen_location}}</span></th>
+            <th>現場勘查：</th><td>{{Tablespec.fifteen_view}}</td>
           </tr>
           <tr>
             <th></th>
@@ -577,7 +615,13 @@
           <tr>
             <th></th>
             <th>垂直搬運：</th>
-            <td>{{Tablespec.fifteen_vertical}}</td>
+            <td>{{Tablespec.fifteen_vertical}}
+              {% if Tablespec.fifteen_tool != none %}
+                &nbsp;=>{{Tablespec.fifteen_tool}}
+              {% endif %}
+            </td>
+            <th>搬運預算：</th>
+            <td>{{Tablespec.fifteen_budget}}</td>
           </tr>
           <tr>
             <th></th>

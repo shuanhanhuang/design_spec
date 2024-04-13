@@ -192,11 +192,11 @@
             <th></th>
             <td></td>
             <th>濾材材質：</th>
-            <td>{{tablespecform.third_basic_material}}</td>
+            <td>{{tablespecform.third_basic_material}}&nbsp;{{tablespecform.third_level}}層</td>
           </tr>
           <tr>
             <th colspan="2">2.中級濾網：</th>
-            <td colspan="3">{{tablespecform.third_medium}}</td>
+            <td colspan="3">{{tablespecform.third_medium}} </td>
           </tr>
           <tr>
             <th></th>
@@ -286,7 +286,7 @@
             <th></th>
             <td></td>
             <th>軸心：</th>
-            <td>{{tablespecform.six_axis}}</td>
+            <td>{{tablespecform.six_axis}}&nbsp;<input type="text" name="six_mm" style="width: 100px; height: 25px;">mm</td>
 
           </tr>
           <tr>
@@ -393,10 +393,10 @@
             <th colspan="2">其他要求：</th>
             <td colspan="7">
               <input type="checkbox" value="無" class="check_box_list7" />無
-              <input type="checkbox" value="風車" class="check_box_list7" />鰭片鍍錫
-              <input type="checkbox" value="盤管" class="check_box_list7" />持壓進場
-              <input type="checkbox" value="電熱器" class="check_box_list7" />附法蘭
-              <input type="checkbox" value="加濕器" class="check_box_list7" />epoxy塗裝
+              <input type="checkbox" value="鰭片鍍錫" class="check_box_list7" />鰭片鍍錫
+              <input type="checkbox" value="持壓進場" class="check_box_list7" />持壓進場
+              <input type="checkbox" value="附法蘭" class="check_box_list7" />附法蘭
+              <input type="checkbox" value="epoxy塗裝" class="check_box_list7" />epoxy塗裝
             </td>
           </tr>
           <tr>
@@ -409,7 +409,16 @@
           <tr>
             <th colspan="2">九、風車：</th>
             <th>廠牌：</th>
-            <td>{{tablespecform.nine_brand}}</td>
+            <td>
+              <input list="browsers" name="nine_brand" style="width: 110px; height: 25px;" value="{{ windbrand }}">
+              <datalist id="browsers">
+                <option value="科祿格">
+                <option value="及普">
+                <option value="尼可達">
+                <option value="億利達">
+                <option value="依圖面">
+              </datalist>
+            </td>
             <th>傳動方式：</th>
             <td>{{tablespecform.nine_way}}</td>
             <th>葉片型式：</th>
@@ -418,7 +427,19 @@
           <tr>
             <th colspan="2">十、馬達：</th>
             <th style="color: rgb(56, 122, 221);">廠牌：</th>
-            <td>{{tablespecform.ten_motor_brand}}</td>
+            <td>
+              <!-- {{tablespecform.ten_motor_brand}} -->
+              <input list="browsersten" name="ten_motor_brand" style="width: 110px; height: 25px;"  value="{{ motorbrand }}">
+              <datalist id="browsersten">
+                <option value="東元">
+                <option value="大同">
+                <option value="西門子">
+                <option value="銅管">
+                <option value="MEZ">
+                <option value="邦達">
+                <option value="依圖面">
+              </datalist>
+            </td>
             <th style="color: rgb(56, 122, 221);">絕緣等級：</th>
             <td>{{tablespecform.ten_motor_Insulation}}</td>
           </tr>
@@ -448,10 +469,10 @@
             <th>其他要求：</th>
             <td colspan="7">
               <input type="checkbox" value="無" class="check_box_list10" />無
-              <input type="checkbox" value="風車" class="check_box_list10" />附電熱器
-              <input type="checkbox" value="盤管" class="check_box_list10" />S.F. 1.0
-              <input type="checkbox" value="電熱器" class="check_box_list10" />S.F. 1.1
-              <input type="checkbox" value="加濕器" class="check_box_list10" />S.F. 1.15
+              <input type="checkbox" value="附電熱器" class="check_box_list10" />附電熱器
+              <input type="checkbox" value="S.F. 1.0" class="check_box_list10" />S.F. 1.0
+              <input type="checkbox" value="S.F. 1.1" class="check_box_list10" />S.F. 1.1
+              <input type="checkbox" value="S.F. 1.15" class="check_box_list10" />S.F. 1.15
             </td>
           </tr>
           <tr>
@@ -503,7 +524,16 @@
             <th>洩壓風門：</th>
             <td>{{tablespecform.twelve_winddoor}}</td>
             <th>底座材質：</th>
-            <td>{{tablespecform.twelve_material}}</td>
+            <td>
+              <input list="browserstwelve" name="twelve_material" style="width: 120px; height: 25px;" value="{{ basematerial }}">
+              <datalist id="browserstwelve">
+                <option value="C型鋼">
+                <option value="熱浸鍍鋅槽鐵">
+                <option value="不鏽鋼">
+                <option value="無">
+              </datalist>
+              &nbsp;<input type="text" name="twelve_mm" style="width: 35px; height: 25px;">mm
+            </td>
           </tr>
           <tr>
             <th></th>
@@ -511,7 +541,15 @@
             <th>擴散網：</th>
             <td>{{tablespecform.twelve_net}}</td>
             <th>矽利康：</th>
-            <td>{{tablespecform.twelve_silicone}}</td>
+            <td>
+              <input list="browserssili" name="twelve_silicone" style="width: 110px; height: 25px;" value="{{silicone}}"></label>
+              <datalist id="browserssili">
+                <option value="勝新標準">
+                <option value="SIKA">
+                <option value="高溫型">
+                <option value="道康寧">
+              </datalist>
+            </td>
           </tr>
           <tr>
           <tr>
@@ -533,7 +571,6 @@
           </tr>
           <tr>
             <th colspan="4">十三、交貨方式：{{tablespecform.thirteen_way}}</th>
-            <!-- <td colspan="1">{{tablespecform.first_boxmaterial}}</td> -->
             <th>新竹以北掉卡：</th>
             <td>{{tablespecform.thirteen_elevator}}</td>
           </tr>
@@ -541,8 +578,10 @@
             <th></th>
             <th colspan="2">空調箱節箱：</th>
             <td>
-              <input name="thirteen_box" type="radio" value="勝新" checked="checked" />勝新
-              <input name="thirteen_box" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+              <select id="taskTypeSelect" name="thirteen_box">
+                <option value="勝新" name="thirteen_box"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="thirteen_box"> {{CompareSpec.cClient}} </option>
+              </select>
             </td>
             <th>分箱進場：</th>
             <td>{{tablespecform.thirteen_into}}</td>
@@ -551,19 +590,23 @@
             <th></th>
             <th colspan="2">空調箱外之避震：</th>
             <td>
-              <input name="thirteen_shock" type="radio" value="勝新" checked="checked" />勝新
-              <input name="thirteen_shock" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+              <select id="taskTypeSelect" name="thirteen_shock">
+                <option value="勝新" name="thirteen_shock"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="thirteen_shock"> {{CompareSpec.cClient}} </option>
+            </select>
             </td>
             <!-- <td>{{tablespecform.thirteen_shock}}</td> -->
             <th>避震器型式：</th>
-            <td>{{tablespecform.thirteen_shocbox}}</td>
+            <td colspan="5">{{tablespecform.thirteen_shocbox}} {{tablespecform.thirteen_shockbox_form}}</td>
           </tr>
           <tr>
             <th></th>
             <th colspan="2">氣密施作：</th>
             <td>
-              <input name="thirteen_apply" type="radio" value="勝新" checked="checked" />勝新
-              <input name="thirteen_apply" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+              <select id="taskTypeSelect" name="thirteen_apply">
+                <option value="勝新" name="thirteen_apply"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="thirteen_apply"> {{CompareSpec.cClient}} </option>
+              </select>
             </td>
             <!-- <td>{{tablespecform.thirteen_apply}}</td> -->
           </tr>
@@ -571,8 +614,10 @@
             <th></th>
             <th colspan="2">空調箱固定：</th>
             <td>
-              <input name="thirteen_fix" type="radio" value="勝新" checked="checked" />勝新
-              <input name="thirteen_fix" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+              <select id="taskTypeSelect" name="thirteen_fix">
+                <option value="勝新" name="thirteen_fix"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="thirteen_fix"> {{CompareSpec.cClient}} </option>
+              </select>
             </td>
             <th>結箱預算：</th>
             <td colspan="5">
@@ -600,65 +645,93 @@
           <tr>
             <th></th>
             <th colspan="2">施工時間：</th>
-            <td>{{tablespecform.fourteen_time}}</td>
+            <td colspan="5">
+              <input type="date" name="fourteen_time_date" value="{{ defaultDates.start }}">  
+              <input type="time" name="fourteen_time_time" value="{{ defaultDates.start_time }}">
+            </td>
+            <!-- <td>{{tablespecform.fourteen_time}}</td> -->
           </tr>
           <tr>
             <th></th>
             <th colspan="2">人員進場須知：</th>
             <td>{{tablespecform.fourteen_into}}</td>
             <th>日期時間：</th>
-            <td>{{tablespecform.fourteen_intotime}}</td>
+            <td colspan="5">
+              <input type="date" name="fourteen_intotime_date" value="{{ defaultDates.start }}">  
+              <input type="time" name="fourteen_intotime_time" value="{{ defaultDates.start_time }}">
+            </td>
           </tr>
           <tr>
             <th></th>
             <th colspan="2">當天上完課組裝：</th>
             <td>{{tablespecform.fourteen_afterass}}</td>
             <th>日期時間：</th>
-            <td>{{tablespecform.fourteen_afterasstime}}</td>
+            <td colspan="5">
+              <input type="date" name="fourteen_afterasstime_date" value="{{ defaultDates.start }}">  
+              <input type="time" name="fourteen_afterasstime_time" value="{{ defaultDates.start_time }}">
+            </td>
           </tr>
           <tr>
             <th></th>
             <th colspan="2">外籍人員可否進場：</th>
             <td>{{tablespecform.fourteen_foreigninto}}</td>
             <th>日期時間：</th>
-            <td>{{tablespecform.fourteen_foreignintotime}}</td>
+            <td colspan="5">
+              <input type="date" name="fourteen_foreignintotime_date" value="{{ defaultDates.start }}">  
+              <input type="time" name="fourteen_foreignintotime_time" value="{{ defaultDates.start_time }}">
+            </td>
           </tr>
           <tr>
             <th></th>
             <th colspan="2">六小時公安證件：</th>
             <td>{{tablespecform.fourteen_card}}</td>
             <th>工地意外保險：</th>
-            <td>{{tablespecform.fourteen_insurance}}</td>
+            <td>{{tablespecform.fourteen_insurance}}
+              <p style="color: red;">* 0為不需要</p>
+            </td>
           </tr>
           <tr>
             <th colspan="5">十五、空調箱搬運空位：
-              <input name="fifteen_location" type="radio" value="勝新" checked="checked" />勝新
-              <input name="fifteen_location" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+              <select id="taskTypeSelect" name="fifteen_location">
+                <option value="勝新" name="fifteen_location"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="fifteen_location"> {{CompareSpec.cClient}} </option>
+              </select>
+            </th>
+            <th colspan="5">現場勘查：
+              {{tablespecform.fifteen_view}}
             </th>
           </tr>
           <tr>
             <th></th>
             <th colspan="5">水平搬運：
-              <input name="fifteen_level" type="radio" value="勝新" checked="checked" />勝新
-              <input name="fifteen_level" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+              <select id="taskTypeSelect" name="fifteen_level">
+                <option value="勝新" name="fifteen_level"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="fifteen_level"> {{CompareSpec.cClient}} </option>
+              </select>
             </th>
-            <!-- <td>{{tablespecform.fifteen_level}}</td> -->
           </tr>
           <tr>
             <th></th>
-            <th colspan="5">垂直搬運：
-              <input name="fifteen_vertical" type="radio" value="勝新" checked="checked" />勝新
-              <input name="fifteen_vertical" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+            <th colspan="2">垂直搬運：
+              <select id="taskTypeSelect" name="fifteen_vertical">
+                <option value="勝新" name="fifteen_vertical"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="fifteen_vertical"> {{CompareSpec.cClient}} </option>
+              </select>
             </th>
-            <!-- <td>{{tablespecform.fifteen_vertical}}</td> -->
+            <td>
+              <input type="checkbox" value="吊車" class="check_box_list15" />吊車
+              <input type="checkbox" value="推高機" class="check_box_list15" />推高機
+            </td>
+            <th colspan="2">搬運預算：{{tablespecform.fifteen_budget}}</th>
           </tr>
           <tr>
             <th></th>
             <th colspan="5">立式空調箱上箱段：
-              <input name="fifteen_box" type="radio" value="勝新" checked="checked" />勝新
-              <input name="fifteen_box" type="radio" value="{{CompareSpec.cClient}}" />{{CompareSpec.cClient}}
+              <select id="taskTypeSelect" name="fifteen_box">
+                <option value="勝新" name="fifteen_box"> 勝新</option>
+                <option value="{{CompareSpec.cClient}}" name="fifteen_box"> {{CompareSpec.cClient}} </option>
+              </select>
             </th>
-            <!-- <td>{{tablespecform.fifteen_box}}</td> -->
           </tr>
           <tr>
             <th colspan="3">十六、代課安裝：</th>
@@ -708,6 +781,7 @@
             <input type="hidden" name="sixteen_install" id="textvalue">
             <input type="hidden" name="sixteen_prepare" id="textvalue1">
             <input type="hidden" name="seventeen_silicone" id="textvalue2">
+            <input type="hidden" name="fifteen_tool" id="textvalue5">
             <input type="hidden" name="thirteen_budget" id="textvalue3" value="無">
             <input type="hidden" name="fourteen_budget" id="textvalue4" value="無">
           </tr>
@@ -732,6 +806,7 @@
   <script src="{% static 'jquery.min.js' %}"></script>
   <script>
 
+    // 結箱預算和組裝預算
     function togglePaymentDetails() {
         var radiono = document.getElementById('1');
         var radioyes = document.getElementById('Other');
@@ -740,11 +815,9 @@
         var additionalTextbox = document.getElementById('textvalue3');
 
         if (radioyes.checked) {
-            // 如果选择了支票，显示相关文本框和文字，并设置额外的文本框内容
             textInput22.style.display = 'inline-block';
             updateAdditionalTextbox();
         } else {
-            // 如果选择了現金，隐藏相关文本框和文字，并设置额外的文本框内容
             textInput22.style.display = 'none';
             additionalTextbox.value = '無';
         }
@@ -764,11 +837,9 @@
         var additionalTextbox1 = document.getElementById('textvalue4');
 
         if (radioyes2.checked) {
-            // 如果选择了支票，显示相关文本框和文字，并设置额外的文本框内容
             textInput33.style.display = 'inline-block';
             updateAdditionalTextbox2();
         } else {
-            // 如果选择了現金，隐藏相关文本框和文字，并设置额外的文本框内容
             textInput33.style.display = 'none';
             additionalTextbox1.value = '無';
         }
@@ -783,6 +854,7 @@
 
 
     $(document).ready(function () {
+      // checkbox
       $(".check_box_list").click(function () {
         var test = ""
         $(".check_box_list:checked").each(function () {
@@ -791,6 +863,7 @@
         test = test.substring(0, test.length - 1)
         $("#textvalue").val(test);
       })
+
       $(".check_box_list1").click(function () {
         var test1 = ""
         $(".check_box_list1:checked").each(function () {
@@ -799,6 +872,7 @@
         test1 = test1.substring(0, test1.length - 1)
         $("#textvalue1").val(test1);
       })
+
       $(".check_box_list7").click(function () {
         var test7 = ""
         $(".check_box_list7:checked").each(function () {
@@ -807,6 +881,7 @@
         test7 = test7.substring(0, test7.length - 1)
         $("#textvalue7").val(test7);
       })
+      
       $(".check_box_list10").click(function () {
         var test10 = ""
         $(".check_box_list10:checked").each(function () {
@@ -815,6 +890,16 @@
         test10 = test10.substring(0, test10.length - 1)
         $("#textvalue10").val(test10);
       })
+
+      $(".check_box_list15").click(function () {
+        var test15 = ""
+        $(".check_box_list15:checked").each(function () {
+          test15 += $(this).val() + ","
+        });
+        test15 = test15.substring(0, test15.length - 1)
+        $("#textvalue5").val(test15);
+      })
+      // 矽利康:要先預設箱內、箱外
       var checkboxes = document.querySelectorAll('input[class="check_box_list2"]');
       var selectedValues = [];
 
@@ -823,9 +908,11 @@
           selectedValues.push(check_box_list2.value);
         }
       });
+
       myString = selectedValues.join(',');
       test2 = myString.substring(0, myString.length)
       $("#textvalue2").val(test2);
+
       $(".check_box_list2").click(function () {
         selectedValues = []
         checkboxes.forEach(function (check_box_list2) {
@@ -837,6 +924,7 @@
         test2 = myString.substring(0, myString.length)
         $("#textvalue2").val(test2);
       })
+
     })
 
 

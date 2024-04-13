@@ -76,17 +76,18 @@
                 <table class="table">
                     <tr>
                         <th colspan="2">設備名稱</th>
-                        <td colspan="3"><input type="text" id="machinename" name="machinename" value={{Tablespec.machinename}}></td>
+                        <td colspan="3"><input class="form-control" type="text" id="machinename" name="machinename" value="{{Tablespec.machinename}}" style="width: 230px;"></td>
                     </tr>
                     <tr>
                         <th colspan="2">一、箱體材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_boxmaterial">
-                                <option value="{{Tablespec.first_boxmaterial}}" name="first_boxmaterial"> {{Tablespec.first_boxmaterial}}</option>
+                                <option value="{{Tablespec.first_boxmaterial}}" name="first_boxmaterial">
+                                    {{Tablespec.first_boxmaterial}}</option>
                                 {% for key,value in TablespecForm.first_boxmaterial_select %}
-                                    {% if key != Tablespec.first_boxmaterial %}
-                                        <option value="{{ key }}" name="first_boxmaterial">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.first_boxmaterial %}
+                                <option value="{{ key }}" name="first_boxmaterial">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -96,33 +97,36 @@
                         <th>內板厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_inthick">
-                                <option value={{Tablespec.first_inthick}} name="first_inthick">{{Tablespec.first_inthick}}</option>
+                                <option value="{{Tablespec.first_inthick}}" name="first_inthick">
+                                    {{Tablespec.first_inthick}}</option>
                                 {% for key,value in TablespecForm.first_thick_select %}
-                                    {% if key != Tablespec.first_inthick %}
-                                        <option value="{{ key }}" name="first_inthick">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.first_inthick %}
+                                <option value="{{ key }}" name="first_inthick">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
                         <th>內板材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_inmaterial">
-                                <option value={{Tablespec.first_inmaterial}} name="first_inmaterial">{{Tablespec.first_inmaterial}}</option>
+                                <option value="{{Tablespec.first_inmaterial}}" name="first_inmaterial">
+                                    {{Tablespec.first_inmaterial}}</option>
                                 {% for key,value in TablespecForm.first_material_select %}
-                                    {% if key != Tablespec.first_inmaterial %}
-                                        <option value="{{ key }}" name="first_inmaterial">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.first_inmaterial %}
+                                <option value="{{ key }}" name="first_inmaterial">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
                         <th>螺絲配件：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_inother">
-                                <option value={{Tablespec.first_inother}} name="first_inother">{{Tablespec.first_inother}}</option>
+                                <option value="{{Tablespec.first_inother}} " name="first_inother">
+                                    {{Tablespec.first_inother}}</option>
                                 {% for key,value in TablespecForm.first_inother_select %}
-                                    {% if key != Tablespec.first_inother %}
-                                        <option value="{{ key }}" name="first_inother">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.first_inother %}
+                                <option value="{{ key }}" name="first_inother">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -132,33 +136,36 @@
                         <th>外板厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_outthick">
-                                <option value={{Tablespec.first_outthick}} name="first_outthick"> {{Tablespec.first_outthick}}</option>
+                                <option value="{{Tablespec.first_outthick}}" name="first_outthick">
+                                    {{Tablespec.first_outthick}}</option>
                                 {% for key,value in TablespecForm.first_thick_select %}
-                                    {% if key != Tablespec.first_outthick %}
-                                        <option value="{{ key }}" name="first_outthick">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.first_outthick %}
+                                <option value="{{ key }}" name="first_outthick">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
                         <th>外板材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_outmaterial">
-                                <option value={{Tablespec.first_outmaterial}} name="first_outmaterial">{{Tablespec.first_outmaterial}}</option>
+                                <option value="{{Tablespec.first_outmaterial}}" name="first_outmaterial">
+                                    {{Tablespec.first_outmaterial}}</option>
                                 {% for key,value in TablespecForm.first_material_select %}
-                                    {% if key != Tablespec.first_outmaterial %}
-                                        <option value="{{ key }}" name="first_outmaterial">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.first_outmaterial %}
+                                <option value="{{ key }}" name="first_outmaterial">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
-                        <th>箱板材質：</th>
+                        <th>箱板厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="first_boxthick">
-                                <option value={{Tablespec.first_boxthick}} name="first_boxthick">{{Tablespec.first_boxthick}}</option>
+                                <option value="{{Tablespec.first_boxthick}}" name="first_boxthick">
+                                    {{Tablespec.first_boxthick}}</option>
                                 {% for key,value in TablespecForm.first_boxthick_select %}
-                                    {% if key != Tablespec.first_boxthick %}
-                                        <option value="{{ key }}" name="first_boxthick">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.first_boxthick %}
+                                <option value="{{ key }}" name="first_boxthick">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -171,11 +178,12 @@
                         <th>維修門方式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="second_door">
-                                <option value={{Tablespec.second_door}} name="second_door">{{Tablespec.second_door}}</option>
+                                <option value="{{Tablespec.second_door}}" name="second_door">{{Tablespec.second_door}}
+                                </option>
                                 {% for key,value in TablespecForm.second_door_select %}
-                                    {% if key != Tablespec.second_door %}
-                                        <option value="{{ key }}" name="second_door">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.second_door %}
+                                <option value="{{ key }}" name="second_door">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -183,11 +191,12 @@
                         <th>箱體框架型式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="second_frame">
-                                <option value={{Tablespec.second_frame}} name="second_frame">{{Tablespec.second_frame}}</option>
+                                <option value="{{Tablespec.second_frame}}" name="second_frame">
+                                    {{Tablespec.second_frame}}</option>
                                 {% for key,value in TablespecForm.second_frame_select %}
-                                    {% if key != Tablespec.second_frame %}
-                                        <option value="{{ key }}" name="second_frame">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.second_frame %}
+                                <option value="{{ key }}" name="second_frame">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -199,11 +208,12 @@
                         <th colspan="2">1.初級濾網：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_basic">
-                                <option value={{Tablespec.third_basic}} name="third_basic">{{Tablespec.third_basic}}</option>
+                                <option value="{{Tablespec.third_basic}}" name="third_basic">{{Tablespec.third_basic}}
+                                </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
-                                    {% if key != Tablespec.third_basic %}
-                                        <option value="{{ key }}" name="third_basic">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.third_basic %}
+                                <option value="{{ key }}" name="third_basic">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -213,11 +223,12 @@
                         <th>安裝方式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_basic_install">
-                                <option value={{Tablespec.third_basic_install}} name="third_basic_install">{{Tablespec.third_basic_install}}</option>
+                                <option value="{{Tablespec.third_basic_install}}" name="third_basic_install">
+                                    {{Tablespec.third_basic_install}}</option>
                                 {% for key,value in TablespecForm.third_basic_install_select %}
-                                    {% if key != Tablespec.third_basic_install %}
-                                        <option value="{{ key }}" name="third_basic_install">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.third_basic_install %}
+                                <option value="{{ key }}" name="third_basic_install">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
 
@@ -225,18 +236,19 @@
                         <th>厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_basic_thick">
-                                <option value={{Tablespec.third_basic_thick}} name="third_basic_thick">{{Tablespec.third_basic_thick}}</option>
+                                <option value="{{Tablespec.third_basic_thick}}" name="third_basic_thick">
+                                    {{Tablespec.third_basic_thick}}</option>
                                 {% for key,value in TablespecForm.third_basic_thick_select %}
-                                    {% if key != Tablespec.third_basic_thick %}
-                                        <option value="{{ key }}" name="third_basic_thick">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.third_basic_thick %}
+                                <option value="{{ key }}" name="third_basic_thick">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
                         <th>廠牌：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_basic_brand">
-                                <option value={{Tablespec.third_basic_brand}} name="third_basic_brand">
+                                <option value="{{Tablespec.third_basic_brand}}" name="third_basic_brand">
                                     {{Tablespec.third_basic_brand}}</option>
                                 {% for key,value in TablespecForm.third_brand_select %}
                                 {% if key != Tablespec.third_basic_brand %}
@@ -251,7 +263,7 @@
                         <th>濾網框：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_basic_frame">
-                                <option value={{Tablespec.third_basic_frame}} name="third_basic_frame">
+                                <option value="{{Tablespec.third_basic_frame}}" name="third_basic_frame">
                                     {{Tablespec.third_basic_frame}}</option>
                                 {% for key,value in TablespecForm.third_frame_select %}
                                 {% if key != Tablespec.third_basic_frame %}
@@ -263,7 +275,7 @@
                         <th>效率：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_basic_efficient">
-                                <option value={{Tablespec.third_basic_efficient}} name="third_basic_efficient">
+                                <option value="{{Tablespec.third_basic_efficient}}" name="third_basic_efficient">
                                     {{Tablespec.third_basic_efficient}}</option>
                                 {% for key,value in TablespecForm.third_basic_efficient_select %}
                                 {% if key != Tablespec.third_basic_efficient %}
@@ -278,8 +290,8 @@
                         <th></th>
                         <th>濾材材質：</th>
                         <td>
-                            <select class="form-control" id="taskTypeSelect" name="third_basic_material">
-                                <option value={{Tablespec.third_basic_material}} name="third_basic_material">
+                            <select class="form-control" id="taskTypeSelect" name="third_basic_material" style="width: 100px; display: inline;">
+                                <option value="{{Tablespec.third_basic_material}}" name="third_basic_material">
                                     {{Tablespec.third_basic_material}}</option>
                                 {% for key,value in TablespecForm.third_basic_material_select %}
                                 {% if key != Tablespec.third_basic_material %}
@@ -287,13 +299,24 @@
                                 {% endif %}
                                 {% endfor %}
                             </select>
+                            &nbsp;
+                            <select class="form-control" id="taskTypeSelect" name="third_level" style="width: 70px; display: inline;">
+                                <option value="{{Tablespec.third_level}}" name="third_level">
+                                    {{Tablespec.third_level}}</option>
+                                {% for key,value in TablespecForm.third_level_select %}
+                                {% if key != Tablespec.third_level %}
+                                <option value="{{ key }}" name="third_level">{{value}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>層
                         </td>
                     </tr>
                     <tr>
                         <th colspan="2">2.中級濾網：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_medium">
-                                <option value={{Tablespec.third_medium}} name="third_medium">{{Tablespec.third_medium}}
+                                <option value="{{Tablespec.third_medium}}" name="third_medium">
+                                    {{Tablespec.third_medium}}
                                 </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.third_basic %}
@@ -308,7 +331,7 @@
                         <th>外框型式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_medium_frameform">
-                                <option value={{Tablespec.third_medium_frameform}} name="third_medium_frameform">
+                                <option value="{{Tablespec.third_medium_frameform}}" name="third_medium_frameform">
                                     {{Tablespec.third_medium_frameform}}</option>
                                 {% for key,value in TablespecForm.third_medium_frameform_select %}
                                 {% if key != Tablespec.third_medium_frameform %}
@@ -320,7 +343,7 @@
                         <th>袋長：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_medium_long">
-                                <option value={{Tablespec.third_medium_long}} name="third_medium_long">
+                                <option value="{{Tablespec.third_medium_long}}" name="third_medium_long">
                                     {{Tablespec.third_medium_long}}</option>
                                 {% for key,value in TablespecForm.third_medium_long_select %}
                                 {% if key != Tablespec.third_medium_long %}
@@ -332,7 +355,7 @@
                         <th>廠牌：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_medium_brand">
-                                <option value={{Tablespec.third_medium_brand}} name="third_medium_brand">
+                                <option value="{{Tablespec.third_medium_brand}}" name="third_medium_brand">
                                     {{Tablespec.third_medium_brand}}</option>
                                 {% for key,value in TablespecForm.third_brand_select %}
                                 {% if key != Tablespec.third_brand_select %}
@@ -347,7 +370,7 @@
                         <th>濾網框：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_medium_frame">
-                                <option value={{Tablespec.third_medium_frame}} name="third_medium_frame">
+                                <option value="{{Tablespec.third_medium_frame}}" name="third_medium_frame">
                                     {{Tablespec.third_medium_frame}}</option>
                                 {% for key,value in TablespecForm.third_frame_select %}
                                 {% if key != Tablespec.third_frame_select %}
@@ -359,7 +382,7 @@
                         <th>效率：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_medium_efficient">
-                                <option value={{Tablespec.third_medium_efficient}} name="third_medium_efficient">
+                                <option value="{{Tablespec.third_medium_efficient}}" name="third_medium_efficient">
                                     {{Tablespec.third_medium_efficient}}</option>
                                 {% for key,value in TablespecForm.third_medium_efficient_select %}
                                 {% if key != Tablespec.third_medium_efficient %}
@@ -374,7 +397,7 @@
                         <th colspan="2">3.高級濾網：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_high">
-                                <option value={{Tablespec.third_high}} name="third_high">{{Tablespec.third_high}}
+                                <option value="{{Tablespec.third_high}}" name="third_high">{{Tablespec.third_high}}
                                 </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.third_high %}
@@ -389,7 +412,7 @@
                         <th>外框型式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_high_frameform">
-                                <option value={{Tablespec.third_high_frameform}} name="third_high_frameform">
+                                <option value="{{Tablespec.third_high_frameform}}" name="third_high_frameform">
                                     {{Tablespec.third_high_frameform}}</option>
                                 {% for key,value in TablespecForm.third_high_frameform_select %}
                                 {% if key != Tablespec.third_high_frameform %}
@@ -401,7 +424,7 @@
                         <th>長度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_high_long">
-                                <option value={{Tablespec.third_high_long}} name="third_high_long">
+                                <option value="{{Tablespec.third_high_long}}" name="third_high_long">
                                     {{Tablespec.third_high_long}}</option>
                                 {% for key,value in TablespecForm.third_high_long_select %}
                                 <option value="{{ key }}">{{value}}</option>
@@ -411,7 +434,7 @@
                         <th>廠牌：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_high_brand">
-                                <option value={{Tablespec.third_high_brand}} name="third_high_brand">
+                                <option value="{{Tablespec.third_high_brand}}" name="third_high_brand">
                                     {{Tablespec.third_high_brand}}</option>
                                 {% for key,value in TablespecForm.third_brand_select %}
                                 {% if key != Tablespec.third_high_brand %}
@@ -426,7 +449,7 @@
                         <th>濾網框：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_high_frame">
-                                <option value={{Tablespec.third_high_frame}} name="third_high_frame">
+                                <option value="{{Tablespec.third_high_frame}}" name="third_high_frame">
                                     {{Tablespec.third_high_frame}}</option>
                                 {% for key,value in TablespecForm.third_frame_select %}
                                 {% if key != Tablespec.third_high_frame %}
@@ -438,7 +461,7 @@
                         <th>效率：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_high_efficient">
-                                <option value={{Tablespec.third_high_efficient}} name="third_high_efficient">
+                                <option value="{{Tablespec.third_high_efficient}}" name="third_high_efficient">
                                     {{Tablespec.third_high_efficient}}</option>
                                 {% for key,value in TablespecForm.third_high_efficient_select %}
                                 {% if key != Tablespec.third_high_efficient %}
@@ -454,7 +477,7 @@
                         <th>初中級框架材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="third_basic_medium_material">
-                                <option value={{Tablespec.third_basic_medium_material}}
+                                <option value="{{Tablespec.third_basic_medium_material}}"
                                     name="third_basic_medium_material">{{Tablespec.third_basic_medium_material}}
                                 </option>
                                 {% for key,value in TablespecForm.third_all_material_select %}
@@ -466,8 +489,8 @@
                         </td>
                         <th>高效框架材質：</th>
                         <td>
-                            <select class="form-control" id="taskTypeSelect" name="third_high_material">
-                                <option value={{Tablespec.third_high_material}} name="third_high_material">
+                            <select class="form-control" id="taskTypeSelect" name="third_high_material" >
+                                <option value="{{Tablespec.third_high_material}}" name="third_high_material">
                                     {{Tablespec.third_high_material}}</option>
                                 {% for key,value in TablespecForm.third_all_material_select %}
                                 {% if key != Tablespec.third_high_material %}
@@ -481,7 +504,7 @@
                         <th colspan="2">四、電熱器：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="four_heater">
-                                <option value={{Tablespec.four_heater}} name="four_heater">{{Tablespec.four_heater}}
+                                <option value="{{Tablespec.four_heater}}" name="four_heater">{{Tablespec.four_heater}}
                                 </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.four_heater %}
@@ -496,7 +519,8 @@
                         <th>SSCR控制：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="four_SSCR">
-                                <option value={{Tablespec.four_SSCR}} name="four_SSCR">{{Tablespec.four_SSCR}}</option>
+                                <option value="{{Tablespec.four_SSCR}}" name="four_SSCR">{{Tablespec.four_SSCR}}
+                                </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.four_SSCR %}
                                 <option value="{{ key }}" name="four_SSCR">{{value}}</option>
@@ -507,7 +531,7 @@
                         <th>分段方式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="four_way">
-                                <option value={{Tablespec.four_way}} name="four_way">{{Tablespec.four_way}}</option>
+                                <option value="{{Tablespec.four_way}}" name="four_way">{{Tablespec.four_way}}</option>
                                 {% for key,value in TablespecForm.four_way_select %}
                                 {% if key != Tablespec.four_way %}
                                 <option value="{{ key }}" name="four_way">{{value}}</option>
@@ -518,7 +542,7 @@
                         <th>框架材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="four_material">
-                                <option value={{Tablespec.four_material}} name="four_material">
+                                <option value="{{Tablespec.four_material}}" name="four_material">
                                     {{Tablespec.four_material}}</option>
                                 {% for key,value in TablespecForm.four_material_select %}
                                 {% if key != Tablespec.four_material %}
@@ -532,7 +556,7 @@
                         <th colspan="2">五、加熱器：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="fiv_humidifier">
-                                <option value={{Tablespec.fiv_humidifier}} name="fiv_humidifier">
+                                <option value="{{Tablespec.fiv_humidifier}}" name="fiv_humidifier">
                                     {{Tablespec.fiv_humidifier}}</option>
                                 {% for key,value in TablespecForm.fiv_humidifier_select %}
                                 {% if key != Tablespec.fiv_humidifier %}
@@ -544,7 +568,7 @@
                         <th>型式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="fiv_form">
-                                <option value={{Tablespec.fiv_form}} name="fiv_form">{{Tablespec.fiv_form}}</option>
+                                <option value="{{Tablespec.fiv_form}}" name="fiv_form">{{Tablespec.fiv_form}}</option>
                                 {% for key,value in TablespecForm.fiv_form_select %}
                                 {% if key != Tablespec.fiv_form %}
                                 <option value="{{ key }}" name="fiv_form">{{value}}</option>
@@ -557,7 +581,8 @@
                         <th colspan="2">六、風門：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="six_winddoor">
-                                <option value={{Tablespec.six_winddoor}} name="six_winddoor">{{Tablespec.six_winddoor}}
+                                <option value="{{Tablespec.six_winddoor}}" name="six_winddoor">
+                                    {{Tablespec.six_winddoor}}
                                 </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.six_winddoor %}
@@ -572,7 +597,7 @@
                         <th>型式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="six_form">
-                                <option value={{Tablespec.six_form}} name="six_form">{{Tablespec.six_form}}</option>
+                                <option value="{{Tablespec.six_form}}" name="six_form">{{Tablespec.six_form}}</option>
                                 {% for key,value in TablespecForm.six_form_select %}
                                 {% if key != Tablespec.six_form %}
                                 <option value="{{ key }}" name="six_form">{{value}}</option>
@@ -583,7 +608,7 @@
                         <th>邊框材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="six_frame_material">
-                                <option value={{Tablespec.six_frame_material}} name="six_frame_material">
+                                <option value="{{Tablespec.six_frame_material}}" name="six_frame_material">
                                     {{Tablespec.six_frame_material}}</option>
                                 {% for key,value in TablespecForm.six_material_select %}
                                 {% if key != Tablespec.six_frame_material %}
@@ -595,7 +620,7 @@
                         <th>葉片材質：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="six_blade_material">
-                                <option value={{Tablespec.six_blade_material}} name="six_blade_material">
+                                <option value="{{Tablespec.six_blade_material}}" name="six_blade_material">
                                     {{Tablespec.six_blade_material}}</option>
                                 {% for key,value in TablespecForm.six_material_select %}
                                 {% if key != Tablespec.six_blade_material %}
@@ -609,14 +634,15 @@
                         <th></th>
                         <th>軸心：</th>
                         <td>
-                            <select class="form-control" id="taskTypeSelect" name="six_axis">
-                                <option value={{Tablespec.six_axis}} name="six_axis">{{Tablespec.six_axis}}</option>
+                            <select class="form-control" id="taskTypeSelect" name="six_axis" style="width: 100px; display: inline;">
+                                <option value="{{Tablespec.six_axis}}" name="six_axis">{{Tablespec.six_axis}}</option>
                                 {% for key,value in TablespecForm.six_axis_select %}
                                 {% if key != Tablespec.six_axis %}
                                 <option value="{{ key }}" name="six_axis">{{value}}</option>
                                 {% endif %}
                                 {% endfor %}
-                            </select>
+                            </select>&nbsp;
+                            <input class="form-control" type="text" id="six_mm" name="six_mm" value="{{Tablespec.six_mm}}" style="width: 70px; display: inline;">mm
                         </td>
 
                     </tr>
@@ -628,7 +654,7 @@
                         <th>1.冰水盤管</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_cold">
-                                <option value={{Tablespec.seven_cold}} name="seven_cold">{{Tablespec.seven_cold}}
+                                <option value="{{Tablespec.seven_cold}}" name="seven_cold">{{Tablespec.seven_cold}}
                                 </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.seven_cold %}
@@ -643,7 +669,7 @@
                         <th>鰭片：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_fins">
-                                <option value={{Tablespec.seven_fins}} name="seven_fins">{{Tablespec.seven_fins}}
+                                <option value="{{Tablespec.seven_fins}}" name="seven_fins">{{Tablespec.seven_fins}}
                                 </option>
                                 {% for key,value in TablespecForm.seven_fins_select %}
                                 {% if key != Tablespec.seven_fins %}
@@ -655,7 +681,7 @@
                         <th>厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_thick">
-                                <option value={{Tablespec.seven_thick}} name="seven_thick">{{Tablespec.seven_thick}}
+                                <option value="{{Tablespec.seven_thick}}" name="seven_thick">{{Tablespec.seven_thick}}
                                 </option>
                                 {% for key,value in TablespecForm.seven_thick_select %}
                                 {% if key != Tablespec.seven_thick %}
@@ -667,7 +693,7 @@
                         <th>端側板：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_board">
-                                <option value={{Tablespec.seven_board}} name="seven_board">{{Tablespec.seven_board}}
+                                <option value="{{Tablespec.seven_board}}" name="seven_board">{{Tablespec.seven_board}}
                                 </option>
                                 {% for key,value in TablespecForm.seven_board_select %}
                                 {% if key != Tablespec.seven_board %}
@@ -682,7 +708,7 @@
                         <th>銅管厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_pipe_thick">
-                                <option value={{Tablespec.seven_pipe_thick}} name="seven_pipe_thick">
+                                <option value="{{Tablespec.seven_pipe_thick}}" name="seven_pipe_thick">
                                     {{Tablespec.seven_pipe_thick}}</option>
                                 {% for key,value in TablespecForm.seven_pipe_thick_select %}
                                 {% if key != Tablespec.seven_pipe_thick %}
@@ -694,7 +720,7 @@
                         <th>集水管：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_waterpipe">
-                                <option value={{Tablespec.seven_waterpipe}} name="seven_waterpipe">
+                                <option value="{{Tablespec.seven_waterpipe}}" name="seven_waterpipe">
                                     {{Tablespec.seven_waterpipe}}</option>
                                 {% for key,value in TablespecForm.seven_waterpipe_select %}
                                 {% if key != Tablespec.seven_waterpipe %}
@@ -706,7 +732,7 @@
                         <th>銅管管徑：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_size">
-                                <option value={{Tablespec.seven_size}} name="seven_size">{{Tablespec.seven_size}}
+                                <option value="{{Tablespec.seven_size}}" name="seven_size">{{Tablespec.seven_size}}
                                 </option>
                                 {% for key,value in TablespecForm.seven_size_select %}
                                 {% if key != Tablespec.seven_size %}
@@ -721,7 +747,8 @@
                         <th>2.熱水盤管</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_hot">
-                                <option value={{Tablespec.seven_hot}} name="seven_hot">{{Tablespec.seven_hot}}</option>
+                                <option value="{{Tablespec.seven_hot}}" name="seven_hot">{{Tablespec.seven_hot}}
+                                </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.seven_hot %}
                                 <option value="{{ key }}" name="seven_hot">{{value}}</option>
@@ -735,7 +762,7 @@
                         <th>鰭片：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_hotfins">
-                                <option value={{Tablespec.seven_hotfins}} name="seven_hotfins">
+                                <option value="{{Tablespec.seven_hotfins}}" name="seven_hotfins">
                                     {{Tablespec.seven_hotfins}}</option>
                                 {% for key,value in TablespecForm.seven_fins_select %}
                                 {% if key != Tablespec.seven_hotfins %}
@@ -747,7 +774,7 @@
                         <th>厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_hotthick">
-                                <option value={{Tablespec.seven_hotthick}} name="seven_hotthick">
+                                <option value="{{Tablespec.seven_hotthick}}" name="seven_hotthick">
                                     {{Tablespec.seven_hotthick}}</option>
                                 {% for key,value in TablespecForm.seven_thick_select %}
                                 {% if key != Tablespec.seven_hotthick %}
@@ -759,7 +786,7 @@
                         <th>端側板：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_hotboard">
-                                <option value={{Tablespec.seven_hotboard}} name="seven_hotboard">
+                                <option value="{{Tablespec.seven_hotboard}}" name="seven_hotboard">
                                     {{Tablespec.seven_hotboard}}</option>
                                 {% for key,value in TablespecForm.seven_board_select %}
                                 {% if key != Tablespec.seven_hotboard %}
@@ -774,7 +801,7 @@
                         <th>銅管厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_hotpipe_thick">
-                                <option value={{Tablespec.seven_hotpipe_thick}} name="seven_hotpipe_thick">
+                                <option value="{{Tablespec.seven_hotpipe_thick}}" name="seven_hotpipe_thick">
                                     {{Tablespec.seven_hotpipe_thick}}</option>
                                 {% for key,value in TablespecForm.seven_pipe_thick_select %}
                                 {% if key != Tablespec.seven_hotpipe_thick %}
@@ -786,7 +813,7 @@
                         <th>集水管：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_hotwaterpipe">
-                                <option value={{Tablespec.seven_hotwaterpipe}} name="seven_hotwaterpipe">
+                                <option value="{{Tablespec.seven_hotwaterpipe}}" name="seven_hotwaterpipe">
                                     {{Tablespec.seven_hotwaterpipe}}</option>
                                 {% for key,value in TablespecForm.seven_waterpipe_select %}
                                 {% if key != Tablespec.seven_hotwaterpipe %}
@@ -798,7 +825,7 @@
                         <th>銅管管徑：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_hotsize">
-                                <option value={{Tablespec.seven_hotsize}} name="seven_hotsize">
+                                <option value="{{Tablespec.seven_hotsize}}" name="seven_hotsize">
                                     {{Tablespec.seven_hotsize}}</option>
                                 {% for key,value in TablespecForm.seven_size_select %}
                                 {% if key != Tablespec.seven_hotsize %}
@@ -814,7 +841,7 @@
                         <th>3.蒸氣盤管</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_steam">
-                                <option value={{Tablespec.seven_steam}} name="seven_steam">{{Tablespec.seven_steam}}
+                                <option value="{{Tablespec.seven_steam}}" name="seven_steam">{{Tablespec.seven_steam}}
                                 </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.seven_steam %}
@@ -829,7 +856,7 @@
                         <th>鰭片：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_steamfins">
-                                <option value={{Tablespec.seven_steamfins}} name="seven_steamfins">
+                                <option value="{{Tablespec.seven_steamfins}}" name="seven_steamfins">
                                     {{Tablespec.seven_steamfins}}</option>
                                 {% for key,value in TablespecForm.seven_fins_select %}
                                 {% if key != Tablespec.seven_steamfins %}
@@ -841,7 +868,7 @@
                         <th>厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_steamthick">
-                                <option value={{Tablespec.seven_steamthick}} name="seven_steamthick">
+                                <option value="{{Tablespec.seven_steamthick}}" name="seven_steamthick">
                                     {{Tablespec.seven_steamthick}}</option>
                                 {% for key,value in TablespecForm.seven_thick_select %}
                                 {% if key != Tablespec.seven_steamthick %}
@@ -853,7 +880,7 @@
                         <th>端側板：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_steamboard">
-                                <option value={{Tablespec.seven_steamboard}} name="seven_steamboard">
+                                <option value="{{Tablespec.seven_steamboard}}" name="seven_steamboard">
                                     {{Tablespec.seven_steamboard}}</option>
                                 {% for key,value in TablespecForm.seven_board_select %}
                                 {% if key != Tablespec.seven_steamboard %}
@@ -868,7 +895,7 @@
                         <th>銅管厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_steampipe_thick">
-                                <option value={{Tablespec.seven_steampipe_thick}} name="seven_steampipe_thick">
+                                <option value="{{Tablespec.seven_steampipe_thick}}" name="seven_steampipe_thick">
                                     {{Tablespec.seven_steampipe_thick}}</option>
                                 {% for key,value in TablespecForm.seven_pipe_thick_select %}
                                 {% if key != Tablespec.seven_steampipe_thick %}
@@ -880,7 +907,7 @@
                         <th>集水管：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_steamwaterpipe">
-                                <option value={{Tablespec.seven_steamwaterpipe}} name="seven_steamwaterpipe">
+                                <option value="{{Tablespec.seven_steamwaterpipe}}" name="seven_steamwaterpipe">
                                     {{Tablespec.seven_steamwaterpipe}}</option>
                                 {% for key,value in TablespecForm.seven_waterpipe_select %}
                                 {% if key != Tablespec.seven_steamwaterpipe %}
@@ -892,7 +919,7 @@
                         <th>銅管管徑：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_steamsize">
-                                <option value={{Tablespec.seven_steamsize}} name="seven_steamsize">
+                                <option value="{{Tablespec.seven_steamsize}}" name="seven_steamsize">
                                     {{Tablespec.seven_steamsize}}</option>
                                 {% for key,value in TablespecForm.seven_size_select %}
                                 {% if key != Tablespec.seven_steamsize %}
@@ -907,7 +934,7 @@
                         <th>4.鹵水盤管</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_brine">
-                                <option value={{Tablespec.seven_brine}} name="seven_brine">{{Tablespec.seven_brine}}
+                                <option value="{{Tablespec.seven_brine}}" name="seven_brine">{{Tablespec.seven_brine}}
                                 </option>
                                 {% for key,value in TablespecForm.Yes_no_select %}
                                 {% if key != Tablespec.seven_brine %}
@@ -922,7 +949,7 @@
                         <th>鰭片：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_brinefins">
-                                <option value={{Tablespec.seven_brinefins}} name="seven_brinefins">
+                                <option value="{{Tablespec.seven_brinefins}}" name="seven_brinefins">
                                     {{Tablespec.seven_brinefins}}</option>
                                 {% for key,value in TablespecForm.seven_fins_select %}
                                 {% if key != Tablespec.seven_brinefins %}
@@ -934,7 +961,7 @@
                         <th>厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_brinethick">
-                                <option value={{Tablespec.seven_brinethick}} name="seven_brinethick">
+                                <option value="{{Tablespec.seven_brinethick}}" name="seven_brinethick">
                                     {{Tablespec.seven_brinethick}}</option>
                                 {% for key,value in TablespecForm.seven_thick_select %}
                                 {% if key != Tablespec.seven_brinethick %}
@@ -946,7 +973,7 @@
                         <th>端側板：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_brineboard">
-                                <option value={{Tablespec.seven_brineboard}} name="seven_brineboard">
+                                <option value="{{Tablespec.seven_brineboard}}" name="seven_brineboard">
                                     {{Tablespec.seven_brineboard}}</option>
                                 {% for key,value in TablespecForm.seven_board_select %}
                                 {% if key != Tablespec.seven_brineboard %}
@@ -961,7 +988,7 @@
                         <th>銅管厚度：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_brinepipe_thick">
-                                <option value={{Tablespec.seven_brinepipe_thick}} name="seven_brinepipe_thick">
+                                <option value="{{Tablespec.seven_brinepipe_thick}}" name="seven_brinepipe_thick">
                                     {{Tablespec.seven_brinepipe_thick}}</option>
                                 {% for key,value in TablespecForm.seven_pipe_thick_select %}
                                 {% if key != Tablespec.seven_brinepipe_thick %}
@@ -973,7 +1000,7 @@
                         <th>集水管：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_brinewaterpipe">
-                                <option value={{Tablespec.seven_brinewaterpipe}} name="seven_brinewaterpipe">
+                                <option value="{{Tablespec.seven_brinewaterpipe}}" name="seven_brinewaterpipe">
                                     {{Tablespec.seven_brinewaterpipe}}</option>
                                 {% for key,value in TablespecForm.seven_waterpipe_select %}
                                 {% if key != Tablespec.seven_brinewaterpipe %}
@@ -985,7 +1012,7 @@
                         <th>銅管管徑：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="seven_brinesize">
-                                <option value={{Tablespec.seven_brinesize}} name="seven_brinesize">
+                                <option value="{{Tablespec.seven_brinesize}}" name="seven_brinesize">
                                     {{Tablespec.seven_brinesize}}</option>
                                 {% for key,value in TablespecForm.seven_size_select %}
                                 {% if key != Tablespec.seven_brinesize %}
@@ -998,8 +1025,19 @@
 
                     <tr>
                         <th></th>
-                        <th colspan="2">其他要求：<input type="text" id="seven_other" name="seven_other"
-                                value={{Tablespec.seven_other}}></th>
+                        <th>其他要求：</th>
+                        <td colspan="5">
+                            <input type="checkbox" name="option" class="check_box_list7" value="無" {% if '無' in Tablespec.seven_other %}checked{% endif %}>
+                            <label for="無">無
+                            <input type="checkbox" name="option" class="check_box_list7" value="鰭片度錫" {% if '鰭片度錫' in Tablespec.seven_other %}checked{% endif %}>
+                            <label for="鰭片度錫">鰭片度錫
+                            <input type="checkbox" name="option" class="check_box_list7" value="持壓進場" {% if '持壓進場' in Tablespec.seven_other %}checked{% endif %}>
+                            <label for="持壓進場">持壓進場
+                            <input type="checkbox" name="option" class="check_box_list7" value="附法蘭" {%if '附法蘭' in Tablespec.seven_other %}checked{% endif %}>
+                            <label for="附法蘭">附法蘭
+                            <input type="checkbox" name="option" class="check_box_list7" value="epoxy塗裝"{% if 'epoxy塗裝' in Tablespec.seven_other %}checked{% endif %}>
+                            <label for="epoxy塗裝">epoxy塗裝
+                        </td>
                     </tr>
                     <tr>
                         <th colspan="2">八、排水盤：</th>
@@ -1007,7 +1045,7 @@
                             <span style="display: inline-block;">材質：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="eight_material">
-                                    <option value={{Tablespec.eight_material}} name="eight_material">
+                                    <option value="{{Tablespec.eight_material}}" name="eight_material">
                                         {{Tablespec.eight_material}}</option>
                                     {% for key,value in TablespecForm.eight_material_select %}
                                     {% if key != Tablespec.eight_material %}
@@ -1021,7 +1059,8 @@
                             <span style="display: inline-block;">厚度：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="eight_thick">
-                                    <option value={{Tablespec.eight_thick}} name="eight_thick">{{Tablespec.eight_thick}}
+                                    <option value="{{Tablespec.eight_thick}}" name="eight_thick">
+                                        {{Tablespec.eight_thick}}
                                     </option>
                                     {% for key,value in TablespecForm.eight_thick_select %}
                                     {% if key != Tablespec.eight_thick %}
@@ -1037,26 +1076,26 @@
                         <th colspan="1">
                             <span style="display: inline-block;">廠牌：</span>
                             <span style="display: inline-block;">
-                                <select class="form-control" id="taskTypeSelect" name="nine_brand">
-                                    <option value={{Tablespec.nine_brand}} name="nine_brand">{{Tablespec.nine_brand}}
-                                    </option>
-                                    {% for key,value in TablespecForm.nine_brand_select %}
-                                    {% if key != Tablespec.nine_brand %}
-                                    <option value="{{ key }}" name="nine_brand">{{value}}</option>
-                                    {% endif %}
-                                    {% endfor %}
-                                </select>
+                                <input class="form-control" list="browsers" name="nine_brand"  value="{{Tablespec.nine_brand}}" style="width: 110px; height: 40px;"></label>
+                                <datalist id="browsers">
+                                    <option value="科祿格">
+                                    <option value="及普">
+                                    <option value="尼可達">
+                                    <option value="億利達">
+                                    <option value="依圖面">
+                                </datalist>
                             </span>
                         </th>
                         <th colspan="2">
                             <span style="display: inline-block;">傳動方式：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="nine_way">
-                                    <option value={{Tablespec.nine_way}} name="nine_way">{{Tablespec.nine_way}}</option>
+                                    <option value="{{Tablespec.nine_way}}" name="nine_way">{{Tablespec.nine_way}}
+                                    </option>
                                     {% for key,value in TablespecForm.nine_way_select %}
-                                    {% if key != Tablespec.nine_way %}
-                                    <option value="{{ key }}" name="nine_way">{{value}}</option>
-                                    {% endif %}
+                                        {% if key != Tablespec.nine_way %}
+                                            <option value="{{ key }}" name="nine_way">{{value}}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
@@ -1065,7 +1104,7 @@
                             <span style="display: inline-block;">葉片型式：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="nine_form">
-                                    <option value={{Tablespec.nine_form}} name="nine_form">{{Tablespec.nine_form}}
+                                    <option value="{{Tablespec.nine_form}}" name="nine_form">{{Tablespec.nine_form}}
                                     </option>
                                     {% for key,value in TablespecForm.nine_form_select %}
                                     {% if key != Tablespec.nine_form %}
@@ -1078,25 +1117,26 @@
                     </tr>
                     <tr>
                         <th colspan="2">十、馬達：</th>
-                        <th colspan="2">
+                        <th colspan="1">
                             <span style="display: inline-block;">廠牌：</span>
                             <span style="display: inline-block;">
-                                <select class="form-control" id="taskTypeSelect" name="ten_motor_brand">
-                                    <option value={{Tablespec.ten_motor_brand}} name="ten_motor_brand">
-                                        {{Tablespec.ten_motor_brand}}</option>
-                                    {% for key,value in TablespecForm.ten_motor_brand_select %}
-                                    {% if key != Tablespec.ten_motor_brand %}
-                                    <option value="{{ key }}" name="ten_motor_brand">{{value}}</option>
-                                    {% endif %}
-                                    {% endfor %}
-                                </select>
+                                <input class="form-control" list="browsersten" name="ten_motor_brand" value="{{Tablespec.ten_motor_brand}}" style="width: 110px; height: 40px;"></label>
+                                <datalist id="browsersten">
+                                    <option value="東元">
+                                    <option value="大同">
+                                    <option value="西門子">
+                                    <option value="銅管">
+                                    <option value="MEZ">
+                                    <option value="邦達">
+                                    <option value="依圖面">
+                                </datalist>
                             </span>
                         </th>
                         <th colspan="2">
                             <span style="display: inline-block;">絕緣等級：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="ten_motor_Insulation">
-                                    <option value={{Tablespec.ten_motor_Insulation}} name="ten_motor_Insulation">
+                                    <option value="{{Tablespec.ten_motor_Insulation}}" name="ten_motor_Insulation">
                                         {{Tablespec.ten_motor_Insulation}}</option>
                                     {% for key,value in TablespecForm.ten_motor_Insulation_select %}
                                     {% if key != Tablespec.ten_motor_Insulation %}
@@ -1114,7 +1154,7 @@
                             <span style="display: inline-block;">馬達電源：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="ten_motor_elec">
-                                    <option value={{Tablespec.ten_motor_elec}} name="ten_motor_elec">
+                                    <option value="{{Tablespec.ten_motor_elec}}" name="ten_motor_elec">
                                         {{Tablespec.ten_motor_elec}}</option>
                                     {% for key,value in TablespecForm.ten_motor_elec_select %}
                                     {% if key != Tablespec.ten_motor_elec %}
@@ -1128,7 +1168,7 @@
                             <span style="display: inline-block;">馬達效率：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="ten_motor_efficient">
-                                    <option value={{Tablespec.ten_motor_efficient}} name="ten_motor_efficient">
+                                    <option value="{{Tablespec.ten_motor_efficient}}" name="ten_motor_efficient">
                                         {{Tablespec.ten_motor_efficient}}</option>
                                     {% for key,value in TablespecForm.ten_motor_efficient_select %}
                                     {% if key != Tablespec.ten_motor_efficient %}
@@ -1142,7 +1182,7 @@
                             <span style="display: inline-block;">防護等級：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="ten_motor_level">
-                                    <option value={{Tablespec.ten_motor_level}} name="ten_motor_level">
+                                    <option value="{{Tablespec.ten_motor_level}}" name="ten_motor_level">
                                         {{Tablespec.ten_motor_level}}</option>
                                     {% for key,value in TablespecForm.ten_motor_level_select %}
                                     {% if key != Tablespec.ten_motor_level %}
@@ -1160,7 +1200,7 @@
                             <span style="display: inline-block;">啟動方式：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="ten_motor_open">
-                                    <option value={{Tablespec.ten_motor_open}} name="ten_motor_open">
+                                    <option value="{{Tablespec.ten_motor_open}}" name="ten_motor_open">
                                         {{Tablespec.ten_motor_open}}</option>
                                     {% for key,value in TablespecForm.ten_motor_open_select %}
                                     {% if key != Tablespec.ten_motor_open %}
@@ -1174,7 +1214,7 @@
                             <span style="display: inline-block;">冷卻方式：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="ten_motor_cold">
-                                    <option value={{Tablespec.ten_motor_cold}} name="ten_motor_cold">
+                                    <option value="{{Tablespec.ten_motor_cold}}" name="ten_motor_cold">
                                         {{Tablespec.ten_motor_cold}}</option>
                                     {% for key,value in TablespecForm.ten_motor_cold_select %}
                                     {% if key != Tablespec.ten_motor_cold %}
@@ -1188,7 +1228,7 @@
                             <span style="display: inline-block;">馬達型式：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="ten_motor_form">
-                                    <option value={{Tablespec.ten_motor_form}} name="ten_motor_form">
+                                    <option value="{{Tablespec.ten_motor_form}}" name="ten_motor_form">
                                         {{Tablespec.ten_motor_form}}</option>
                                     {% for key,value in TablespecForm.ten_motor_form_select %}
                                     {% if key != Tablespec.ten_motor_form %}
@@ -1201,9 +1241,19 @@
                     </tr>
                     <tr>
                         <th></th>
-                        <th></th>
-                        <th colspan="2">其他要求：<input type="text" id="ten_motor_ask" name="ten_motor_ask"
-                                value={{Tablespec.ten_motor_ask}}></th>
+                        <th>其他要求：</th>
+                        <td colspan="5">
+                            <input type="checkbox" name="option" class="check_box_list10" value="無" {% if '無' in Tablespec.ten_motor_ask %}checked{% endif %}>
+                            <label for="無">無
+                            <input type="checkbox" name="option" class="check_box_list10" value="附電熱器" {% if '附電熱器' in Tablespec.ten_motor_ask %}checked{% endif %}>
+                            <label for="附電熱器">附電熱器
+                            <input type="checkbox" name="option" class="check_box_list10" value="S.F. 1.0" {% if 'S.F. 1.0' in Tablespec.ten_motor_ask %}checked{% endif %}>
+                            <label for="S.F. 1.0">S.F. 1.0
+                            <input type="checkbox" name="option" class="check_box_list10" value="S.F. 1.1"{% if 'S.F. 1.1' in Tablespec.ten_motor_ask %}checked{% endif %}>
+                            <label for="S.F. 1.1">S.F. 1.1
+                            <input type="checkbox" name="option" class="check_box_list10" value="S.F. 1.15" {% if 'S.F. 1.15' in Tablespec.ten_motor_ask %}checked{% endif %}>
+                            <label for="S.F. 1.15">S.F. 1.15
+                        </td>
                     </tr>
                     <tr>
                         <th colspan="2">十一、配電箱：</th>
@@ -1211,7 +1261,7 @@
                             <span style="display: inline-block;">材質：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="eleven_material">
-                                    <option value={{Tablespec.eleven_material}} name="eleven_material">
+                                    <option value="{{Tablespec.eleven_material}}" name="eleven_material">
                                         {{Tablespec.eleven_material}}</option>
                                     {% for key,value in TablespecForm.eleven_material_select %}
                                     {% if key != Tablespec.eleven_material %}
@@ -1225,7 +1275,8 @@
                             <span style="display: inline-block;">型式：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="eleven_form">
-                                    <option value={{Tablespec.eleven_form}} name="eleven_form">{{Tablespec.eleven_form}}
+                                    <option value="{{Tablespec.eleven_form}}" name="eleven_form">
+                                        {{Tablespec.eleven_form}}
                                     </option>
                                     {% for key,value in TablespecForm.eleven_form_select %}
                                     {% if key != Tablespec.eleven_form %}
@@ -1239,7 +1290,7 @@
                             <span style="display: inline-block;">鎖：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="eleven_key">
-                                    <option value={{Tablespec.eleven_key}} name="eleven_key">{{Tablespec.eleven_key}}
+                                    <option value="{{Tablespec.eleven_key}}" name="eleven_key">{{Tablespec.eleven_key}}
                                     </option>
                                     {% for key,value in TablespecForm.Yes_no2_select %}
                                     {% if key != Tablespec.eleven_key %}
@@ -1256,7 +1307,7 @@
                             <span style="display: inline-block;">防護等級：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="eleven_level">
-                                    <option value={{Tablespec.eleven_level}} name="eleven_level">
+                                    <option value="{{Tablespec.eleven_level}}" name="eleven_level">
                                         {{Tablespec.eleven_level}}</option>
                                     {% for key,value in TablespecForm.eleven_level_select %}
                                     {% if key != Tablespec.eleven_level %}
@@ -1266,8 +1317,7 @@
                                 </select>
                             </span>
                         </th>
-                        <th colspan="2">尺寸需求：<input type="text" id="eleven_size" name="eleven_size"
-                                value={{Tablespec.eleven_size}}></th>
+                        <th colspan="2">尺寸需求：<input class="form-control" type="text" id="eleven_size" name="eleven_size" value="{{Tablespec.eleven_size}}" style="width: 150px; display: inline;"></th>
                     </tr>
                     <tr>
                         <th colspan="2">十二、配件：</th>
@@ -1275,7 +1325,7 @@
                             <span style="display: inline-block;">廠牌：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_brand">
-                                    <option value={{Tablespec.twelve_brand}} name="twelve_brand">
+                                    <option value="{{Tablespec.twelve_brand}}" name="twelve_brand">
                                         {{Tablespec.twelve_brand}}</option>
                                     {% for key,value in TablespecForm.twelve_brand_select %}
                                     {% if key != Tablespec.twelve_brand %}
@@ -1293,7 +1343,8 @@
                             <span style="display: inline-block;">視窗：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_view">
-                                    <option value={{Tablespec.twelve_view}} name="twelve_view">{{Tablespec.twelve_view}}
+                                    <option value="{{Tablespec.twelve_view}}" name="twelve_view">
+                                        {{Tablespec.twelve_view}}
                                     </option>
                                     {% for key,value in TablespecForm.twelve_view_light_select %}
                                     {% if key != Tablespec.twelve_view %}
@@ -1307,7 +1358,7 @@
                             <span style="display: inline-block;">壓差計：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_pressure">
-                                    <option value={{Tablespec.twelve_pressure}} name="twelve_pressure">
+                                    <option value="{{Tablespec.twelve_pressure}}" name="twelve_pressure">
                                         {{Tablespec.twelve_pressure}}</option>
                                     {% for key,value in TablespecForm.twelve_pressure_select %}
                                     {% if key != Tablespec.twelve_pressure %}
@@ -1321,7 +1372,8 @@
                             <span style="display: inline-block;">刻度單位：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_unit">
-                                    <option value={{Tablespec.twelve_unit}} name="twelve_unit">{{Tablespec.twelve_unit}}
+                                    <option value="{{Tablespec.twelve_unit}}" name="twelve_unit">
+                                        {{Tablespec.twelve_unit}}
                                     </option>
                                     {% for key,value in TablespecForm.twelve_unit_select %}
                                     {% if key != Tablespec.twelve_unit %}
@@ -1339,7 +1391,7 @@
                             <span style="display: inline-block;">照明：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_light">
-                                    <option value={{Tablespec.twelve_light}} name="twelve_light">
+                                    <option value="{{Tablespec.twelve_light}}" name="twelve_light">
                                         {{Tablespec.twelve_light}}</option>
                                     {% for key,value in TablespecForm.twelve_view_light_select %}
                                     {% if key != Tablespec.twelve_light %}
@@ -1353,7 +1405,7 @@
                             <span style="display: inline-block;">防護等級：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_level">
-                                    <option value={{Tablespec.twelve_level}} name="twelve_level">
+                                    <option value="{{Tablespec.twelve_level}}" name="twelve_level">
                                         {{Tablespec.twelve_level}}</option>
                                     {% for key,value in TablespecForm.eleven_level_select %}
                                     {% if key != Tablespec.twelve_level %}
@@ -1367,7 +1419,7 @@
                             <span style="display: inline-block;">照明電源：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_light_elec">
-                                    <option value={{Tablespec.twelve_light_elec}} name="twelve_light_elec">
+                                    <option value="{{Tablespec.twelve_light_elec}}" name="twelve_light_elec">
                                         {{Tablespec.twelve_light_elec}}</option>
                                     {% for key,value in TablespecForm.twelve_light_elec_select %}
                                     {% if key != Tablespec.twelve_light_elec %}
@@ -1385,7 +1437,7 @@
                             <span style="display: inline-block;">照明開關：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_light_open">
-                                    <option value={{Tablespec.twelve_light_open}} name="twelve_light_open">
+                                    <option value="{{Tablespec.twelve_light_open}}" name="twelve_light_open">
                                         {{Tablespec.twelve_light_open}}</option>
                                     {% for key,value in TablespecForm.twelve_light_open_select %}
                                     {% if key != Tablespec.twelve_light_open %}
@@ -1399,7 +1451,7 @@
                             <span style="display: inline-block;">洩壓風門：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_winddoor">
-                                    <option value={{Tablespec.twelve_winddoor}} name="twelve_winddoor">
+                                    <option value="{{Tablespec.twelve_winddoor}}" name="twelve_winddoor">
                                         {{Tablespec.twelve_winddoor}}</option>
                                     {% for key,value in TablespecForm.Yes_no2_select %}
                                     {% if key != Tablespec.twelve_winddoor %}
@@ -1409,8 +1461,20 @@
                                 </select>
                             </span>
                         </th>
-                        <th colspan="2">底座材質：<input type="text" id="twelve_material" name="twelve_material"
-                                value={{Tablespec.twelve_material}}></th>
+                        <th colspan="2">
+                            <span style="display: inline-block;">底座材質：</span>
+                            <span style="display: inline-block;">
+                                <input list="browserstwelve" value="{{Tablespec.twelve_material}}" class="form-control" name="twelve_material" style="width: 110px; height: 37px; display: inline;"></label>
+                                <datalist id="browserstwelve">
+                                    <option value="C型鋼">
+                                    <option value="熱浸鍍鋅槽鐵">
+                                    <option value="不鏽鋼">
+                                    <option value="無">
+                                </datalist>
+                                <input class="form-control" type="text" id="twelve_mm" name="twelve_mm" value="{{Tablespec.twelve_mm}}" style="width: 50px; display: inline;">mm
+                            </span>
+                        </th>
+                        
                     </tr>
                     <tr>
                         <th></th>
@@ -1419,7 +1483,7 @@
                             <span style="display: inline-block;">擴散網：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_net">
-                                    <option value={{Tablespec.twelve_net}} name="twelve_net">{{Tablespec.twelve_net}}
+                                    <option value="{{Tablespec.twelve_net}}" name="twelve_net">{{Tablespec.twelve_net}}
                                     </option>
                                     {% for key,value in TablespecForm.twelve_net_select %}
                                     {% if key != Tablespec.twelve_net %}
@@ -1432,15 +1496,13 @@
                         <th colspan="2">
                             <span style="display: inline-block;">矽利康：</span>
                             <span style="display: inline-block;">
-                                <select class="form-control" id="taskTypeSelect" name="twelve_silicone">
-                                    <option value={{Tablespec.twelve_silicone}} name="twelve_silicone">
-                                        {{Tablespec.twelve_silicone}}</option>
-                                    {% for key,value in TablespecForm.twelve_silicone_select %}
-                                    {% if key != Tablespec.twelve_silicone %}
-                                    <option value="{{ key }}" name="twelve_silicone">{{value}}</option>
-                                    {% endif %}
-                                    {% endfor %}
-                                </select>
+                                <input class="form-control" list="browserssili" value="{{Tablespec.twelve_silicone}}" name="twelve_silicone" style="width: 110px; height: 37px;"></label>
+                                <datalist id="browserssili">
+                                    <option value="勝新標準">
+                                    <option value="SIKA">
+                                    <option value="高溫型">
+                                    <option value="道康寧">
+                                </datalist>
                             </span>
                         </th>
                     </tr>
@@ -1451,7 +1513,7 @@
                             <span style="display: inline-block;">空調箱放置地點：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_location">
-                                    <option value={{Tablespec.twelve_location}} name="twelve_location">
+                                    <option value="{{Tablespec.twelve_location}}" name="twelve_location">
                                         {{Tablespec.twelve_location}}</option>
                                     {% for key,value in TablespecForm.twelve_location_select %}
                                     {% if key != Tablespec.twelve_location %}
@@ -1465,7 +1527,8 @@
                             <span style="display: inline-block;">屋頂：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_roof">
-                                    <option value={{Tablespec.twelve_roof}} name="twelve_roof">{{Tablespec.twelve_roof}}
+                                    <option value="{{Tablespec.twelve_roof}}" name="twelve_roof">
+                                        {{Tablespec.twelve_roof}}
                                     </option>
                                     {% for key,value in TablespecForm.Yes_no2_select %}
                                     {% if key != Tablespec.twelve_roof %}
@@ -1479,7 +1542,7 @@
                             <span style="display: inline-block;">材質：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_newmaterial">
-                                    <option value={{Tablespec.twelve_newmaterial}} name="twelve_newmaterial">
+                                    <option value="{{Tablespec.twelve_newmaterial}}" name="twelve_newmaterial">
                                         {{Tablespec.twelve_newmaterial}}</option>
                                     {% for key,value in TablespecForm.twelve_material_select %}
                                     {% if key != Tablespec.twelve_newmaterial %}
@@ -1498,7 +1561,8 @@
                             <span style="display: inline-block;">廠驗：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="twelve_test">
-                                    <option value={{Tablespec.twelve_test}} name="twelve_test">{{Tablespec.twelve_test}}
+                                    <option value="{{Tablespec.twelve_test}}" name="twelve_test">
+                                        {{Tablespec.twelve_test}}
                                     </option>
                                     {% for key,value in TablespecForm.Yes_no2_select %}
                                     {% if key != Tablespec.twelve_test %}
@@ -1514,7 +1578,7 @@
                             <span style="display: inline-block;">十三、交貨方式：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="thirteen_way">
-                                    <option value={{Tablespec.thirteen_way}} name="thirteen_way">
+                                    <option value="{{Tablespec.thirteen_way}}" name="thirteen_way">
                                         {{Tablespec.thirteen_way}}</option>
                                     {% for key,value in TablespecForm.thirteen_way_select %}
                                     {% if key != Tablespec.thirteen_way %}
@@ -1528,11 +1592,12 @@
                             <span style="display: inline-block;">新竹以北掉卡：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="thirteen_elevator">
-                                    <option value="{{Tablespec.thirteen_elevator}}" name="thirteen_elevator"> {{Tablespec.thirteen_elevator}}</option>
+                                    <option value="{{Tablespec.thirteen_elevator}}" name="thirteen_elevator">
+                                        {{Tablespec.thirteen_elevator}}</option>
                                     {% for key,value in TablespecForm.Yes_no3_select %}
-                                        {% if key != Tablespec.thirteen_elevator %}
-                                            <option value="{{ key }}" name="thirteen_elevator">{{value}}</option>
-                                        {% endif %}
+                                    {% if key != Tablespec.thirteen_elevator %}
+                                    <option value="{{ key }}" name="thirteen_elevator">{{value}}</option>
+                                    {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
@@ -1546,13 +1611,15 @@
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_box">
                                 <option value="勝新" name="thirteen_box"> 勝新</option>
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_box"> {{OrderSpec.cClient}}</option>     
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_box"> {{OrderSpec.cClient}}
+                                </option>
                             </select>
                         </td>
                         {% elif Tablespec.thirteen_box == OrderSpec.cClient %}
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_box">
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_box"> {{OrderSpec.cClient}}</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_box"> {{OrderSpec.cClient}}
+                                </option>
                                 <option value="勝新" name="thirteen_box"> 勝新</option>
                             </select>
                         </td>
@@ -1561,11 +1628,12 @@
                         <th>分箱進場：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_into">
-                                <option value="{{Tablespec.thirteen_into}}" name="thirteen_into"> {{Tablespec.thirteen_into}}</option>
+                                <option value="{{Tablespec.thirteen_into}}" name="thirteen_into">
+                                    {{Tablespec.thirteen_into}}</option>
                                 {% for key,value in TablespecForm.Yes_no5_select %}
-                                    {% if key != Tablespec.thirteen_into %}
-                                        <option value="{{ key }}" name="thirteen_into">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.thirteen_into %}
+                                <option value="{{ key }}" name="thirteen_into">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
                         </td>
@@ -1577,34 +1645,32 @@
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_shock">
                                 <option value="勝新" name="thirteen_shock"> 勝新</option>
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_shock"> {{OrderSpec.cClient}}</option>     
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_shock"> {{OrderSpec.cClient}}
+                                </option>
                             </select>
-                            <!-- <input name="thirteen_shock" type="radio" id="thirteen_shock1" value="勝新"
-                                checked="checked" />
-                            勝新
-                            <input name="thirteen_shock" type="radio" id="thirteen_shock2"
-                                value={{OrderSpec.cClient}} />
-                            {{OrderSpec.cClient}} -->
                         </td>
                         {% elif Tablespec.thirteen_shock == OrderSpec.cClient %}
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_shock">
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_shock"> {{OrderSpec.cClient}}</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_shock"> {{OrderSpec.cClient}}
+                                </option>
                                 <option value="勝新" name="thirteen_shock"> 勝新</option>
                             </select>
                         </td>
                         {% endif %}
                         </th>
                         <th>避震器型式：</th>
-                        <td>
-                            <select class="form-control" id="taskTypeSelect" name="thirteen_shocbox">
-                                <option value="{{Tablespec.thirteen_shocbox}}" name="thirteen_shocbox">  {{Tablespec.thirteen_shocbox}}</option>
+                        <td colspan="2">
+                            <select class="form-control" id="taskTypeSelect" name="thirteen_shocbox" style="width: 100px; display: inline;">
+                                <option value="{{Tablespec.thirteen_shocbox}}" name="thirteen_shocbox">
+                                    {{Tablespec.thirteen_shocbox}}</option>
                                 {% for key,value in TablespecForm.thirteen_shocbox_select %}
-                                    {% if key != Tablespec.thirteen_shocbox %}
-                                        <option value="{{ key }}" name="thirteen_shocbox">{{value}}</option>
-                                    {% endif %}
+                                {% if key != Tablespec.thirteen_shocbox %}
+                                <option value="{{ key }}" name="thirteen_shocbox">{{value}}</option>
+                                {% endif %}
                                 {% endfor %}
-                            </select>
+                            </select>&nbsp;
+                            <input class="form-control" type="text" id="thirteen_shockbox_form" name="thirteen_shockbox_form" value="{{Tablespec.thirteen_shockbox_form}}" style="width: 170px; display: inline;">
                         </td>
                     </tr>
                     <tr>
@@ -1614,13 +1680,15 @@
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_apply">
                                 <option value="勝新" name="thirteen_apply"> 勝新</option>
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_apply"> {{OrderSpec.cClient}}</option>     
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_apply"> {{OrderSpec.cClient}}
+                                </option>
                             </select>
                         </td>
                         {% elif Tablespec.thirteen_apply == OrderSpec.cClient %}
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_apply">
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_apply"> {{OrderSpec.cClient}}</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_apply"> {{OrderSpec.cClient}}
+                                </option>
                                 <option value="勝新" name="thirteen_apply"> 勝新</option>
                             </select>
                         </td>
@@ -1634,13 +1702,15 @@
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_fix">
                                 <option value="勝新" name="thirteen_fix"> 勝新</option>
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_fix"> {{OrderSpec.cClient}}</option>     
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_fix"> {{OrderSpec.cClient}}
+                                </option>
                             </select>
                         </td>
                         {% elif Tablespec.thirteen_fix == OrderSpec.cClient %}
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_fix">
-                                <option value="{{OrderSpec.cClient}}" name="thirteen_fix"> {{OrderSpec.cClient}}</option>
+                                <option value="{{OrderSpec.cClient}}" name="thirteen_fix"> {{OrderSpec.cClient}}
+                                </option>
                                 <option value="勝新" name="thirteen_fix"> 勝新</option>
                             </select>
                         </td>
@@ -1648,21 +1718,28 @@
                         </th>
                         <th>結箱預算：</th>
                         {% if Tablespec.thirteen_budget == "無" %}
-                            <td>
-                                <input name="thirteen_budget" type="radio" id="thirteen_budget1" value="無" checked="checked" onclick="togglePaymentDetails()"/>
-                                無
-                                <input name="thirteen_budget" type="radio" id="thirteen_budget2" value="有" onclick="togglePaymentDetails()"/>
-                                有
-                            </td>
-                            <td><span id="budgetDetails" style="display:None;"><input name="thirteen_budget" type="text" id="other" value="" oninput="updateAdditionalTextbox()"></span></td>
+                        <td>
+                            <input name="thirteen_budget" type="radio" id="thirteen_budget1" value="無" checked="checked"
+                                onclick="togglePaymentDetails()" />
+                            無
+                            <input name="thirteen_budget" type="radio" id="thirteen_budget2" value="有"
+                                onclick="togglePaymentDetails()" />
+                            有
+                        </td>
+                        <td><span id="budgetDetails" style="display:None;"><input name="thirteen_budget" type="text"
+                                    id="other" value="" oninput="updateAdditionalTextbox()"></span></td>
                         {% else %}
-                            <td>
-                                <input name="thirteen_budget" type="radio" id="thirteen_budget1" value="無" onclick="togglePaymentDetails()"/>
-                                無
-                                <input name="thirteen_budget" type="radio" id="thirteen_budget2" value="有" checked="checked" onclick="togglePaymentDetails()"/>
-                                有
-                            </td>
-                            <td><span id="budgetDetails" style="display:inline-block;"><input name="thirteen_budget" type="text" id="other" required value="{{Tablespec.thirteen_budget}}" oninput="updateAdditionalTextbox()"></span></td>
+                        <td>
+                            <input name="thirteen_budget" type="radio" id="thirteen_budget1" value="無"
+                                onclick="togglePaymentDetails()" />
+                            無
+                            <input name="thirteen_budget" type="radio" id="thirteen_budget2" value="有" checked="checked"
+                                onclick="togglePaymentDetails()" />
+                            有
+                        </td>
+                        <td><span id="budgetDetails" style="display:inline-block;"><input name="thirteen_budget"
+                                    type="text" id="other" required value="{{Tablespec.thirteen_budget}}"
+                                    oninput="updateAdditionalTextbox()"></span></td>
                         {% endif %}
                     </tr>
                     <tr>
@@ -1670,7 +1747,7 @@
                         <th>防位移型式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_displace">
-                                <option value={{Tablespec.thirteen_displace}} name="thirteen_displace">
+                                <option value="{{Tablespec.thirteen_displace}}" name="thirteen_displace">
                                     {{Tablespec.thirteen_displace}}</option>
                                 {% for key,value in TablespecForm.thirteen_displace_select %}
                                 {% if key != Tablespec.thirteen_displace %}
@@ -1682,7 +1759,7 @@
                         <th>固定方式：</th>
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="thirteen_fixway">
-                                <option value={{Tablespec.thirteen_fixway}} name="thirteen_fixway">
+                                <option value="{{Tablespec.thirteen_fixway}}" name="thirteen_fixway">
                                     {{Tablespec.thirteen_fixway}}</option>
                                 {% for key,value in TablespecForm.thirteen_fixway_select %}
                                 {% if key != Tablespec.thirteen_fixway %}
@@ -1697,7 +1774,7 @@
                             <span style="display: inline-block;">十四、現場組裝：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="fourteen_ass">
-                                    <option value={{Tablespec.fourteen_ass}} name="fourteen_ass">
+                                    <option value="{{Tablespec.fourteen_ass}}" name="fourteen_ass">
                                         {{Tablespec.fourteen_ass}}</option>
                                     {% for key,value in TablespecForm.Yes_no3_select %}
                                     {% if key != Tablespec.fourteen_ass %}
@@ -1710,27 +1787,33 @@
                         <th>組裝預算：</th>
                         {% if Tablespec.fourteen_budget == "無" %}
                         <td>
-                            <input name="fourteen_budget" type="radio" id="fourteen_budget1" value="無" checked="checked" onclick="toggleDollarDetails()"/>
+                            <input name="fourteen_budget" type="radio" id="fourteen_budget1" value="無" checked="checked"
+                                onclick="toggleDollarDetails()" />
                             無
-                            <input name="fourteen_budget" type="radio" id="fourteen_budget2" value="有" onclick="toggleDollarDetails()"/>
+                            <input name="fourteen_budget" type="radio" id="fourteen_budget2" value="有"
+                                onclick="toggleDollarDetails()" />
                             有
                         </td>
-                        <td><span id="dollarDetails" style="display:None;"><input name="fourteen_budget" type="text" id="other1" value="" oninput="updateAdditionalTextbox2()"></span></td>
+                        <td><span id="dollarDetails" style="display:None;"><input name="fourteen_budget" type="text"
+                                    id="other1" value="" oninput="updateAdditionalTextbox2()"></span></td>
                         {% else %}
                         <td>
-                            <input name="fourteen_budget" type="radio" id="fourteen_budget1" value="無" onclick="toggleDollarDetails()"/>
+                            <input name="fourteen_budget" type="radio" id="fourteen_budget1" value="無"
+                                onclick="toggleDollarDetails()" />
                             無
-                            <input name="fourteen_budget" type="radio" id="fourteen_budget2" value="有" checked="checked" onclick="toggleDollarDetails()"/>
+                            <input name="fourteen_budget" type="radio" id="fourteen_budget2" value="有" checked="checked"
+                                onclick="toggleDollarDetails()" />
                             有
                         </td>
-                        <td><span id="dollarDetails" style="display:inline-block;"><input name="fourteen_budget" type="text" id="other1" required value="{{Tablespec.fourteen_budget}}" oninput="updateAdditionalTextbox2()"></span></td>
+                        <td><span id="dollarDetails" style="display:inline-block;"><input name="fourteen_budget"
+                                    type="text" id="other1" required value="{{Tablespec.fourteen_budget}}"
+                                    oninput="updateAdditionalTextbox2()"></span></td>
                         {% endif %}
                     </tr>
                     <tr>
                         <th></th>
                         <th>施工時間：</th>
-                        <td><input type="text" id="fourteen_time" name="fourteen_time"
-                                value={{Tablespec.fourteen_time}}></td>
+                        <td><input class="form-control" type="text" id="fourteen_time" name="fourteen_time" value="{{Tablespec.fourteen_time}}"></td>
                     </tr>
                     <tr>
                         <th></th>
@@ -1738,7 +1821,7 @@
                             <span style="display: inline-block;">人員進場須知：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="fourteen_into">
-                                    <option value={{Tablespec.fourteen_into}} name="fourteen_into">
+                                    <option value="{{Tablespec.fourteen_into}}" name="fourteen_into">
                                         {{Tablespec.fourteen_into}}</option>
                                     {% for key,value in TablespecForm.Yes_no5_select %}
                                     {% if key != Tablespec.fourteen_into %}
@@ -1748,8 +1831,7 @@
                                 </select>
                             </span>
                         </th>
-                        <th colspan="2">日期時間：<input type="text" id="fourteen_intotime" name="fourteen_intotime"
-                                value={{Tablespec.fourteen_intotime}}></th>
+                        <th colspan="2">日期時間：<input class="form-control" type="text" id="fourteen_intotime" name="fourteen_intotime" value="{{Tablespec.fourteen_intotime}}" style="width: 200px; display: inline;"></th>
                     </tr>
                     <tr>
                         <th></th>
@@ -1757,18 +1839,16 @@
                             <span style="display: inline-block;">當天上完課組裝：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="fourteen_afterass">
-                                    <option value={{Tablespec.fourteen_afterass}} name="fourteen_afterass">
-                                        {{Tablespec.fourteen_afterass}}</option>
+                                    <option value="{{Tablespec.fourteen_afterass}}" name="fourteen_afterass"> {{Tablespec.fourteen_afterass}}</option>
                                     {% for key,value in TablespecForm.Yes_no5_select %}
-                                    {% if key != Tablespec.fourteen_afterass %}
-                                    <option value="{{ key }}" name="fourteen_afterass">{{value}}</option>
-                                    {% endif %}
+                                        {% if key != Tablespec.fourteen_afterass %}
+                                            <option value="{{ key }}" name="fourteen_afterass">{{value}}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
                         </th>
-                        <th colspan="2">日期時間：<input type="text" id="fourteen_afterasstime" name="fourteen_afterasstime"
-                                value={{Tablespec.fourteen_afterasstime}}></th>
+                        <th colspan="2">日期時間：<input class="form-control" type="text" id="fourteen_afterasstime" name="fourteen_afterasstime"value="{{Tablespec.fourteen_afterasstime}}" style="width: 200px; display: inline;"></th>
                     </tr>
                     <tr>
                         <th></th>
@@ -1785,8 +1865,7 @@
                                 </select>
                             </span>
                         </th>
-                        <th colspan="2">日期時間：<input type="text" id="fourteen_afterasstime"
-                                name="fourteen_foreignintotime" value={{Tablespec.fourteen_foreignintotime}}></th>
+                        <th colspan="2">日期時間：<input class="form-control" type="text" id="fourteen_afterasstime" name="fourteen_foreignintotime" value="{{Tablespec.fourteen_foreignintotime}}" style="width: 200px; display: inline;"></th>
                     </tr>
                     <tr>
                         <th></th>
@@ -1794,46 +1873,54 @@
                             <span style="display: inline-block;">六小時公安證件：</span>
                             <span style="display: inline-block;">
                                 <select class="form-control" id="taskTypeSelect" name="fourteen_card">
-                                    <option value="{{Tablespec.fourteen_card}}" name="fourteen_card"> {{Tablespec.fourteen_card}}</option>
+                                    <option value="{{Tablespec.fourteen_card}}" name="fourteen_card">
+                                        {{Tablespec.fourteen_card}}</option>
                                     {% for key,value in TablespecForm.Yes_no4_select %}
-                                        {% if key != Tablespec.fourteen_card %}
-                                            <option value="{{ key }}" name="fourteen_card">{{value}}</option>
-                                        {% endif %}
+                                    {% if key != Tablespec.fourteen_card %}
+                                    <option value="{{ key }}" name="fourteen_card">{{value}}</option>
+                                    {% endif %}
                                     {% endfor %}
                                 </select>
                             </span>
                         </th>
                         <th colspan="3">
                             <span style="display: inline-block;">工地意外保險：</span>
-                            <span style="display: inline-block;">
-                                <select class="form-control" id="taskTypeSelect" name="fourteen_insurance">
-                                    <option value="{{Tablespec.fourteen_insurance}}" name="fourteen_insurance"> {{Tablespec.fourteen_insurance}}</option>
-                                    {% for key,value in TablespecForm.Yes_no4_select %}
-                                        {% if key != Tablespec.fourteen_insurance %}
-                                            <option value="{{ key }}" name="fourteen_insurance">{{value}}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
+                            <span style="display: inline; width: 150px;">
+                                <input class="form-control" type="text" id="fourteen_insurance" name="fourteen_insurance" value="{{Tablespec.fourteen_insurance}}" style="width: 150px; display: inline;">
+                                <p style="color: red; display: inline;">* 0為不需要</p
                             </span>
                         </th>
                     </tr>
                     <tr>
                         <th colspan="2">十五、空調箱搬運空位：</th>
                         {% if Tablespec.fifteen_location == "勝新" %}
-                            <td>
-                                <select class="form-control" id="taskTypeSelect" name="fifteen_location">
-                                    <option value="勝新" name="fifteen_location"> 勝新</option>
-                                    <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>     
-                                </select>
-                            </td>
+                        <td>
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_location">
+                                <option value="勝新" name="fifteen_location"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}
+                                </option>
+                            </select>
+                        </td>
                         {% elif Tablespec.fifteen_location == OrderSpec.cClient %}
-                            <td>
-                                <select class="form-control" id="taskTypeSelect" name="fifteen_location">
-                                    <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>
-                                    <option value="勝新" name="fifteen_location"> 勝新</option>
-                                </select>
-                            </td>
+                        <td>
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_location">
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}
+                                </option>
+                                <option value="勝新" name="fifteen_location"> 勝新</option>
+                            </select>
+                        </td>
                         {% endif %}
+                        <th>現場勘查：</th>
+                        <td>
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_view">
+                                <option value="{{Tablespec.fifteen_view}}" name="fifteen_view"> {{Tablespec.fifteen_view}}</option>
+                                {% for key,value in TablespecForm.Yes_no2_select %}
+                                    {% if key != Tablespec.fifteen_view %}
+                                        <option value="{{ key }}" name="fifteen_view">{{value}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <th></th>
@@ -1842,13 +1929,15 @@
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="fifteen_level">
                                 <option value="勝新" name="fifteen_level"> 勝新</option>
-                                <option value="{{OrderSpec.cClient}}" name="fifteen_level"> {{OrderSpec.cClient}}</option>     
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_level"> {{OrderSpec.cClient}}
+                                </option>
                             </select>
                         </td>
                         {% elif Tablespec.fifteen_level == OrderSpec.cClient %}
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="fifteen_level">
-                                <option value="{{OrderSpec.cClient}}" name="fifteen_level"> {{OrderSpec.cClient}}</option>
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_level"> {{OrderSpec.cClient}}
+                                </option>
                                 <option value="勝新" name="fifteen_level"> 勝新</option>
                             </select>
                         </td>
@@ -1857,21 +1946,30 @@
                     <tr>
                         <th></th>
                         <th colspan="1">垂直搬運：</th>
-                        {% if Tablespec.fifteen_location == "勝新" %}
+                        {% if Tablespec.fifteen_vertical == "勝新" %}
                         <td>
-                            <select class="form-control" id="taskTypeSelect" name="fifteen_location">
-                                <option value="勝新" name="fifteen_location"> 勝新</option>
-                                <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>     
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_vertical">
+                                <option value="勝新" name="fifteen_vertical"> 勝新</option>
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_vertical"> {{OrderSpec.cClient}}
+                                </option>
                             </select>
                         </td>
                         {% elif Tablespec.fifteen_vertical == OrderSpec.cClient %}
                         <td>
-                            <select class="form-control" id="taskTypeSelect" name="fifteen_location">
-                                <option value="{{OrderSpec.cClient}}" name="fifteen_location"> {{OrderSpec.cClient}}</option>
-                                <option value="勝新" name="fifteen_location"> 勝新</option>
+                            <select class="form-control" id="taskTypeSelect" name="fifteen_vertical">
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_vertical"> {{OrderSpec.cClient}}
+                                </option>
+                                <option value="勝新" name="fifteen_vertical"> 勝新</option>
                             </select>
                         </td>
                         {% endif %}
+                        <td colspan="2">
+                            <input type="checkbox" name="option" class="check_box_list15" value="吊車" {% if '吊車' in Tablespec.fifteen_tool %}checked{% endif %}>
+                            <label for="吊車">吊車
+                            <input type="checkbox" name="option" class="check_box_list15" value="推高機" {% if '推高機' in Tablespec.fifteen_tool %}checked{% endif %}>
+                            <label for="推高機">推高機&nbsp;&nbsp;&nbsp;
+                            <p style="font-weight: bold; display: inline;">搬運預算：</p><input class="form-control" type="text" id="fifteen_budget" name="fifteen_budget" value="{{Tablespec.fifteen_budget}}" style="width: 100px; display: inline;">
+                        </td>
                     </tr>
                     <tr>
                         <th></th>
@@ -1880,7 +1978,7 @@
                         <td>
                             <select class="form-control" id="taskTypeSelect" name="fifteen_box">
                                 <option value="勝新" name="fifteen_box"> 勝新</option>
-                                <option value="{{OrderSpec.cClient}}" name="fifteen_box"> {{OrderSpec.cClient}}</option>     
+                                <option value="{{OrderSpec.cClient}}" name="fifteen_box"> {{OrderSpec.cClient}}</option>
                             </select>
                         </td>
                         {% elif Tablespec.fifteen_box == OrderSpec.cClient %}
@@ -1891,7 +1989,7 @@
                             </select>
                         </td>
                         {% endif %}
-                         
+
                     </tr>
                     <tr>
                         <th colspan="2">十六、代課安裝：</th>
@@ -1949,19 +2047,21 @@
                             <label for="箱外">箱外
                         </td>
                         <th>品牌要求：</th>
-                        <td><input type="text" id="seventeen_brand" name="seventeen_brand"
-                                value={{Tablespec.seventeen_brand}}></td>
+                        <td><input type="text" class="form-control" id="seventeen_brand" name="seventeen_brand" value="{{Tablespec.seventeen_brand}}"></td>
                     </tr>
                     <tr>
                         <th colspan="2">十八、其他：</th>
-                        <td colspan="7"><textarea id="eighteen_other" name="eighteen_other">{{Tablespec.eighteen_other}}</textarea></td>
+                        <td colspan="7"><textarea class="form-control" id="eighteen_other" name="eighteen_other">{{Tablespec.eighteen_other}}</textarea></td>
                     </tr>
                     <tr>
                         <input type="hidden" name="thirteen_budget" id="textvalue3" value="{{Tablespec.thirteen_budget}}">
                         <input type="hidden" name="fourteen_budget" id="textvalue4" value="{{Tablespec.fourteen_budget}}">
-                        <input type="hidden" name="sixteen_install" id="textvalue" value="{{Tablespec.sixteen_install}}">
+                        <input type="hidden" name="seven_other" id="textvalue7" value="{{Tablespec.seven_other}}"> >
                         <input type="hidden" name="sixteen_prepare" id="textvalue1" value="{{Tablespec.sixteen_prepare}}">
+                        <input type="hidden" name="sixteen_install" id="textvalue" value="{{Tablespec.sixteen_install}}">
                         <input type="hidden" name="seventeen_silicone" id="textvalue2" value="{{Tablespec.seventeen_silicone}}">
+                        <input type="hidden" name="fifteen_tool" id="textvalue5" value="{{Tablespec.fifteen_tool}}">
+                        <input type="hidden" name="ten_motor_ask" id="textvalue10" value="{{Tablespec.ten_motor_ask}}">
                     </tr>
                     <tr>
                         <th colspan="1"></th>
@@ -1978,15 +2078,15 @@
         </div>
     </form>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             var inputElement = document.getElementById("other");
             var currentValue = inputElement.value;
-            var modifiedValue = currentValue.replace("有，",'');
+            var modifiedValue = currentValue.replace("有，", '');
             inputElement.value = modifiedValue;
 
             var inputElement1 = document.getElementById("other1");
             var currentValue1 = inputElement1.value;
-            var modifiedValue1 = currentValue1.replace("有，",'');
+            var modifiedValue1 = currentValue1.replace("有，", '');
             inputElement1.value = modifiedValue1;
         });
 
@@ -2009,7 +2109,7 @@
         function updateAdditionalTextbox() {
             var textInput = document.getElementById('other');
             var additionalTextbox = document.getElementById('textvalue3');
-            additionalTextbox.value = "有，"+textInput.value;
+            additionalTextbox.value = "有，" + textInput.value;
         }
 
         function toggleDollarDetails() {
@@ -2031,38 +2131,69 @@
         function updateAdditionalTextbox2() {
             var textInput2 = document.getElementById('other1');
             var additionalTextbox2 = document.getElementById('textvalue4');
-            additionalTextbox2.value = "有，"+textInput2.value;
+            additionalTextbox2.value = "有，" + textInput2.value;
         }
 
         $(document).ready(function () {
 
-            $(".check_box_list").click(function(){
+            $(".check_box_list").click(function () {
                 var test = ""
-                $(".check_box_list:checked").each(function(){
-                    test+=$(this).val()+","
+                $(".check_box_list:checked").each(function () {
+                    test += $(this).val() + ","
                 });
-                test = test.substring(0,test.length-1)
+                test = test.substring(0, test.length - 1)
                 $("#textvalue").val(test);
             })
-            $(".check_box_list1").click(function(){
+
+            $(".check_box_list1").click(function () {
                 var test1 = ""
-                $(".check_box_list1:checked").each(function(){
-                    test1+=$(this).val()+","
+                $(".check_box_list1:checked").each(function () {
+                    test1 += $(this).val() + ","
                 });
-                test1 = test1.substring(0,test1.length-1)
+                test1 = test1.substring(0, test1.length - 1)
                 $("#textvalue1").val(test1);
             })
-            $(".check_box_list2").click(function(){
+
+            $(".check_box_list2").click(function () {
                 var test2 = ""
-                $(".check_box_list2:checked").each(function(){
-                    test2+=$(this).val()+","
+                $(".check_box_list2:checked").each(function () {
+                    test2 += $(this).val() + ","
                 });
-                test2 = test2.substring(0,test2.length-1)
+                test2 = test2.substring(0, test2.length - 1)
                 $("#textvalue2").val(test2);
             })
+
             
+
+            $(".check_box_list7").click(function () {
+                var test7 = ""
+                $(".check_box_list7:checked").each(function () {
+                    test7 += $(this).val() + ","
+                });
+                test7 = test7.substring(0, test7.length - 1)
+                $("#textvalue7").val(test7);
+            })
+
+            $(".check_box_list10").click(function () {
+                var test10 = ""
+                $(".check_box_list10:checked").each(function () {
+                    test10 += $(this).val() + ","
+                });
+                test10 = test10.substring(0, test10.length - 1)
+                $("#textvalue10").val(test10);
+            })
+
+            $(".check_box_list15").click(function () {
+                var test15 = ""
+                $(".check_box_list15:checked").each(function () {
+                    test15 += $(this).val() + ","
+                });
+                test15 = test15.substring(0, test15.length - 1)
+                $("#textvalue5").val(test15);
+            })
+
         })
-     </script>
+    </script>
 </body>
 
 </html>

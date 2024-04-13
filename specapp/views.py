@@ -12,15 +12,12 @@ from django.http import HttpResponse
 from django.db.models import Q
 import pdfplumber
 import re
-count = 0
 import requests
 import openpyxl
 from io import BytesIO
 from datetime import datetime
 from openpyxl import Workbook
-from django.template.loader import get_template
 from django.template.loader import render_to_string
-from excel_response import ExcelResponse
 from xhtml2pdf import pisa
 import io
 def font_patch():
@@ -268,6 +265,7 @@ def tablespecEdit(request,mode=None,cNumber=None):
         Tablespec.third_basic_efficient=request.POST['third_basic_efficient']
         Tablespec.third_basic_frame=request.POST['third_basic_frame']
         Tablespec.third_basic_material=request.POST['third_basic_material']
+        Tablespec.third_level = request.POST['third_level']
         Tablespec.third_medium=request.POST['third_medium']
         Tablespec.third_medium_frameform=request.POST['third_medium_frameform']
         Tablespec.third_medium_long=request.POST['third_medium_long']
@@ -287,12 +285,13 @@ def tablespecEdit(request,mode=None,cNumber=None):
         Tablespec.four_way=request.POST['four_way']
         Tablespec.four_SSCR=request.POST['four_SSCR']
         Tablespec.fiv_humidifier=request.POST['fiv_humidifier']
-        Tablespec.form=request.POST['fiv_form']
+        Tablespec.fiv_form=request.POST['fiv_form']
         Tablespec.six_winddoor=request.POST['six_winddoor']
         Tablespec.six_form=request.POST['six_form']
         Tablespec.six_frame_material=request.POST['six_frame_material']
         Tablespec.six_blade_material=request.POST['six_blade_material']
         Tablespec.six_axis=request.POST['six_axis']
+        Tablespec.six_mm=request.POST['six_mm']
         Tablespec.seven_cold=request.POST['seven_cold']
         Tablespec.seven_fins=request.POST['seven_fins']
         Tablespec.seven_thick=request.POST['seven_thick']
@@ -335,7 +334,7 @@ def tablespecEdit(request,mode=None,cNumber=None):
         Tablespec.ten_motor_cold=request.POST['ten_motor_cold']
         Tablespec.ten_motor_ask=request.POST['ten_motor_ask']
         Tablespec.ten_motor_form=request.POST['ten_motor_form']
-        Tablespec.ten_motor_Insulation=request.POST['ten_motor_form']
+        Tablespec.ten_motor_Insulation=request.POST['ten_motor_Insulation']
         Tablespec.eleven_material=request.POST['eleven_material']
         Tablespec.eleven_form=request.POST['eleven_form']
         Tablespec.eleven_key=request.POST['eleven_key']
@@ -352,6 +351,7 @@ def tablespecEdit(request,mode=None,cNumber=None):
         Tablespec.twelve_winddoor=request.POST['twelve_winddoor']
         Tablespec.twelve_net=request.POST['twelve_net']
         Tablespec.twelve_material=request.POST['twelve_material']
+        Tablespec.twelve_mm=request.POST['twelve_mm']
         Tablespec.twelve_silicone=request.POST['twelve_silicone']
         Tablespec.twelve_roof=request.POST['twelve_roof']
         Tablespec.twelve_newmaterial=request.POST['twelve_newmaterial']
@@ -363,6 +363,7 @@ def tablespecEdit(request,mode=None,cNumber=None):
         Tablespec.thirteen_into=request.POST['thirteen_into']
         Tablespec.thirteen_shock=request.POST['thirteen_shock']
         Tablespec.thirteen_shocbox=request.POST['thirteen_shocbox']
+        Tablespec.thirteen_shockbox_form=request.POST['thirteen_shockbox_form']
         Tablespec.thirteen_apply=request.POST['thirteen_apply']
         Tablespec.thirteen_fix=request.POST['thirteen_fix']
         Tablespec.thirteen_budget=request.POST['thirteen_budget']
@@ -380,8 +381,11 @@ def tablespecEdit(request,mode=None,cNumber=None):
         Tablespec.fourteen_card=request.POST['fourteen_card']
         Tablespec.fourteen_insurance=request.POST['fourteen_insurance']
         Tablespec.fifteen_location=request.POST['fifteen_location']
+        Tablespec.fifteen_view = request.POST['fifteen_view']
         Tablespec.fifteen_level=request.POST['fifteen_level']
         Tablespec.fifteen_vertical=request.POST['fifteen_vertical']
+        Tablespec.fifteen_tool=request.POST['fifteen_tool']
+        Tablespec.fifteen_budget=request.POST['fifteen_budget']
         Tablespec.fifteen_box=request.POST['fifteen_box']
         Tablespec.sixteen_install=request.POST['sixteen_install']
         Tablespec.sixteen_prepare=request.POST['sixteen_prepare']
@@ -395,7 +399,17 @@ def tablespecEdit(request,mode=None,cNumber=None):
 def tablespecPost(request,cNumber=None):
     text = ""
     CompareSpec = Spec.objects.get(cNumber=cNumber)
-    
+    ninebrand = request.POST.get('nine_brand')
+    tenbrand = request.POST.get('ten_motor_brand')
+    twelvematerial = request.POST.get('twelve_material')
+    twelvesili = request.POST.get('twelve_silicone')
+    six_mm = request.POST.get('six_mm')
+    twelve_mm = request.POST.get('twelve_mm')
+    fourteen_date = str(request.POST.get('fourteen_time_date')) + str(" ") +str(request.POST.get('fourteen_time_time'))
+    fourteen_intodate = str(request.POST.get('fourteen_intotime_date')) + str(" ") +str(request.POST.get('fourteen_intotime_time'))
+    fourteen_afterassdate = str(request.POST.get('fourteen_afterasstime_date')) + str(" ") +str(request.POST.get('fourteen_afterasstime_time'))
+    fourteen_foreignintodate = str(request.POST.get('fourteen_foreignintotime_date')) + str(" ") +str(request.POST.get('fourteen_foreignintotime_time'))
+
     brands = ["高雄日月光","中壢日月光","美光","長春","旭富","天基","同步輻射","南亞電路","力成","華新科","漢欣","金像電子","喬輝","大立光","洋基","瑞昱","迅展","御勤","新竹南茂"]
     special = "123"
     for brand in brands:
@@ -408,20 +422,22 @@ def tablespecPost(request,cNumber=None):
     temp = {'machinename':' ',
             'first_boxmaterial':' ','first_inthick':'','first_inmaterial':'','first_inother':'','first_outmaterial':'','first_outthick':'','first_boxthick':'',
             'second_door':'','second_frame':'',
-            'third_basic':'','third_basic_install':'','third_basic_thick':'','third_basic_brand':'','third_basic_efficient':'','third_basic_frame':'','third_basic_material':'','third_medium':'','third_medium_frameform':'','third_medium_long':'','third_medium_brand':'','third_medium_efficient':'','third_medium_frame':'',
-            'third_high':'','third_high_frameform':'','third_high_long':'','third_high_brand':'','third_high_efficient':'','third_high_frame':'','third_basic_medium_material':'','third_high_material':'',
+            'third_basic':'','third_basic_install':'','third_basic_thick':'','third_basic_brand':'','third_basic_efficient':'','third_basic_frame':'','third_basic_material':'','third_level':'',
+            'third_medium':'','third_medium_frameform':'','third_medium_long':'','third_medium_brand':'','third_medium_efficient':'','third_medium_frame':'',
+            'third_high':'','third_high_frameform':'','third_high_long':'','third_high_brand':'','third_high_efficient':'','third_high_frame':'',
+            'third_basic_medium_material':'','third_high_material':'',
             'four_heater':'','four_material':'','four_way':'','four_SSCR':'',
             'fiv_humidifier':'','fiv_form':'',
-            'six_winddoor':'','six_form':'','six_frame_material':'','six_blade_material':'','six_axis':'',
+            'six_winddoor':'','six_form':'','six_frame_material':'','six_blade_material':'','six_axis':'','six_mm':'',
             'seven_cold':'','seven_fins':'','seven_thick':'','seven_board':'','seven_pipe_thick':'','seven_waterpipe':'','seven_size':'','seven_hot':'','seven_hotfins':'','seven_hotthick':'','seven_hotboard':'','seven_hotpipe_thick':'','seven_hotwaterpipe':'','seven_hotsize':'','seven_other':'',
             'eight_material':'','eight_thick':'','seven_steam':'','seven_steamfins':'','seven_steamthick':'','seven_steamboard':'','seven_steampipe_thick':'','seven_steamwaterpipe':'','seven_steamsize':'','seven_brine':'','seven_brinefins':'','seven_brinethick':'','seven_brineboard':'','seven_brinepipe_thick':'','seven_brinewaterpipe':'','seven_brinesize':'',
             'nine_brand':'科祿格','nine_way':'','nine_form':'',
             'ten_motor_brand':'東元','ten_motor_elec':'接至端子台','ten_motor_efficient':'','ten_motor_level':'','ten_motor_open':'一般','ten_motor_cold':'自立通風','ten_motor_ask':'','ten_motor_form':'','ten_motor_Insulation':'',
             'eleven_material':'','eleven_form':'','eleven_key':'','eleven_level':'','eleven_size':'',
-            'twelve_view':'','twelve_pressure':'','twelve_unit':'','twelve_brand':'','twelve_light':'','twelve_level':'','twelve_light_elec':'各箱段獨立電源','twelve_light_open':'','twelve_winddoor':'','twelve_net':'','televe_material':'','twelve_silicone':'勝新標準','twelve_location':'','twelve_roof':'','twelve_newmaterial':'','twelve_test':'',
-            'thirteen_way':'','thirteen_elevator':'','thirteen_box':'','thirteen_into':'','thirteen_shock':'','thirteen_shocbox':'','thirteen_apply':'','thirteen_fix':'','thirteen_budget':'','thirteen_budgetdollar':'','thirteen_displace':'無','thirteen_fixway':'無',
-            'fourteen_ass':'','fourteen_budget':'','fourteen_budgetdollar':'','fourteen_time':'','fourteen_into':'','fourteen_afterass':'','fourteen_foreigninto':'','fourteen_card':'','fourteen_insurance':'',
-            'fifteen_location':'','fifteen_level':'','fifteen_vertical':'','fifteen_box':'',
+            'twelve_view':'','twelve_pressure':'','twelve_unit':'','twelve_brand':'','twelve_light':'','twelve_level':'','twelve_light_elec':'各箱段獨立電源','twelve_light_open':'','twelve_winddoor':'','twelve_net':'','twelve_material':'無','twelve_mm':'','twelve_silicone':'勝新標準','twelve_location':'','twelve_roof':'','twelve_newmaterial':'','twelve_test':'',
+            'thirteen_way':'','thirteen_elevator':'','thirteen_box':'','thirteen_into':'','thirteen_shock':'','thirteen_shocbox':'','thirteen_shockbox_form':'','thirteen_apply':'','thirteen_fix':'','thirteen_budget':'','thirteen_budgetdollar':'','thirteen_displace':'無','thirteen_fixway':'無',
+            'fourteen_ass':'','fourteen_budget':'','fourteen_budgetdollar':'','fourteen_time':'','fourteen_into':'','fourteen_afterass':'','fourteen_foreigninto':'','fourteen_card':'','fourteen_insurance':'0',
+            'fifteen_location':'','fifteen_view':'','fifteen_level':'','fifteen_vertical':'','fifteen_box':'','fifteen_tool':'','fifteen_budget':'0',
             'sixteen_install':'','sixteen_prepare':'',
             'seventeen_silicone':'勝新標準','seventeen_brand':'一般',
             'eighteen_other':''}
@@ -437,6 +453,10 @@ def tablespecPost(request,cNumber=None):
     text = text.replace(' ', '').replace('\n',"").replace("(","").replace(")","").replace("]","").replace("[","")
     answer = retext(text)
     temp.update(answer)
+    motorbrand = temp['ten_motor_brand']
+    windbrand = temp['nine_brand']
+    basematerial = temp['twelve_material']
+    silicone = temp['twelve_silicone']
     if request.method == 'POST':
         tablespecform = tablespecForm(request.POST)
         if tablespecform.is_valid():
@@ -458,6 +478,7 @@ def tablespecPost(request,cNumber=None):
             third_basic_efficient=tablespecform.cleaned_data['third_basic_efficient']
             third_basic_frame=tablespecform.cleaned_data['third_basic_frame']
             third_basic_material=tablespecform.cleaned_data['third_basic_material']
+            third_level = tablespecform.cleaned_data['third_level']
             third_medium=tablespecform.cleaned_data['third_medium']
             third_medium_frameform=tablespecform.cleaned_data['third_medium_frameform']
             third_medium_long=tablespecform.cleaned_data['third_medium_long']
@@ -483,6 +504,7 @@ def tablespecPost(request,cNumber=None):
             six_frame_material=tablespecform.cleaned_data['six_frame_material']
             six_blade_material=tablespecform.cleaned_data['six_blade_material']
             six_axis=tablespecform.cleaned_data['six_axis']
+            six_mm= six_mm
             seven_cold=tablespecform.cleaned_data['seven_cold']
             seven_fins=tablespecform.cleaned_data['seven_fins']
             seven_thick=tablespecform.cleaned_data['seven_thick']
@@ -514,10 +536,10 @@ def tablespecPost(request,cNumber=None):
             seven_other=tablespecform.cleaned_data['seven_other']
             eight_material=tablespecform.cleaned_data['eight_material']
             eight_thick=tablespecform.cleaned_data['eight_thick']
-            nine_brand=tablespecform.cleaned_data['nine_brand']
+            nine_brand=ninebrand
             nine_way=tablespecform.cleaned_data['nine_way']
             nine_form=tablespecform.cleaned_data['nine_form']
-            ten_motor_brand=tablespecform.cleaned_data['ten_motor_brand']
+            ten_motor_brand=tenbrand
             ten_motor_elec=tablespecform.cleaned_data['ten_motor_elec']
             ten_motor_efficient=tablespecform.cleaned_data['ten_motor_efficient']
             ten_motor_level=tablespecform.cleaned_data['ten_motor_level']
@@ -541,8 +563,9 @@ def tablespecPost(request,cNumber=None):
             twelve_light_open=tablespecform.cleaned_data['twelve_light_open']
             twelve_winddoor=tablespecform.cleaned_data['twelve_winddoor']
             twelve_net=tablespecform.cleaned_data['twelve_net']
-            twelve_material=tablespecform.cleaned_data['twelve_material']
-            twelve_silicone=tablespecform.cleaned_data['twelve_silicone']
+            twelve_material=twelvematerial
+            twelve_mm = twelve_mm
+            twelve_silicone=twelvesili
             twelve_location=tablespecform.cleaned_data['twelve_location']
             twelve_roof=tablespecform.cleaned_data['twelve_roof']
             twelve_newmaterial=tablespecform.cleaned_data['twelve_newmaterial']
@@ -553,6 +576,7 @@ def tablespecPost(request,cNumber=None):
             thirteen_into=tablespecform.cleaned_data['thirteen_into']
             thirteen_shock=tablespecform.cleaned_data['thirteen_shock']
             thirteen_shocbox=tablespecform.cleaned_data['thirteen_shocbox']
+            thirteen_shockbox_form=tablespecform.cleaned_data['thirteen_shockbox_form']
             thirteen_apply=tablespecform.cleaned_data['thirteen_apply']
             thirteen_fix=tablespecform.cleaned_data['thirteen_fix']
             thirteen_budget=tablespecform.cleaned_data['thirteen_budget']
@@ -562,19 +586,22 @@ def tablespecPost(request,cNumber=None):
             fourteen_ass=tablespecform.cleaned_data['fourteen_ass']
             fourteen_budget=tablespecform.cleaned_data['fourteen_budget']
             fourteen_budgetdollar=tablespecform.cleaned_data['fourteen_budgetdollar']
-            fourteen_time=tablespecform.cleaned_data['fourteen_time']
+            fourteen_time=fourteen_date
             fourteen_into=tablespecform.cleaned_data['fourteen_into']
-            fourteen_intotime=tablespecform.cleaned_data['fourteen_intotime']
+            fourteen_intotime=fourteen_intodate
             fourteen_afterass=tablespecform.cleaned_data['fourteen_afterass']
-            fourteen_afterasstime=tablespecform.cleaned_data['fourteen_afterasstime']
+            fourteen_afterasstime=fourteen_afterassdate
             fourteen_foreigninto=tablespecform.cleaned_data['fourteen_foreigninto']
-            fourteen_foreignintotime=tablespecform.cleaned_data['fourteen_foreignintotime']
+            fourteen_foreignintotime=fourteen_foreignintodate
             fourteen_card=tablespecform.cleaned_data['fourteen_card']
             fourteen_insurance=tablespecform.cleaned_data['fourteen_insurance']
             fifteen_location=tablespecform.cleaned_data['fifteen_location']
+            fifteen_view=tablespecform.cleaned_data['fifteen_view']
             fifteen_level=tablespecform.cleaned_data['fifteen_level']
             fifteen_vertical=tablespecform.cleaned_data['fifteen_vertical']
             fifteen_box=tablespecform.cleaned_data['fifteen_box']
+            fifteen_tool=tablespecform.cleaned_data['fifteen_tool']
+            fifteen_budget=tablespecform.cleaned_data['fifteen_budget']
             sixteen_install=tablespecform.cleaned_data['sixteen_install']
             sixteen_prepare=tablespecform.cleaned_data['sixteen_prepare']
             seventeen_silicone=tablespecform.cleaned_data['seventeen_silicone']
@@ -600,6 +627,7 @@ def tablespecPost(request,cNumber=None):
                         third_basic_efficient=third_basic_efficient,
                         third_basic_frame=third_basic_frame,
                         third_basic_material=third_basic_material,
+                        third_level=third_level,
                         third_medium=third_medium,
                         third_medium_frameform=third_medium_frameform,
                         third_medium_long=third_medium_long,
@@ -625,6 +653,7 @@ def tablespecPost(request,cNumber=None):
                         six_frame_material=six_frame_material,
                         six_blade_material=six_blade_material,
                         six_axis=six_axis,
+                        six_mm=six_mm,
                         seven_cold=seven_cold,
                         seven_fins=seven_fins,
                         seven_thick=seven_thick,
@@ -684,6 +713,7 @@ def tablespecPost(request,cNumber=None):
                         twelve_winddoor=twelve_winddoor,
                         twelve_net=twelve_net,
                         twelve_material=twelve_material,
+                        twelve_mm=twelve_mm,
                         twelve_silicone=twelve_silicone,
                         twelve_location=twelve_location,
                         twelve_roof=twelve_roof,
@@ -695,6 +725,7 @@ def tablespecPost(request,cNumber=None):
                         thirteen_into=thirteen_into,
                         thirteen_shock=thirteen_shock,
                         thirteen_shocbox=thirteen_shocbox,
+                        thirteen_shockbox_form=thirteen_shockbox_form,
                         thirteen_apply=thirteen_apply,
                         thirteen_fix=thirteen_fix,
                         thirteen_budget=thirteen_budget,
@@ -714,8 +745,11 @@ def tablespecPost(request,cNumber=None):
                         fourteen_card=fourteen_card,
                         fourteen_insurance=fourteen_insurance,
                         fifteen_location=fifteen_location,
+                        fifteen_view=fifteen_view,
                         fifteen_level=fifteen_level,
                         fifteen_vertical=fifteen_vertical,
+                        fifteen_tool=fifteen_tool,
+                        fifteen_budget=fifteen_budget,
                         fifteen_box=fifteen_box,
                         sixteen_install=sixteen_install,
                         sixteen_prepare=sixteen_prepare,
@@ -738,87 +772,7 @@ def retext(text):
     sixform_select = {"八字形":"八字開","平形":"平形開"}
     seven_pipe = {"鍍鋅鋼管":"鍍鋅管","不鏽鋼管":"不鏽鋼管"}
     dist = {}
-    # temp = re.findall('內外層鋼板[\u4e00-\u9fa5]*(\d+\.\d+|\d)*[mm|mmt]+[\u4e00-\u9fa5]*之([\w]*)鋼板',text)
-    # if(len(temp) != 0):
-    #     result = list(temp[0])
-    #     if result[0] == "1":
-    #         dist["first_outthick"]=str(1.0)+'t'
-    #         dist["first_inthick"]=str(1.0)+'t'
-    #     else:
-    #         dist["first_outthick"]=result[0]+'t'
-    #         dist["first_inthick"]=result[0]+'t'
-    #     dist["first_outmaterial"]=first_material_select[result[1]]
-    #     dist["first_inmaterial"]=first_material_select[result[1]]
-    # temp = re.findall('外層鋼板+[\u4e00-\u9fa5]*(\d+\.\d+)*[mm|mmt]+[\u4e00-\u9fa5]*之([\w]*)鋼板',text)
-    # if(len(temp) != 0):
-    #     result = list(temp[0])
-    #     dist["first_outthick"]=result[0]+'t'
-    #     dist["first_outmaterial"]=first_material_select[result[1]]
-    #     #配電箱和外板材質相同(不確定PVC是甚麼材質)
-    # temp = re.findall('加強板組裝而成,(\d+\.\d+|\d)*[mm|mmt]+[\u4e00-\u9fa5]*之([\w]*)鋼板',text)
-    # if(len(temp) != 0):
-    #     result = list(temp[0])
-    #     dist["first_outthick"]=result[0]+'t'
-    #     dist["first_outmaterial"]=first_material_select[result[1]]
-    # temp = re.findall('內層鋼板+[\u4e00-\u9fa5]*(\d+\.\d+|\d)*[mm|mmt]+[\u4e00-\u9fa5]*之([\w]*)鋼板',text)
-    # if(len(temp) != 0):
-    #     result = list(temp[0])
-    #     dist["first_inthick"]=result[0]+'t'
-    #     dist["first_inmaterial"]=first_material_select[result[1]]
-    # temp = re.findall('空氣混合箱之進風口需配置([\w]*)風門',text)
-    # if(len(temp) != 0):
-    #     dist["six_winddoor"]="含"
-    #     dist["six_form"]=sixform_select[temp[0]]
-    # temp = re.findall('馬達採([A-Za-z]級)([\w]*)馬達',text)
-    # if(len(temp) != 0):
-    #     result = list(temp[0])
-    #     dist["ten_motor_Insulation"]=result[0]
-    #     dist["ten_motor_brand"]=result[1]
-    # if "冰水盤管" in text:
-    #     dist["seven_cold"] = "含"
-    #     temp = re.findall('鋁[\w]*鰭片[\D]*(\d.\d\d|\d.\d)[mm|mmt]*',text)
-    #     if(len(temp) != 0):
-    #         dist["seven_fins"]="一般白鋁"
-    #         dist["seven_thick"]=temp[0]+'t'
-    #     temp = re.findall('端側板[\D]*(\d.\d)[mm|mmt]*以上([\w]*)鋼板',text)
-    #     if(len(temp) != 0):
-    #         result = list(temp[0])
-    #         if result[1] == "鍍鋅":
-    #             dist["seven_board"]="鍍鋅"+' 1.6t'
-    #         if result[1] == "不鏽鋼":
-    #             dist["seven_board"]="不鏽鋼"+' 1.5t'
-    #     temp = re.findall('上、下、左、右蓋板[\w]*為([\w]*)材質',text)
-    #     if(len(temp) != 0):
-    #         result = list(temp[0])
-    #         result = [''.join(result)]
-    #         if result[0] == "鍍鋅":
-    #             dist["seven_board"]= "鍍鋅"+' 1.6t'
-    #         if result[0] == "不鏽鋼" or result[0] == "不銹鋼":
-    #             dist["seven_board"]= "不鏽鋼"+' 1.5t'
-    #     temp = re.findall('集流管[\u4e00-\u9fa5]*為([\w]*鋼管)',text)
-    #     if(len(temp) != 0):
-    #         dist["seven_waterpipe"]=seven_pipe[temp[0]]
-    #     temp = re.findall('盤管為(\d+/\d+\")OD[\D]*(\d.\d\d|\d.\d|\d)[mm|mmt]+[\u4e00-\u9fa5]*',text)
-    #     if(len(temp) != 0):
-    #         result = list(temp[0])
-    #         dist["seven_size"]=result[0]
-    #         dist["seven_pipe_thick"] = result[1]+'t'
-    # temp = re.findall('採用(\d.\d)[tmm厚度|mmt厚度|mm厚度]*([\w]*鋼板)製作',text)
-    # if(len(temp) != 0):
-    #     result = list(temp[0])
-    #     dist["eight_thick"]=result[0]+'t'
-    #     if "SUS304" in result[1]:
-    #         dist["eight_material"]="不鏽鋼(304)"
-    # temp = re.findall('厚度規號為([\d]*)[\w]*不鏽鋼',text)
-    # if(len(temp) != 0):
-    #     result = list(temp[0])
-    #     result = [''.join(result)]
-    #     if "16" in result[0]:
-    #         dist["eight_material"]="不鏽鋼(316)"
-    #     if "04" in result[0]:
-    #         dist["eight_material"]="不鏽鋼(304)"
-    #     if "430" in result[0]:
-    #         dist["eight_material"]="不鏽鋼(430)"
+    
     temp = re.findall('內外層鋼板[\u4e00-\u9fa5]*(\d+\.\d+|\d)*[mm|mmt]+[\u4e00-\u9fa5]*之([\w]*)鋼板',text)
     if(len(temp) != 0):
         result = list(temp[0])

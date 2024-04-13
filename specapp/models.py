@@ -65,6 +65,7 @@ class tablespec(models.Model):
     third_basic_efficient = models.CharField(max_length=30,default='',null=False)
     third_basic_frame = models.CharField(max_length=30,default='',null=False)
     third_basic_material = models.CharField(max_length=30,default='',null=False)
+    third_level = models.CharField(max_length=30,default='',null=False)
     third_medium = models.CharField(max_length=30,default='',null=False) 
     third_medium_frameform = models.CharField(max_length=30,default='',null=False) #外框型式
     third_medium_long = models.CharField(max_length=30,default='',null=False) #袋長
@@ -90,6 +91,7 @@ class tablespec(models.Model):
     six_frame_material = models.CharField(max_length=30,default='',null=False)
     six_blade_material = models.CharField(max_length=30,default='',null=False)
     six_axis = models.CharField(max_length=30,default='',null=False)
+    six_mm = models.CharField(max_length=30,default='',null=False)
     seven_cold = models.CharField(max_length=30,default='',null=False)
     seven_fins = models.CharField(max_length=30,default='',null=False)
     seven_thick = models.CharField(max_length=30,default='',null=False)
@@ -148,7 +150,8 @@ class tablespec(models.Model):
     twelve_light_open = models.CharField(max_length=30,default='',null=False) #照明開關
     twelve_winddoor = models.CharField(max_length=30,default='',null=False) #風門
     twelve_net = models.CharField(max_length=30,default='',null=False) #擴散網
-    twelve_material = models.CharField(max_length=30,default='',null=False) 
+    twelve_material = models.CharField(max_length=30,default='',null=False)
+    twelve_mm = models.CharField(max_length=30,default='',null=False)
     twelve_silicone = models.CharField(max_length=30,default='',null=False)
     twelve_location = models.CharField(max_length=30,default='',null=False) #空調箱放置地點
     twelve_roof = models.CharField(max_length=30,default='',null=False)
@@ -160,6 +163,7 @@ class tablespec(models.Model):
     thirteen_into = models.CharField(max_length=30,default='',null=False) #分箱進場
     thirteen_shock = models.CharField(max_length=30,default='',null=False) #避震
     thirteen_shocbox = models.CharField(max_length=30,default='',null=False) #避震器型式
+    thirteen_shockbox_form = models.CharField(max_length=30,default='',null=False)
     thirteen_apply = models.CharField(max_length=30,default='',null=False) #施作
     thirteen_fix = models.CharField(max_length=30,default='',null=False) #空調箱固定
     thirteen_budget = models.CharField(max_length=30,default='',null=False) #預算
@@ -179,9 +183,12 @@ class tablespec(models.Model):
     fourteen_card = models.CharField(max_length=10,default='',null=False) #證件
     fourteen_insurance = models.CharField(max_length=10,default='',null=False) # 保險
     fifteen_location = models.CharField(max_length=30,default='',null=False)#空調箱搬運定位
+    fifteen_view = models.CharField(max_length=30,default='',null=False)
     fifteen_level = models.CharField(max_length=30,default='',null=False) #水平搬運
     fifteen_vertical = models.CharField(max_length=30,default='',null=False) #垂直搬運
     fifteen_box = models.CharField(max_length=30,default='',null=False) #立式空調箱上箱段
+    fifteen_tool = models.CharField(max_length=30,default='',null=False)
+    fifteen_budget = models.CharField(max_length=30,default='',null=False)
     sixteen_install = models.CharField(max_length=30,default='',null=False) #代課安裝
     sixteen_prepare = models.CharField(max_length=30,default='',null=False) #備料
     seventeen_silicone = models.CharField(max_length=30,default='',null=False)
