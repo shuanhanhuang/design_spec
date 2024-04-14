@@ -47,9 +47,9 @@ def download_workbook(request,cNumber=None):
     return response
 
 
-def render_pdf_view(request,cNumber=None):
-    spec = Spec.objects.get(cNumber=cNumber)
-    Tablespec = tablespec.objects.get(cNumber=cNumber)
+def render_pdf_view(request,id=None):
+    spec = Spec.objects.get(id=id)
+    Tablespec = tablespec.objects.get(cNumber=spec.cNumber)
     context = {'Tablespec':Tablespec,'spec':spec}  # 這裡填入您的模板上下文
     html_content = render_to_string('pdfconvert.html', context)
     font_patch()
@@ -152,8 +152,8 @@ def fileUpload(request,id=None,mode=None):
     
 
     
-def comparePost(request,table1,table2,cNumber):
-    CompareSpec = Spec.objects.get(cNumber=cNumber)
+def comparePost(request,table1,table2,id):
+    CompareSpec = Spec.objects.get(id=id)
     unitinner = Compare.objects.filter(ref=CompareSpec).order_by("id")
     Compareform = CompareForm(request.POST)  #建立forms物件
     if Compareform.is_valid():
@@ -170,9 +170,8 @@ def comparePost(request,table1,table2,cNumber):
         return True
 
 
-def compareIndex(request,cNumber=None):
-    n = cNumber
-    CompareSpec = Spec.objects.get(cNumber=cNumber)
+def compareIndex(request,id=None):
+    CompareSpec = Spec.objects.get(id=id)
     aaa = Compare.objects.filter(ref=CompareSpec)
     try:
         c = aaa[0].ctable1
@@ -197,18 +196,17 @@ def compareIndex(request,cNumber=None):
             table2 = table2.replace('至少',"")
             table2 = table2.replace('並',"")
             table2 = table2.replace('確保',"")
-            choose = comparePost(request,table1,table2,cNumber)
+            choose = comparePost(request,table1,table2,CompareSpec.id)
     all = Compare.objects.filter(ref=CompareSpec).order_by("id")
     allHomeCount = len(all)
     return render(request, "compareIndex.html",locals())
 
-def compareEdit(request,id=None,mode=None,cNumber=None):
+def compareEdit(request,id=None,mode=None,designid=None):
     if mode == "load":  # 由 index.html 按 編輯二 鈕
         unit = Compare.objects.get(id = id)  #取得要修改的資料記
         return render(request, "compareEdit.html", locals())
     elif mode == "save": # 由 edit2.html 按 submit
         unit = Compare.objects.get(id = id)  #取得要修改的資料記錄
-        # unit.cNumber = request.POST['cNumber']
         unit.ctable1 = request.POST['ctable1']
         unit.ctable2=request.POST['ctable2']
         unit.cConform=request.POST['cConform']
@@ -218,11 +216,11 @@ def compareEdit(request,id=None,mode=None,cNumber=None):
         unit.save()  #寫入資料庫
           #寫入資料庫
         message = '已修改...'
-        return redirect('/compareIndex/'+str(cNumber)+"/")
+        return redirect('/compareIndex/'+str(designid)+"/")
     
-def tablespecView(request,cNumber=None):
-    OrderSpec = Spec.objects.get(cNumber=cNumber)
-    Tablespec = tablespec.objects.get(cNumber=cNumber)
+def tablespecView(request,id=None):
+    OrderSpec = Spec.objects.get(id=id)
+    Tablespec = tablespec.objects.get(cNumber=OrderSpec.cNumber)
     text = ""
     public = {'外板厚度': '0.5t', '外板材質': '鍍鋅板', '內板厚度': '0.5t', '內板材質': '鍍鋅板', '含有風門': '含', 
                '風門型式': '八字開', '馬達絕緣等級': 'F級', '馬達廠牌': '東元', '含有冰水盤管': '含', '鰭片': '一般白鋁', 
@@ -240,14 +238,14 @@ def tablespecView(request,cNumber=None):
 
     return render(request, "tablespecView.html",locals())
 
-def tablespecEdit(request,mode=None,cNumber=None):
-    OrderSpec = Spec.objects.get(cNumber=cNumber)
+def tablespecEdit(request,mode=None,id=None):
+    OrderSpec = Spec.objects.get(id=id)
     TablespecForm = tablespecForm(request.POST)
     if mode == "load":  # 由 index.html 按 編輯二 鈕
-        Tablespec = tablespec.objects.get(cNumber = cNumber)  #取得要修改的資料記
+        Tablespec = tablespec.objects.get(cNumber = OrderSpec.cNumber)  #取得要修改的資料記
         return render(request, "tablespecEdit.html", locals())
     elif mode == "save": # 由 edit2.html 按 submit
-        Tablespec = tablespec.objects.get(cNumber = cNumber)  #取得要修改的資料記錄
+        Tablespec = tablespec.objects.get(cNumber = OrderSpec.cNumber)  #取得要修改的資料記錄
         Tablespec.machinename=request.POST['machinename']
         Tablespec.first_boxmaterial=request.POST['first_boxmaterial']
         Tablespec.first_inthick=request.POST['first_inthick']
@@ -394,11 +392,11 @@ def tablespecEdit(request,mode=None,cNumber=None):
         Tablespec.eighteen_other=request.POST['eighteen_other']
         Tablespec.save()  #寫入資料庫
           #寫入資料庫
-        return redirect('/tablespecView/'+str(cNumber)+'/')
+        return redirect('/tablespecView/'+str(id)+'/')
 
-def tablespecPost(request,cNumber=None):
+def tablespecPost(request,id=None):
     text = ""
-    CompareSpec = Spec.objects.get(cNumber=cNumber)
+    CompareSpec = Spec.objects.get(id=id)
     ninebrand = request.POST.get('nine_brand')
     tenbrand = request.POST.get('ten_motor_brand')
     twelvematerial = request.POST.get('twelve_material')
@@ -460,7 +458,7 @@ def tablespecPost(request,cNumber=None):
     if request.method == 'POST':
         tablespecform = tablespecForm(request.POST)
         if tablespecform.is_valid():
-            cNumber =  cNumber
+            cNumber =  CompareSpec.cNumber
             machinename=tablespecform.cleaned_data['machinename']
             first_boxmaterial=tablespecform.cleaned_data['first_boxmaterial']
             first_inthick=tablespecform.cleaned_data['first_inthick']
@@ -759,7 +757,7 @@ def tablespecPost(request,cNumber=None):
             tablespecUnit.save()
             CompareSpec.chaveorder="有"
             CompareSpec.save()
-            return redirect('/tablespecView/'+str(cNumber)+'/')
+            return redirect('/tablespecView/'+str(id)+'/')
         else:
              message="驗證錯誤"
     else:

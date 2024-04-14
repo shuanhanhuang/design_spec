@@ -26,8 +26,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',designIndex),
-    path('render_pdf_view/<str:cNumber>/',render_pdf_view,name = 'render_pdf_view'),
-    path('download_workbook/<str:cNumber>/',download_workbook,name = 'download_workbook'),
+    path('render_pdf_view/<int:id>/',render_pdf_view,name = 'render_pdf_view'),
+    path('download_workbook/<int:id>/',download_workbook,name = 'download_workbook'),
 
     path('designIndex/',designIndex),
     path('designPost/',designPost),
@@ -37,13 +37,13 @@ urlpatterns = [
 
     path('fileUpload/',fileUpload),
 
-    path('comparePost/<str:cNumber>/',comparePost),
-    path('compareIndex/<str:cNumber>/',compareIndex),
-    path('compareEdit/<str:cNumber>/<int:id>/<str:mode>',compareEdit),
+    path('comparePost/<int:id>/',comparePost),
+    path('compareIndex/<int:id>/',compareIndex),
+    path('compareEdit/<int:designid>/<int:id>/<str:mode>',compareEdit),
 
-    path('tablespecPost/<str:cNumber>/',tablespecPost),
-    path('tablespecView/<str:cNumber>/',tablespecView),
-    path('tablespecEdit/<str:cNumber>/<str:mode>',tablespecEdit)
+    path('tablespecPost/<int:id>/',tablespecPost),
+    path('tablespecView/<int:id>/',tablespecView),
+    path('tablespecEdit/<int:id>/<str:mode>',tablespecEdit)
 
     # path('orderPost/<int:id>/<str:cNumber>/',orderPost),
     # path('orderView/<int:id>/<str:cNumber>/',orderView),

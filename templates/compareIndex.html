@@ -77,7 +77,7 @@
     </div>
   </nav>
   <div class="container">
-    <button type="button" class="btn btn-success mt-2 mb-2" id="{{n}}" onclick="excel_download(event)">匯出Excel</button>
+    <button type="button" class="btn btn-success mt-2 mb-2" id="{{CompareSpec.id}}" onclick="excel_download(event)">匯出Excel</button>
   </div>
   
   <form action="." method="POST">
@@ -104,7 +104,7 @@
               <td>{{unit.cBrand}}</td>
               <td>{{unit.cRemark|linebreaks}}</td>
               <td>
-                <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}/{{unit.id}}/load" onclick="Detail(event)">編輯</button>
+                <button type="button" class="btn btn-outline-warning mb-2" id="{{CompareSpec.id}}/{{unit.id}}/load" onclick="Detail(event)">編輯</button>
               </td>
               <!--  <td>
                  {% if unit.cReceive == "None" %}

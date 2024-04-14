@@ -84,8 +84,8 @@
     </div>
   </nav>
   <div class="container mt-2">  
-    <button type="button" class="btn btn-outline-warning mb-2" id="{{Tablespec.cNumber}}" onclick="TablespecEdit(event)">製令編輯</button>
-    <button class="btn btn-outline-success mb-2" id="{{Tablespec.cNumber}}" onclick="outputpdf(event)">匯出PDF</button>
+    <button type="button" class="btn btn-outline-warning mb-2" id="{{OrderSpec.id}}" onclick="TablespecEdit(event)">製令編輯</button>
+    <button class="btn btn-outline-success mb-2" id="{{OrderSpec.id}}" onclick="outputpdf(event)">匯出PDF</button>
   </div>
   {% if text != "" %}
     <div class="container fixed-section">
@@ -616,7 +616,7 @@
             <th></th>
             <th>垂直搬運：</th>
             <td>{{Tablespec.fifteen_vertical}}
-              {% if Tablespec.fifteen_tool != none %}
+              {% if Tablespec.fifteen_tool != "" %}
                 &nbsp;=>{{Tablespec.fifteen_tool}}
               {% endif %}
             </td>

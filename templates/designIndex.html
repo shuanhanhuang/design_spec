@@ -103,12 +103,12 @@
               <td>
                 <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.id}}" onclick="Edit(event)">編輯</button>
                 <button type="button" class="btn btn-outline-danger mb-2" id="{{unit.id}}" onclick="Delete(event)">刪除</button>
-                <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="compare(event)">比較表</button>
+                <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.id}}" onclick="compare(event)">比較表</button>
                 <!-- <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="BOM(event)">BOM表/製令</button> -->
                   {% if unit.chaveorder == "無" %}
-                    <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="table(event)">製令2</button>
+                    <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.id}}" onclick="table(event)">製令2</button>
                   {% elif unit.chaveorder == "有" %}
-                    <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="tableview(event)">檢視製令2</button>
+                    <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.id}}" onclick="tableview(event)">檢視製令2</button>
                   {% endif %}
                   <!-- {% if unit.chaveorder == "無" %}
                   <button type="button" class="btn btn-outline-warning mb-2" id="{{unit.cNumber}}" onclick="Order(event)">製令</button>
